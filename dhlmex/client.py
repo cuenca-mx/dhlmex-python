@@ -1,67 +1,64 @@
 import os
-from typing import Any, ClassVar, Dict, Optional, Tuple, Union
+from typing import Any, ClassVar, Dict, Optional
 
 from requests import Response, Session
 
-API_URL = 'https://api.getmati.com'
+from .resources import Resource
+
+API_URL = 'https://prepaid.dhl.com.mx/Prepago'
+USER_AGENT = (
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 '
+    '(KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36'
+)
 
 
 class Client:
 
     base_url: ClassVar[str] = API_URL
-    basic_auth_creds: Tuple[str, str]
-    bearer_tokens: Dict[Union[None, str], AccessToken]
     headers: Dict[str, str]
     session: Session
 
     # resources
-    access_tokens: ClassVar = AccessToken
-    identities: ClassVar = Identity
-    user_validation_data: ClassVar = UserValidationData
-    verifications: ClassVar = Verification
+    ...
 
     def __init__(
-        self, api_key: Optional[str] = None, secret_key: Optional[str] = None
+        self, username: Optional[str] = None, password: Optional[str] = None
     ):
+        username = username or os.environ['DHLMEX_USERNAME']
+        password = password or os.environ['DHLMEX_PASSWORD']
         self.session = Session()
-        self.headers = {'User-Agent': f'mati-python/{client_version}'}
-        api_key = api_key or os.environ['MATI_API_KEY']
-        secret_key = secret_key or os.environ['MATI_SECRET_KEY']
-        self.basic_auth_creds = (api_key, secret_key)
-        self.bearer_tokens = {}
+        self.session.headers['User-Agent'] = USER_AGENT
+        self._login(username, password)
         Resource._client = self
 
-    def get_valid_bearer_token(
-        self, score: Optional[str] = None
-    ) -> AccessToken:
-        try:
-            expired = self.bearer_tokens[score].expired
-        except KeyError:
-            expired = True
-        if expired:  # renew token
-            self.bearer_tokens[score] = self.access_tokens.create(score)
-        return self.bearer_tokens[score]
+    def _login(self, username: str, password: str) -> Response:
+        self.get('/')  # Initialize cookies
+        endpoint = '/jsp/app/login/login.xhtml'
+        data = {
+            'AJAXREQUEST': '_viewRoot',
+            'j_id6': 'j_id6',
+            'j_id6:j_id20': username,
+            'j_id6:j_id22': password,
+            'javax.faces.ViewState': 'j_id4',
+            'j_id6:j_id29': 'j_id6:j_id29',
+        }
+        return self.post(endpoint, data)
 
-    def get(self, endpoint: str, **kwargs: Any) -> Dict[str, Any]:
-        return self.request('get', endpoint, **kwargs)
+    def get(self, endpoint: str, **kwargs: Any) -> Response:
+        return self.request('get', endpoint, {}, **kwargs)
 
-    def post(self, endpoint: str, **kwargs: Any) -> Dict[str, Any]:
-        return self.request('post', endpoint, **kwargs)
+    def post(
+        self, endpoint: str, data: Dict[str, str], **kwargs: Any
+    ) -> Response:
+        return self.request('post', endpoint, data, **kwargs)
 
     def request(
-        self,
-        method: str,
-        endpoint: str,
-        auth: Union[str, AccessToken, None] = None,
-        token_score: Optional[str] = None,
-        **kwargs: Any,
-    ) -> Dict[str, Any]:
+        self, method: str, endpoint: str, data: Dict[str, str], **kwargs: Any,
+    ) -> Response:
         url = self.base_url + endpoint
-        auth = auth or self.get_valid_bearer_token(token_score)
-        headers = {**self.headers, **dict(Authorization=str(auth))}
-        response = self.session.request(method, url, headers=headers, **kwargs)
+        response = self.session.request(method, url, data=data, **kwargs)
         self._check_response(response)
-        return response.json()
+        return response
 
     @staticmethod
     def _check_response(response: Response) -> None:
