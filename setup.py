@@ -2,7 +2,7 @@ from importlib.machinery import SourceFileLoader
 
 from setuptools import find_packages, setup
 
-version = SourceFileLoader('version', 'dhl/version.py').load_module()
+version = SourceFileLoader('version', 'dhlmex/version.py').load_module()
 
 test_requires = [
     'pytest',
@@ -19,14 +19,14 @@ with open('README.md', 'r') as f:
     long_description = f.read()
 
 setup(
-    name='dhl',
+    name='dhlmex',
     version=version.__version__,
     author='Cuenca',
     author_email='dev@cuenca.com',
-    description='Client library for DHL',
+    description='Client library for DHL in Mexico',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    url='https://github.com/cuenca-mx/dhl-python',
+    url='https://github.com/cuenca-mx/dhlmex-python',
     packages=find_packages(),
     include_package_data=True,
     package_data=dict(mati=['py.typed']),
