@@ -22,7 +22,7 @@ class Client:
     ...
 
     def __init__(
-        self, username: Optional[str] = None, password: Optional[str] = None
+        self, username: Optional[str] = None, password: Optional[str] = None,
     ):
         username = username or os.environ['DHLMEX_USERNAME']
         password = password or os.environ['DHLMEX_PASSWORD']
