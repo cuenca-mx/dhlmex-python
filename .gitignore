@@ -102,6 +102,7 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+/.dmypy.json
 
 # pycharm
 .idea/
@@ -117,4 +118,5 @@ venv.bak/
 
 # others
 .DS_Store
+
 

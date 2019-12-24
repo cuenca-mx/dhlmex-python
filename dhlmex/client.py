@@ -10,6 +10,7 @@ USER_AGENT = (
     'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 '
     '(KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36'
 )
+DHL_CERT = 'prepaid-dhl-com-mx.pem'
 
 
 class Client:
@@ -24,11 +25,16 @@ class Client:
     def __init__(
         self, username: Optional[str] = None, password: Optional[str] = None,
     ):
+
         username = username or os.environ['DHLMEX_USERNAME']
         password = password or os.environ['DHLMEX_PASSWORD']
         self.session = Session()
         self.session.headers['User-Agent'] = USER_AGENT
+        if os.getenv('DEBUG'):
+            print(f'Client using Charles certificate')
+            self.session.verify = DHL_CERT
         self._login(username, password)
+
         Resource._client = self
 
     def _login(self, username: str, password: str) -> Response:
@@ -39,8 +45,19 @@ class Client:
             'j_id6': 'j_id6',
             'j_id6:j_id20': username,
             'j_id6:j_id22': password,
-            'javax.faces.ViewState': 'j_id4',
+            'javax.faces.ViewState': 'j_id1',
             'j_id6:j_id29': 'j_id6:j_id29',
+        }
+        return self.post(endpoint, data)
+
+    def _logout(self) -> Response:
+        endpoint = '/jsp/app/inicio/inicio.xhtml'
+        self.get(endpoint)  # Move to index
+        data = {
+            'j_id9': 'j_id9',
+            'j_id9:j_id10': 'j_id9:j_id26',
+            'javax.faces.ViewState': 'j_id2',
+            'j_id9:j_id30': 'j_id9:j_id30',
         }
         return self.post(endpoint, data)
 
