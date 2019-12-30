@@ -4,10 +4,12 @@ from urllib import parse
 import pytest
 from vcr import request
 
+from dhlmex.resources.urls import dhl_urls
+
 
 def remove_creds(req: request.Request) -> request.Request:
     if (
-        req.path.endswith('/jsp/app/login/login.xhtml')
+        req.path.endswith(dhl_urls['login'])
         and req.method == 'POST'
     ):
         username_key = 'j_id6:j_id20'
@@ -29,9 +31,3 @@ def vcr_config() -> dict:
 def site_urls() -> Dict:
     return dhl_urls
 
-
-dhl_urls = {
-    'login': '/jsp/app/login/login.xhtml',
-    'home': '/jsp/app/inicio/inicio.xhtml',
-    'guide': 'jsp/app/cliente/impresionClienteSubUsuario.xhtml',
-}

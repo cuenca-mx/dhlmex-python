@@ -1,8 +1,10 @@
 import os
 from typing import Any, ClassVar, Dict, Optional
 
-from requests import Response, Session
+from bs4 import BeautifulSoup
+from requests import Response, Session, HTTPError
 
+from .exceptions import DhlmexException
 from .resources import Resource
 
 API_URL = 'https://prepaid.dhl.com.mx/Prepago'
@@ -48,7 +50,20 @@ class Client:
             'javax.faces.ViewState': 'j_id1',
             'j_id6:j_id29': 'j_id6:j_id29',
         }
-        return self.post(endpoint, data)
+        try:
+            resp = self.post(endpoint, data)
+        except HTTPError as httpe:
+            if 'Su sesión ha caducado' in resp.text:
+                self.session.cookies.clear()
+                resp = self.post(endpoint, data)
+            else:
+                raise httpe
+        # DHL always return 200 although the session has expired
+        if 'Ya existe una sesión' in resp.text:
+            raise DhlmexException(
+                f'There is an exisiting session on DHL for {username}'
+            )
+        return resp
 
     def _logout(self) -> Response:
         endpoint = '/jsp/app/inicio/inicio.xhtml'
