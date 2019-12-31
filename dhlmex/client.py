@@ -1,11 +1,11 @@
 import os
 from typing import Any, ClassVar, Dict, Optional
 
-from bs4 import BeautifulSoup
-from requests import Response, Session, HTTPError
+from requests import HTTPError, Response, Session
 
 from .exceptions import DhlmexException
 from .resources import Resource
+from .resources.helpers import get_data
 
 API_URL = 'https://prepaid.dhl.com.mx/Prepago'
 USER_AGENT = (
@@ -20,6 +20,7 @@ class Client:
     base_url: ClassVar[str] = API_URL
     headers: Dict[str, str]
     session: Session
+    view_state: int = 1
 
     # resources
     ...
@@ -54,8 +55,10 @@ class Client:
             resp = self.post(endpoint, data)
         except HTTPError as httpe:
             if 'Su sesión ha caducado' in resp.text:
-                self.session.cookies.clear()
-                resp = self.post(endpoint, data)
+                raise DhlmexException(f'Session for {username} has expired')
+                # do something to revive the session
+                # self.session.cookies.clear()
+                # resp = self.post(endpoint, data)
             else:
                 raise httpe
         # DHL always return 200 although the session has expired
@@ -67,14 +70,14 @@ class Client:
 
     def _logout(self) -> Response:
         endpoint = '/jsp/app/inicio/inicio.xhtml'
-        self.get(endpoint)  # Move to index
-        data = {
-            'j_id9': 'j_id9',
-            'j_id9:j_id10': 'j_id9:j_id26',
-            'javax.faces.ViewState': 'j_id2',
-            'j_id9:j_id30': 'j_id9:j_id30',
-        }
-        return self.post(endpoint, data)
+        data = get_data(
+            self.post(endpoint, {})
+        )  # Obtain headers to end properly the session
+        try:
+            resp = self.post(endpoint, data)
+        except HTTPError as httpe:
+            raise httpe
+        return resp
 
     def get(self, endpoint: str, **kwargs: Any) -> Response:
         return self.request('get', endpoint, {}, **kwargs)
@@ -89,6 +92,9 @@ class Client:
     ) -> Response:
         url = self.base_url + endpoint
         response = self.session.request(method, url, data=data, **kwargs)
+        # if response.status_code != 500:
+        self.view_state += 1
+        print(f'VIEWSTSATE: {self.view_state}')
         self._check_response(response)
         return response
 

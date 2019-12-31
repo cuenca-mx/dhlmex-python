@@ -3,22 +3,14 @@ __all__ = ['__version__', 'Client']
 from bs4 import BeautifulSoup
 from requests import HTTPError
 
+from dhlmex.resources.urls import dhl_urls
+
 from .client import Client
 from .version import __version__
-
-from dhlmex.resources.urls import dhl_urls
 
 
 def get_guides(client: Client) -> int:
     guides = 0
-    endpoint = dhl_urls['home']
-    data = {
-            'j_id9': 'j_id9',
-            'j_id9:j_id10': 'j_id9:j_id14',
-            'javax.faces.ViewState': 'j_id2',
-            'j_id9:j_id16': 'j_id9:j_id16',
-        }
-    client.post(endpoint, data)
     resp = client.get(dhl_urls['guide'])
     soup = BeautifulSoup(resp.text, features='html.parser')
     table = soup.find('table', id='j_id6:pnlOrdenesEncontradas')
@@ -33,7 +25,7 @@ def get_guides(client: Client) -> int:
     return guides
 
 
-def create_guide(agent: str, agentPass: str ):
+def create_guide(agent: str, agentPass: str):
     try:
         client = Client(agent, agentPass)
 

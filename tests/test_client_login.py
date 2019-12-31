@@ -1,40 +1,41 @@
 import os
 
-#import pytest
+import pytest
 from bs4 import BeautifulSoup
 
 from dhlmex import Client
+from dhlmex.exceptions import DhlmexException
 
 DHLMEX_USERNAME = os.environ['DHLMEX_USERNAME']
 DHLMEX_PASSWORD = os.environ['DHLMEX_PASSWORD']
 
-#
-# @pytest.mark.vcr
-# def test_successful_login(site_urls):
-#     # Just need to make sure it doesn't throw an exception
-#     client = Client(DHLMEX_USERNAME, DHLMEX_PASSWORD)
-#     resp = client.get(site_urls['home'])
-#     soup = BeautifulSoup(resp.text, features='html.parser')
-#     client._logout()
-#     assert resp.status_code == 200
-#     assert 'Administrar' in soup.find('title').text
-#
-
 
 #@pytest.mark.vcr
-def test_existing_session(site_urls):
+def test_successful_login(site_urls):
+    # Just need to make sure it doesn't throw an exception
     client = Client(DHLMEX_USERNAME, DHLMEX_PASSWORD)
     resp = client.get(site_urls['home'])
     soup = BeautifulSoup(resp.text, features='html.parser')
+    client._logout()
     assert resp.status_code == 200
     assert 'Administrar' in soup.find('title').text
 
-    client2 = Client(DHLMEX_USERNAME, DHLMEX_PASSWORD)
+
+# @pytest.mark.vcr
+def test_existing_session(site_urls):
+    client = Client(DHLMEX_USERNAME, DHLMEX_PASSWORD)
     resp = client.get(site_urls['home'])
-    soup = BeautifulSoup(resp.text, features='html.parser')
-    print(resp.textf)
     assert resp.status_code == 200
-    assert 'Administrar' in soup.find('title').text
+
+    with pytest.raises(DhlmexException) as execinfo:
+        client = Client(DHLMEX_USERNAME, DHLMEX_PASSWORD)
+        assert (
+            str(execinfo.value)
+            == f'There is an exisiting session on DHL for {DHLMEX_USERNAME}'
+        )
+
+    client._logout()
+
 
 # @pytest.mark.vcr
 # def test_client_log_out():
