@@ -10,7 +10,7 @@ DHLMEX_USERNAME = os.environ['DHLMEX_USERNAME']
 DHLMEX_PASSWORD = os.environ['DHLMEX_PASSWORD']
 
 
-#@pytest.mark.vcr
+@pytest.mark.vcr
 def test_successful_login(site_urls):
     # Just need to make sure it doesn't throw an exception
     client = Client(DHLMEX_USERNAME, DHLMEX_PASSWORD)
@@ -21,7 +21,17 @@ def test_successful_login(site_urls):
     assert 'Administrar' in soup.find('title').text
 
 
-# @pytest.mark.vcr
+@pytest.mark.vcr
+def test_client_log_out():
+    client = Client(DHLMEX_USERNAME, DHLMEX_PASSWORD)
+    resp = client._logout()
+    soup = BeautifulSoup(resp.text, features='html.parser')
+    assert resp.status_code == 200
+    assert 'Administrar' not in soup.find('title').text
+    assert 'Login' in soup.find('title').text
+
+
+@pytest.mark.vcr
 def test_existing_session(site_urls):
     client = Client(DHLMEX_USERNAME, DHLMEX_PASSWORD)
     resp = client.get(site_urls['home'])
@@ -35,13 +45,3 @@ def test_existing_session(site_urls):
         )
 
     client._logout()
-
-
-# @pytest.mark.vcr
-# def test_client_log_out():
-#     client = Client(DHLMEX_USERNAME, DHLMEX_PASSWORD)
-#     resp = client._logout()
-#     soup = BeautifulSoup(resp.text, features='html.parser')
-#     assert resp.status_code == 200
-#     assert 'Administrar' not in soup.find('title').text
-#     assert 'Login' in soup.find('title').text

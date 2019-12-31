@@ -92,9 +92,8 @@ class Client:
     ) -> Response:
         url = self.base_url + endpoint
         response = self.session.request(method, url, data=data, **kwargs)
-        # if response.status_code != 500:
-        self.view_state += 1
-        print(f'VIEWSTSATE: {self.view_state}')
+        if response.status_code != 500:
+            self.view_state += 1
         self._check_response(response)
         return response
 
