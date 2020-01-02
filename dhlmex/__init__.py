@@ -1,41 +1,61 @@
 __all__ = ['__version__', 'Client']
 
+import re
+from typing import Dict
+
 from bs4 import BeautifulSoup
 from requests import HTTPError
 
-from dhlmex.resources.urls import dhl_urls
+from dhlmex.exceptions import DhlmexException
+from dhlmex.resources.helpers import get_data
+from dhlmex.resources.urls import actions, dhl_urls
 
 from .client import Client
 from .version import __version__
 
 
-def get_guides(client: Client) -> int:
-    guides = 0
-    resp = client.get(dhl_urls['guide'])
+def get_guides_data(client: Client) -> Dict:
+    resp = client.post(dhl_urls['home'], {})
+    data = get_data(resp, actions['print'])
     soup = BeautifulSoup(resp.text, features='html.parser')
-    table = soup.find('table', id='j_id6:pnlOrdenesEncontradas')
-    table_body = table.find('tbody')
-    result = []
-    rows = table_body.find_all('tr')
-    for row in rows:
-        cols = row.find_all('td')
-        cols = [ele.text.strip() for ele in cols]
-        result.append([ele for ele in cols if ele])
-    print(f'RESULT: \n {result}')
-    return guides
-
-
-def create_guide(agent: str, agentPass: str):
+    field = soup.find('input', id=re.compile('panelBarInput')).attrs['name']
+    data[field] = actions['print']['code']
     try:
-        client = Client(agent, agentPass)
+        resp = client.post(dhl_urls['home'], data)
+    except HTTPError as httpe:
+        raise httpe
+    if 'seleccionar' in resp.text:
+        soup = BeautifulSoup(resp.text, features='html.parser')
+        view_state = soup.find('input', id='javax.faces.ViewState').attrs[
+            'value'
+        ]
+        table = soup.find('table', id='j_id6:pnlOrdenesEncontradas')
+        table_body = table.find('tbody')
+        js = table_body.find('a', text='seleccionar').attrs['onclick']
+        matches = re.findall(r"\'(.+?)\'", js)
+        form_ids = [match for match in matches if match.startswith('j_id')]
+        j_pair_id = form_ids[1]
+        j_id = form_ids[0]
+        guides_data = {
+            'AJAXREQUEST': '_viewRoot',
+            j_id: j_id,
+            'javax.faces.ViewState': view_state,
+            j_pair_id: j_pair_id,
+        }
+    return guides_data
 
-        if get_guides(client) != 0:
-            print(f'Yup!')
+
+def create_guide(username: str, password: str):
+    try:
+        dhl_client = Client(username, password)
+        guides_data = get_guides_data(dhl_client)
+        if guides_data:
+            print('Yup!')
         else:
-            print(f'No available guides')
+            raise DhlmexException('No available guides')
     except HTTPError as httpe:
         print(f'ERROR:{dir(httpe)}')
         print(f'ERROR:{httpe}')
 
     finally:
-        client._logout()
+        dhl_client._logout()

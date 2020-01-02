@@ -1,11 +1,12 @@
 import os
 from typing import Any, ClassVar, Dict, Optional
 
-from requests import HTTPError, Response, Session
+from requests import HTTPError, Response, Session, codes
 
 from .exceptions import DhlmexException
 from .resources import Resource
 from .resources.helpers import get_data
+from .resources.urls import actions
 
 API_URL = 'https://prepaid.dhl.com.mx/Prepago'
 USER_AGENT = (
@@ -55,13 +56,10 @@ class Client:
             resp = self.post(endpoint, data)
         except HTTPError as httpe:
             if 'Su sesión ha caducado' in resp.text:
-                raise DhlmexException(f'Session for {username} has expired')
-                # do something to revive the session
-                # self.session.cookies.clear()
-                # resp = self.post(endpoint, data)
+                raise DhlmexException('Session has expired')
             else:
                 raise httpe
-        # DHL always return 200 although the session has expired
+        # DHL always return 200 although there is an existing session
         if 'Ya existe una sesión' in resp.text:
             raise DhlmexException(
                 f'There is an exisiting session on DHL for {username}'
@@ -71,12 +69,17 @@ class Client:
     def _logout(self) -> Response:
         endpoint = '/jsp/app/inicio/inicio.xhtml'
         data = get_data(
-            self.post(endpoint, {})
+            self.post(endpoint, {}), actions['close'],
         )  # Obtain headers to end properly the session
         try:
             resp = self.post(endpoint, data)
         except HTTPError as httpe:
-            raise httpe
+            if 'Su sesión ha caducado' in httpe.response.text:
+                resp = Response()
+                resp.status_code = codes.ok
+                return resp
+            else:
+                raise httpe
         return resp
 
     def get(self, endpoint: str, **kwargs: Any) -> Response:
