@@ -20,6 +20,7 @@ def get_guides_data(client: Client) -> Dict:
     soup = BeautifulSoup(resp.text, features='html.parser')
     field = soup.find('input', id=re.compile('panelBarInput')).attrs['name']
     data[field] = actions['print']['code']
+    guides_data = {}
     try:
         resp = client.post(dhl_urls['home'], data)
     except HTTPError as httpe:
@@ -45,17 +46,36 @@ def get_guides_data(client: Client) -> Dict:
     return guides_data
 
 
+def select_guide(client: Client, guides_data: Dict) -> Dict:
+    resp = client.post(dhl_urls['guide'], guides_data)
+    soup = BeautifulSoup(resp.text, features='html.parser')
+    view_state = soup.find('input', id='javax.faces.ViewState').attrs['value']
+    js = soup.find('input', value='').attrs['onkeyup']
+    matches = re.findall(r"\'(.+?)\'", js)
+    form_ids = [match for match in matches if match.startswith('j_id')]
+    j_pair_id = form_ids[1]
+    j_id = form_ids[0]
+    select_data = {
+        'AJAXREQUEST': '_viewRoot',
+        j_id: j_id,
+        j_pair_id: '1',
+        'javax.faces.ViewState': view_state,
+        'javax.faces.ViewState': 'j_id2',
+        'j_id6:btnGuardarCotizacion': 'j_id6:btnGuardarCotizacion',
+    }
+    return select_data
+
+
 def create_guide(username: str, password: str):
     try:
         dhl_client = Client(username, password)
         guides_data = get_guides_data(dhl_client)
-        if guides_data:
-            print('Yup!')
+        if guides_data:  # Check if there are available guides
+            resp = dhl_client.post(dhl_urls['guide'], guides_data)
         else:
             raise DhlmexException('No available guides')
     except HTTPError as httpe:
-        print(f'ERROR:{dir(httpe)}')
-        print(f'ERROR:{httpe}')
+        raise httpe
 
     finally:
         dhl_client._logout()
