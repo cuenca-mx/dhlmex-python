@@ -9,6 +9,7 @@ install_requirements = [
     'dataclasses>=0.6;python_version<"3.7"',
     'requests>=2.22.0,<3.0.0',
     'beautifulsoup4>=4.8.1',
+    'Unidecode==1.1.1',
 ]
 
 test_requires = [

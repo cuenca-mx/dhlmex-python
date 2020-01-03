@@ -50,6 +50,7 @@ def select_guide(client: Client, guides_data: Dict) -> Dict:
     resp = client.post(dhl_urls['guide'], guides_data)
     soup = BeautifulSoup(resp.text, features='html.parser')
     view_state = soup.find('input', id='javax.faces.ViewState').attrs['value']
+    j_id2 = soup.find('input', value='').attrs['name']
     js = soup.find('input', value='').attrs['onkeyup']
     matches = re.findall(r"\'(.+?)\'", js)
     form_ids = [match for match in matches if match.startswith('j_id')]
@@ -58,20 +59,34 @@ def select_guide(client: Client, guides_data: Dict) -> Dict:
     select_data = {
         'AJAXREQUEST': '_viewRoot',
         j_id: j_id,
-        j_pair_id: '1',
+        j_id2: '1',
         'javax.faces.ViewState': view_state,
-        'javax.faces.ViewState': 'j_id2',
-        'j_id6:btnGuardarCotizacion': 'j_id6:btnGuardarCotizacion',
+        j_pair_id: j_pair_id,
+        'AJAX:EVENTS_COUNT': '1',
     }
+    # resp = client.post(dhl_urls['guide'], select_data)
+    # select_data.pop('j_id6:j_id48:0:j_id72', None)
+
     return select_data
 
 
-def create_guide(username: str, password: str):
+def fill_guide_table(client: Client, customer_data: Dict) -> Dict:
+    resp = client.get(dhl_urls['capture'])
+    soup = BeautifulSoup(resp.text, features='html.parser')
+    meta = soup.find("meta", content=re.compile('xhtml')).attrs['content']
+    if meta == customer_data['link']:
+        return customer_data
+    return {}
+
+
+def create_guide(dhl_client: Client):
     try:
-        dhl_client = Client(username, password)
         guides_data = get_guides_data(dhl_client)
         if guides_data:  # Check if there are available guides
-            resp = dhl_client.post(dhl_urls['guide'], guides_data)
+            select_data = select_guide(dhl_client, guides_data)
+            resp = dhl_client.post(dhl_urls['guide'], select_data)
+            if resp.ok:
+                print('Yep')
         else:
             raise DhlmexException('No available guides')
     except HTTPError as httpe:
