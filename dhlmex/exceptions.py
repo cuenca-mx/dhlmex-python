@@ -1,4 +1,4 @@
 class DhlmexException(Exception):
     """
-    An error has occurred obtaining the transaction file
+    An error has occurred during DHL scrapping
     """

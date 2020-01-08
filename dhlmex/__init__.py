@@ -64,33 +64,115 @@ def select_guide(client: Client, guides_data: Dict) -> Dict:
         j_pair_id: j_pair_id,
         'AJAX:EVENTS_COUNT': '1',
     }
-    # resp = client.post(dhl_urls['guide'], select_data)
-    # select_data.pop('j_id6:j_id48:0:j_id72', None)
-
+    client.post(dhl_urls['guide'], select_data)
+    select_data.pop(j_pair_id, None)
+    select_data.pop('AJAX:EVENTS_COUNT', None)
+    select_data['j_id6:btnGuardarCotizacion'] = 'j_id6:btnGuardarCotizacion'
     return select_data
 
 
-def fill_guide_table(client: Client, customer_data: Dict) -> Dict:
+def validate_postal_codes(
+    client: Client, origin: Dict, destiny: Dict, view_state: str
+) -> Dict:
+    fill_data = {
+        'AJAXREQUEST': '_viewRoot',
+        'datos': 'datos',
+        'datos:j_id10': 'j_id11',
+        'datos:j_id15': '',
+        'datos:j_id19': '',
+        'datos:emailOrigen': '',
+        'datos:j_id24': '',
+        'datos:j_id28': '',
+        'datos:j_id30': '',
+        'datos:j_id32': '',
+        'datos:j_id36': origin['postal_code'],
+        'datos:j_id41': '',
+        'datos:j_id45': '',
+        'datos:j_id49': '',
+        'datos:j_id54': '',
+        'datos:j_id58': '',
+        'datos:emailDestino': '',
+        'datos:j_id63': '',
+        'datos:j_id67': '',
+        'datos:j_id69': '',
+        'datos:j_id71': '',
+        'datos:j_id75': '',
+        'datos:j_id80': '',
+        'datos:j_id84': '',
+        'datos:j_id88': '',
+        'datos:j_id93': '',
+        'datos:j_id95': '',
+        'javax.faces.ViewState': view_state,
+        'datos:j_id37': 'datos:j_id37',
+    }
+    resp = client.post(dhl_urls['capture'], fill_data)
+    if 'Código Postal válido' in resp.text:
+        fill_data.pop('datos:j_id37')
+        # validate also destiny postal_code
+        fill_data['datos:j_id76'] = 'datos:j_id76'
+        fill_data['datos:j_id80'] = destiny['postal_code']
+        resp = client.post(dhl_urls['capture'], fill_data)
+        if 'Código Postal válido' in resp.text:
+            fill_data.pop('datos:j_id37')
+            return fill_data
+        else:
+            raise DhlmexException('Invalid destiny postal code')
+    else:
+        raise DhlmexException('Invalid origin postal code')
+
+
+def fill_guide_table(
+    client: Client, origin: Dict, destiny: Dict, details: Dict
+) -> Dict:
     resp = client.get(dhl_urls['capture'])
     soup = BeautifulSoup(resp.text, features='html.parser')
-    meta = soup.find("meta", content=re.compile('xhtml')).attrs['content']
-    if meta == customer_data['link']:
-        return customer_data
-    return {}
+    view_state = soup.find('input', id='javax.faces.ViewState').attrs['value']
+    fill_data = validate_postal_codes(client, origin, destiny, view_state)
+    fill_data['datos:j_id15'] = origin['company']
+    fill_data['datos:j_id19'] = origin['contact']
+    fill_data['datos:emailOrigen'] = origin['mail']
+    fill_data['datos:j_id24'] = origin['phone']
+    fill_data['datos:j_id28'] = origin['address1']
+    fill_data['datos:j_id36'] = origin['postal_code']
+    fill_data['datos:j_id41'] = origin['neighborhood']
+    fill_data['datos:j_id45'] = origin['city']
+    fill_data['datos:j_id49'] = origin['state']
+    fill_data['datos:j_id54'] = destiny['company']
+    fill_data['datos:j_id58'] = destiny['contact']
+    fill_data['datos:emailDestino'] = destiny['mail']
+    fill_data['datos:j_id63'] = destiny['phone']
+    fill_data['datos:j_id67'] = destiny['address1']
+    fill_data['datos:j_id75'] = destiny['postal_code']
+    fill_data['datos:j_id80'] = destiny['neighborhood']
+    fill_data['datos:j_id84'] = destiny['city']
+    fill_data['datos:j_id88'] = destiny['state']
+    fill_data['datos:j_id93'] = details['description']
+    fill_data['datos:j_id95'] = details['content']
+    fill_data['javax.faces.ViewState'] = view_state
+    fill_data['datos:j_id105'] = 'datos:j_id105'
+
+    return fill_data
 
 
-def create_guide(dhl_client: Client):
+def create_guide(client: Client, origin, destiny, details):
     try:
-        guides_data = get_guides_data(dhl_client)
+        guides_data = get_guides_data(client)
+        print('GUIDES: ')
+        print(f'{guides_data}')
         if guides_data:  # Check if there are available guides
-            select_data = select_guide(dhl_client, guides_data)
-            resp = dhl_client.post(dhl_urls['guide'], select_data)
+            select_data = select_guide(client, guides_data)
+            client.post(dhl_urls['guide'], select_data)
+            fill_data = fill_guide_table(client, origin, destiny, details)
+            resp = client.post(dhl_urls['capture'], fill_data)
+
             if resp.ok:
-                print('Yep')
+                return resp
+            else:
+                return resp
         else:
             raise DhlmexException('No available guides')
     except HTTPError as httpe:
         raise httpe
 
     finally:
-        dhl_client._logout()
+        client._logout()

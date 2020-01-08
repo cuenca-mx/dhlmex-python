@@ -2,6 +2,7 @@ import os
 from typing import Any, ClassVar, Dict, Optional
 
 from requests import HTTPError, Response, Session, codes
+from requests.exceptions import SSLError
 
 from .exceptions import DhlmexException
 from .resources import Resource
@@ -42,23 +43,25 @@ class Client:
         Resource._client = self
 
     def _login(self, username: str, password: str) -> Response:
-        self.get('/')  # Initialize cookies
-        endpoint = '/jsp/app/login/login.xhtml'
-        data = {
-            'AJAXREQUEST': '_viewRoot',
-            'j_id6': 'j_id6',
-            'j_id6:j_id20': username,
-            'j_id6:j_id22': password,
-            'javax.faces.ViewState': 'j_id1',
-            'j_id6:j_id29': 'j_id6:j_id29',
-        }
         try:
+            self.get('/')  # Initialize cookies
+            endpoint = '/jsp/app/login/login.xhtml'
+            data = {
+                'AJAXREQUEST': '_viewRoot',
+                'j_id6': 'j_id6',
+                'j_id6:j_id20': username,
+                'j_id6:j_id22': password,
+                'javax.faces.ViewState': 'j_id1',
+                'j_id6:j_id29': 'j_id6:j_id29',
+            }
             resp = self.post(endpoint, data)
         except HTTPError as httpe:
             if 'Su sesión ha caducado' in resp.text:
                 raise DhlmexException('Session has expired')
             else:
                 raise httpe
+        except SSLError:
+            raise DhlmexException('Cient on debug, but Charles not running')
         # DHL always return 200 although there is an existing session
         if 'Ya existe una sesión' in resp.text:
             raise DhlmexException(
@@ -68,8 +71,11 @@ class Client:
 
     def _logout(self) -> Response:
         endpoint = '/jsp/app/inicio/inicio.xhtml'
+        resp = self.post(endpoint, {})
+        if 'Login / Admin' in resp.text:
+            return resp  # No need to logout
         data = get_data(
-            self.post(endpoint, {}), actions['close'],
+            resp, actions['close'],
         )  # Obtain headers to end properly the session
         try:
             resp = self.post(endpoint, data)
