@@ -6,6 +6,7 @@ cache: pip
 
 script:
   - export PYTHONPATH=`pwd`
+  - make format
   - make lint
   - pytest --vcr-record=none
 

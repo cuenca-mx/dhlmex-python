@@ -1,4 +1,3 @@
-import os
 from typing import Dict
 from urllib import parse
 
@@ -7,9 +6,6 @@ from vcr import request
 
 from dhlmex import Client
 from dhlmex.resources.urls import dhl_urls
-
-DHLMEX_USERNAME = os.environ["DHLMEX_USERNAME"]
-DHLMEX_PASSWORD = os.environ["DHLMEX_PASSWORD"]
 
 
 def remove_creds(req: request.Request) -> request.Request:
@@ -36,7 +32,7 @@ def site_urls() -> Dict:
 
 @pytest.fixture
 def client():
-    client = Client(DHLMEX_USERNAME, DHLMEX_PASSWORD)
+    client = Client()
     yield client
     client._logout()
 

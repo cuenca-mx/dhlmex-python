@@ -22,7 +22,6 @@ class Client:
     base_url: ClassVar[str] = API_URL
     headers: Dict[str, str]
     session: Session
-    view_state: int = 1
 
     # resources
     ...
@@ -101,9 +100,6 @@ class Client:
     ) -> Response:
         url = self.base_url + endpoint
         response = self.session.request(method, url, data=data, **kwargs)
-        if response.status_code != 500:
-            self.view_state += 1
-        print(f'VIEW_STATE: {self.view_state}')
         self._check_response(response)
         return response
 
