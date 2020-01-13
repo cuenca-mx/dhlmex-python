@@ -110,10 +110,10 @@ def validate_postal_codes(
         fill_data.pop('datos:j_id37')
         # validate also destiny postal_code
         fill_data['datos:j_id76'] = 'datos:j_id76'
-        fill_data['datos:j_id80'] = destiny['postal_code']
+        fill_data['datos:j_id75'] = destiny['postal_code']
         resp = client.post(dhl_urls['capture'], fill_data)
         if 'Código Postal válido' in resp.text:
-            fill_data.pop('datos:j_id37')
+            fill_data.pop('datos:j_id76')
             return fill_data
         else:
             raise DhlmexException('Invalid destiny postal code')
@@ -154,16 +154,57 @@ def fill_guide_table(
     return fill_data
 
 
+def confirm_capture(client: Client, view_state: str) -> Dict:
+    confirm_data = {
+        'AJAXREQUEST': '_viewRoot',
+        'j_id109': 'j_id109',
+        'javax.faces.ViewState': view_state,
+        'j_id109:j_id112': 'j_id109:j_id112',
+    }
+    return client.post(dhl_urls['capture'], confirm_data)
+
+
+def force_percent(client: Client, view_state: str) -> str:
+    force_data = {
+        'AJAXREQUEST': '_viewRoot',
+        'j_id115': 'j_id115',
+        'javax.faces.ViewState': view_state,
+        'j_id115:pb_sub': 'j_id115:pb_sub',
+        'forcePercent': 'complete',
+        'ajaxSingle': 'j_id115:pb_sub',
+    }
+    resp = client.post(dhl_urls['capture'], force_data)
+    if 'Procesada correctamente' in resp.text:
+        soup = BeautifulSoup(resp.text, features='html.parser')
+        return soup.find('td', id='j_id115:tblElementos:0:j_id123').text
+    else:
+        raise DhlmexException('Error while processing guide')
+
+
+def download_pdf(client: Client, guide_number: str, view_state: str):
+    guide_data = {
+        'AJAXREQUEST': '_viewRoot',
+        'j_id115': 'j_id115',
+        'javax.faces.ViewState': view_state,
+        'j_id6:tblElementos:0:j_id35' : 'j_id6:tblElementos:0:j_id35',
+    }
+    resp = client.post(dhl_urls['print'], guide_data)
+    resp = client.get('/generaImpresionPDF')
+    with open(f'{guide_number}.pdf', 'wb') as f:
+        f.write(resp.content)
+
 def create_guide(client: Client, origin, destiny, details):
     try:
         guides_data = get_guides_data(client)
-        print('GUIDES: ')
-        print(f'{guides_data}')
         if guides_data:  # Check if there are available guides
             select_data = select_guide(client, guides_data)
             client.post(dhl_urls['guide'], select_data)
             fill_data = fill_guide_table(client, origin, destiny, details)
-            resp = client.post(dhl_urls['capture'], fill_data)
+            client.post(dhl_urls['capture'], fill_data)
+            view_state = fill_data['javax.faces.ViewState']
+            resp = confirm_capture(client, view_state)
+            guide_number = force_percent(client, view_state)
+            download_pdf(client, guide_number, view_state)
 
             if resp.ok:
                 return resp
