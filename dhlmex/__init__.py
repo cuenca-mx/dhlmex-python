@@ -4,7 +4,7 @@ import re
 from typing import Dict
 
 from bs4 import BeautifulSoup
-from requests import HTTPError
+from requests import HTTPError, Response
 
 from dhlmex.exceptions import DhlmexException
 from dhlmex.resources.helpers import get_data
@@ -20,7 +20,7 @@ def get_guides_data(client: Client) -> Dict:
     soup = BeautifulSoup(resp.text, features='html.parser')
     field = soup.find('input', id=re.compile('panelBarInput')).attrs['name']
     data[field] = actions['print']['code']
-    guides_data = {}
+    guides_data = {'guides': '0'}
     try:
         resp = client.post(dhl_urls['home'], data)
     except HTTPError as httpe:
@@ -154,7 +154,7 @@ def fill_guide_table(
     return fill_data
 
 
-def confirm_capture(client: Client, view_state: str) -> Dict:
+def confirm_capture(client: Client, view_state: str) -> Response:
     confirm_data = {
         'AJAXREQUEST': '_viewRoot',
         'j_id109': 'j_id109',
@@ -186,12 +186,13 @@ def download_pdf(client: Client, guide_number: str, view_state: str):
         'AJAXREQUEST': '_viewRoot',
         'j_id115': 'j_id115',
         'javax.faces.ViewState': view_state,
-        'j_id6:tblElementos:0:j_id35' : 'j_id6:tblElementos:0:j_id35',
+        'j_id6:tblElementos:0:j_id35': 'j_id6:tblElementos:0:j_id35',
     }
-    resp = client.post(dhl_urls['print'], guide_data)
+    client.post(dhl_urls['print'], guide_data)
     resp = client.get('/generaImpresionPDF')
     with open(f'{guide_number}.pdf', 'wb') as f:
         f.write(resp.content)
+
 
 def create_guide(client: Client, origin, destiny, details):
     try:
@@ -205,11 +206,10 @@ def create_guide(client: Client, origin, destiny, details):
             resp = confirm_capture(client, view_state)
             guide_number = force_percent(client, view_state)
             download_pdf(client, guide_number, view_state)
-
             if resp.ok:
                 return resp
             else:
-                return resp
+                DhlmexException('Error while creating guide')
         else:
             raise DhlmexException('No available guides')
     except HTTPError as httpe:

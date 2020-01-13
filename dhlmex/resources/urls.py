@@ -6,10 +6,10 @@ dhl_urls: Dict[str, str] = {
     'guide': '/jsp/app/cliente/impresionClienteSubUsuario.xhtml',
     'capture': '/jsp/app/cliente/capturaDatosImpresionClienteSU.xhtml',
     'print': '/jsp/app/cliente/guiasImpresas.xhtml',
-    'print': '/generaImpresionPDF',
+    'pdf': '/generaImpresionPDF',
 }
 
-actions: Dict[str, str] = {
+actions: Dict[str, Dict[str, str]] = {
     'close': {
         'text': 'Cerrar Sesión',
         'code': 'j_id9:j_id26',
