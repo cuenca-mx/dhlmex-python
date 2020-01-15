@@ -194,7 +194,7 @@ def download_pdf(client: Client, guide_number: str, view_state: str):
         f.write(resp.content)
 
 
-def create_guide(client: Client, origin, destiny, details):
+def create_guide(client: Client, origin, destiny, details) -> Response:
     try:
         guides_data = get_guides_data(client)
         if guides_data:  # Check if there are available guides
@@ -209,7 +209,7 @@ def create_guide(client: Client, origin, destiny, details):
             if resp.ok:
                 return resp
             else:
-                DhlmexException('Error while creating guide')
+                raise DhlmexException('Error while creating guide')
         else:
             raise DhlmexException('No available guides')
     except HTTPError as httpe:
