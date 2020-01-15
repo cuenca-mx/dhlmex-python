@@ -28,4 +28,3 @@ jobs:
       script:
         - export PYTHONPATH=`pwd`
         - pytest --vcr-record=none
-        - coveralls
