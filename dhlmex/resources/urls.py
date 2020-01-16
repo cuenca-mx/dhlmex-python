@@ -21,7 +21,7 @@ actions: Dict[str, Dict[str, str]] = {
         'end': 'j_id9:j_id16',
     },
     'download': {
-        'text': 'Guias Impresas',
+        'text': 'Guías Impresas',
         'code': 'j_id9:j_id18',
         'end': 'j_id9:j_id10',
     },
