@@ -1,5 +1,6 @@
 __all__ = ['__version__', 'Client']
 
+import os
 import re
 from time import sleep
 from typing import Dict
@@ -198,8 +199,14 @@ def download_pdf(client: Client, guide_number: str):
     }
     client.post(dhl_urls['print'], guide_data)
     resp = client.get(dhl_urls['pdf'])
-    with open(f'{guide_number}.pdf', 'wb') as f:
-        f.write(resp.content)
+    if resp.ok:
+        path = os.getenv('DOWNLOADS_DIRECTORY') or './'
+        path += f'{guide_number}.pdf'
+        try:
+            with open(path, 'wb') as f:
+                f.write(resp.content)
+        except OSError as ose:
+            raise DhlmexException(f'Error downloading guide: {str(ose)}')
 
 
 def create_guide(client: Client, origin, destiny, details) -> Response:
