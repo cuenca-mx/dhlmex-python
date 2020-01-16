@@ -5,7 +5,7 @@ from requests import HTTPError, Response, Session, codes
 from requests.exceptions import SSLError
 
 from .exceptions import DhlmexException
-from .resources import Resource
+from .resources import Guide, PostCode, Resource
 from .resources.helpers import get_data
 from .resources.urls import actions
 
@@ -24,7 +24,8 @@ class Client:
     session: Session
 
     # resources
-    ...
+    guides: ClassVar = Guide
+    post_codes: ClassVar = PostCode
 
     def __init__(
         self, username: Optional[str] = None, password: Optional[str] = None,
