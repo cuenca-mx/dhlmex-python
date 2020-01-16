@@ -6,8 +6,6 @@ from requests.exceptions import SSLError
 
 from .exceptions import DhlmexException
 from .resources import Guide, PostCode, Resource
-from .resources.helpers import get_data
-from .resources.urls import actions
 
 API_URL = 'https://prepaid.dhl.com.mx/Prepago'
 USER_AGENT = (
