@@ -155,7 +155,9 @@ class Guide(Resource):
             resp = self._client.post(self._urls['capture'], force_data)
             if 'Procesada correctamente' in resp.text:
                 soup = BeautifulSoup(resp.text, features='html.parser')
-                return soup.find('td', id='j_id115:tblElementos:0:j_id123').text
+                return soup.find(
+                    'td', id='j_id115:tblElementos:0:j_id123'
+                ).text
             else:
                 sleep(1)
                 retries -= 1
@@ -167,7 +169,8 @@ class Guide(Resource):
         resp = self._client.post(self._urls['home'], data)
         soup = BeautifulSoup(resp.text, features='html.parser')
         view_state = soup.find('input', id='javax.faces.ViewState').attrs[
-            'value']
+            'value'
+        ]
         td = soup.find('td', text=guide_number)
         tds = [td for td in td.next_siblings]
         j_pair_id = tds[-1].find('a').attrs['id']
