@@ -2,10 +2,10 @@ from typing import Dict
 from urllib import parse
 
 import pytest
-from dhlmex.resources import Resource
 from vcr import request
 
 from dhlmex import Client
+from dhlmex.resources import Resource
 
 
 def remove_creds(req: request.Request) -> request.Request:
