@@ -72,8 +72,8 @@ class Client:
         resp = self.post(endpoint, {})
         if 'Login / Admin' in resp.text:
             return resp  # No need to logout
-        data = get_data(
-            resp, actions['close'],
+        data = Resource.get_data(
+            resp, Resource._actions['close'],
         )  # Obtain headers to end properly the session
         try:
             resp = self.post(endpoint, data)
