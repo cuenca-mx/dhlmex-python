@@ -183,7 +183,7 @@ def force_percent(client: Client, view_state: str, retries: int = 10) -> str:
 
 
 def download_pdf(client: Client, guide_number: str):
-    resp = client.get('/generaImpresionPDF')
+    resp = client.get(dhl_urls['print'])
     soup = BeautifulSoup(resp.text, features='html.parser')
     view_state = soup.find('input', id='javax.faces.ViewState').attrs['value']
     guide_data = {
@@ -193,7 +193,7 @@ def download_pdf(client: Client, guide_number: str):
         'j_id6:tblElementos:0:j_id35': 'j_id6:tblElementos:0:j_id35',
     }
     client.post(dhl_urls['print'], guide_data)
-    resp = client.get('/generaImpresionPDF')
+    resp = client.get(dhl_urls['pdf'])
     with open(f'{guide_number}.pdf', 'wb') as f:
         f.write(resp.content)
 
