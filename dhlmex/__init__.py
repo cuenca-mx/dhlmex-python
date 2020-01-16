@@ -183,8 +183,13 @@ def force_percent(client: Client, view_state: str, retries: int = 10) -> str:
     raise DhlmexException('Error while processing guide')
 
 
-def download_pdf(client: Client, guide_number: str):
-    resp = client.get(dhl_urls['print'])
+def download_pdf(client: Client, guide_number: str, view_state: str):
+    download_data = {
+        'j_id9': 'j_id9',
+        'j_id88:j_id97': 'j_id88:j_id97',
+        'javax.faces.ViewState': view_state,
+    }
+    resp = client.post(dhl_urls['home'], download_data)
     soup = BeautifulSoup(resp.text, features='html.parser')
     view_state = soup.find('input', id='javax.faces.ViewState').attrs['value']
     td = soup.find('td', text=guide_number)
@@ -220,7 +225,7 @@ def create_guide(client: Client, origin, destiny, details) -> Response:
             view_state = fill_data['javax.faces.ViewState']
             resp = confirm_capture(client, view_state)
             guide_number = force_percent(client, view_state)
-            download_pdf(client, guide_number)
+            download_pdf(client, guide_number, view_state)
             if resp.ok:
                 return resp
             else:
