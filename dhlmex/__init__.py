@@ -184,12 +184,9 @@ def force_percent(client: Client, view_state: str, retries: int = 10) -> str:
 
 
 def download_pdf(client: Client, guide_number: str, view_state: str):
-    download_data = {
-        'j_id9': 'j_id9',
-        'j_id88:j_id97': 'j_id88:j_id97',
-        'javax.faces.ViewState': view_state,
-    }
-    resp = client.post(dhl_urls['home'], download_data)
+    resp = client.post(dhl_urls['home'], {})
+    data = get_data(resp, actions['download'])
+    resp = client.post(dhl_urls['home'], data)
     soup = BeautifulSoup(resp.text, features='html.parser')
     view_state = soup.find('input', id='javax.faces.ViewState').attrs['value']
     td = soup.find('td', text=guide_number)
@@ -206,7 +203,7 @@ def download_pdf(client: Client, guide_number: str, view_state: str):
     resp = client.get(dhl_urls['pdf'])
     if resp.ok:
         path = os.getenv('DOWNLOADS_DIRECTORY') or './'
-        path += f'{guide_number}.pdf'
+        path += f'/{guide_number}.pdf'
         try:
             with open(path, 'wb') as f:
                 f.write(resp.content)
