@@ -2,14 +2,14 @@ from typing import Dict
 from urllib import parse
 
 import pytest
+from dhlmex.resources import Resource
 from vcr import request
 
 from dhlmex import Client
-from dhlmex.resources.urls import dhl_urls
 
 
 def remove_creds(req: request.Request) -> request.Request:
-    if req.path.endswith(dhl_urls['login']) and req.method == 'POST':
+    if req.path.endswith(Resource._urls['login']) and req.method == 'POST':
         username_key = 'j_id6:j_id20'
         password_key = 'j_id6:j_id22'
         body = parse.parse_qs(req.body.decode('utf-8'))
@@ -27,7 +27,7 @@ def vcr_config() -> dict:
 
 @pytest.fixture
 def site_urls() -> Dict:
-    return dhl_urls
+    return Resource._urls
 
 
 @pytest.fixture
