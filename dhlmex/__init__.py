@@ -1,6 +1,7 @@
 __all__ = ['__version__', 'Client']
 
 import re
+from time import sleep
 from typing import Dict
 
 from bs4 import BeautifulSoup
@@ -20,11 +21,8 @@ def get_guides_data(client: Client) -> Dict:
     soup = BeautifulSoup(resp.text, features='html.parser')
     field = soup.find('input', id=re.compile('panelBarInput')).attrs['name']
     data[field] = actions['print']['code']
-    guides_data = {'guides': '0'}
-    try:
-        resp = client.post(dhl_urls['home'], data)
-    except HTTPError as httpe:
-        raise httpe
+    guides_data = {}
+    resp = client.post(dhl_urls['home'], data)
     if 'seleccionar' in resp.text:
         soup = BeautifulSoup(resp.text, features='html.parser')
         view_state = soup.find('input', id='javax.faces.ViewState').attrs[
@@ -164,7 +162,7 @@ def confirm_capture(client: Client, view_state: str) -> Response:
     return client.post(dhl_urls['capture'], confirm_data)
 
 
-def force_percent(client: Client, view_state: str) -> str:
+def force_percent(client: Client, view_state: str, retries: int = 10) -> str:
     force_data = {
         'AJAXREQUEST': '_viewRoot',
         'j_id115': 'j_id115',
@@ -173,18 +171,24 @@ def force_percent(client: Client, view_state: str) -> str:
         'forcePercent': 'complete',
         'ajaxSingle': 'j_id115:pb_sub',
     }
-    resp = client.post(dhl_urls['capture'], force_data)
-    if 'Procesada correctamente' in resp.text:
-        soup = BeautifulSoup(resp.text, features='html.parser')
-        return soup.find('td', id='j_id115:tblElementos:0:j_id123').text
-    else:
-        raise DhlmexException('Error while processing guide')
+    while retries:
+        resp = client.post(dhl_urls['capture'], force_data)
+        if 'Procesada correctamente' in resp.text:
+            soup = BeautifulSoup(resp.text, features='html.parser')
+            return soup.find('td', id='j_id115:tblElementos:0:j_id123').text
+        else:
+            sleep(1)
+            retries -= 1
+    raise DhlmexException('Error while processing guide')
 
 
-def download_pdf(client: Client, guide_number: str, view_state: str):
+def download_pdf(client: Client, guide_number: str):
+    resp = client.get('/generaImpresionPDF')
+    soup = BeautifulSoup(resp.text, features='html.parser')
+    view_state = soup.find('input', id='javax.faces.ViewState').attrs['value']
     guide_data = {
         'AJAXREQUEST': '_viewRoot',
-        'j_id115': 'j_id115',
+        'j_id6': 'j_id6',
         'javax.faces.ViewState': view_state,
         'j_id6:tblElementos:0:j_id35': 'j_id6:tblElementos:0:j_id35',
     }
@@ -205,7 +209,7 @@ def create_guide(client: Client, origin, destiny, details) -> Response:
             view_state = fill_data['javax.faces.ViewState']
             resp = confirm_capture(client, view_state)
             guide_number = force_percent(client, view_state)
-            download_pdf(client, guide_number, view_state)
+            download_pdf(client, guide_number)
             if resp.ok:
                 return resp
             else:
