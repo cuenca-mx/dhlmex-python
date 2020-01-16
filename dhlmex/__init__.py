@@ -195,7 +195,6 @@ def download_pdf(client: Client, guide_number: str):
         'j_id6': 'j_id6',
         'javax.faces.ViewState': view_state,
         j_pair_id: j_pair_id,
-        'j_id6:tblElementos:0:j_id35': 'j_id6:tblElementos:0:j_id35',
     }
     client.post(dhl_urls['print'], guide_data)
     resp = client.get(dhl_urls['pdf'])
