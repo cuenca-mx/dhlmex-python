@@ -37,7 +37,7 @@ setup(
     url='https://github.com/cuenca-mx/dhlmex-python',
     packages=find_packages(),
     include_package_data=True,
-    package_data=dict(mati=['py.typed']),
+    package_data=dict(dhlmex=['py.typed']),
     python_requires='>=3.6',
     install_requires=install_requirements,
     setup_requires=['pytest-runner'],
