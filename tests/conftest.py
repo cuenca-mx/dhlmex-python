@@ -6,6 +6,9 @@ from vcr import request
 
 from dhlmex import Client
 from dhlmex.resources import Resource
+from dhlmex.resources.destination import Destination
+from dhlmex.resources.order_details import OrderDetails
+from dhlmex.resources.origin import Origin
 
 
 def remove_creds(req: request.Request) -> request.Request:
@@ -38,11 +41,11 @@ def client():
 
 
 @pytest.fixture
-def origin_address() -> Dict:
-    return dict(
+def origin() -> Origin:
+    return Origin(
         company='CUENCA LABS',
-        contact='DANIEL ESPINABARRO LOPEZ',
-        mail='del@cuenca.com',
+        contact='GINO LAPI',
+        mail='gino@cuenca.com',
         phone='5544364200',
         address1='VARSOVIA 36',
         postal_code='06600',
@@ -53,8 +56,8 @@ def origin_address() -> Dict:
 
 
 @pytest.fixture
-def destiny_address() -> Dict:
-    return dict(
+def destination() -> Destination:
+    return Destination(
         company='IVANNA DÍAZ ESTRADA',
         contact='IVANNA DÍAZ ESTRADA',
         mail='ivanna.diaz.estrada@gmail.com',
@@ -68,7 +71,7 @@ def destiny_address() -> Dict:
 
 
 @pytest.fixture
-def details() -> Dict:
-    return dict(
+def details() -> OrderDetails:
+    return OrderDetails(
         description='CASA COLOR VERDE', content='Tarjetas de presentacion',
     )

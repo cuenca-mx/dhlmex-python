@@ -1,21 +1,24 @@
 import os
 import re
 from time import sleep
-from typing import Dict
+from typing import Dict, Tuple
 
 from bs4 import BeautifulSoup
 from requests import HTTPError, Response
 
 from dhlmex.exceptions import DhlmexException
+from dhlmex.resources.origin import Origin
 
 from .base import Resource
+from .destination import Destination
+from .order_details import OrderDetails
 
 
 class Guide(Resource):
     @classmethod
     def create_guide(
-        cls, origin: Dict, destination: Dict, details: Dict
-    ) -> Response:
+        cls, origin: Origin, destination: Destination, details: OrderDetails
+    ) -> Tuple[str, str]:
         guide = cls()
         try:
             guides_data = guide._get_guide_data()
@@ -25,10 +28,10 @@ class Guide(Resource):
                     origin, destination, details
                 )
                 resp = guide._confirm_capture(view_state)
-                guide_number = guide._force_percent(view_state)
-                guide._download_pdf(guide_number, view_state)
                 if resp.ok:
-                    return resp
+                    guide_number = guide._force_percent(view_state)
+                    guide_path = guide._download_pdf(guide_number)
+                    return guide_number, guide_path
                 else:
                     raise DhlmexException('Error while creating guide')
             else:
@@ -96,7 +99,7 @@ class Guide(Resource):
         return select_data
 
     def _fill_guide_table(
-        self, origin: Dict, destiny: Dict, details: Dict
+        self, origin: Origin, destination: Destination, details: OrderDetails
     ) -> str:
         resp = self._client.get(self._urls['capture'])
         soup = BeautifulSoup(resp.text, features='html.parser')
@@ -104,28 +107,28 @@ class Guide(Resource):
             'value'
         ]
         fill_data = self._client.post_codes.validate_postal_codes(
-            origin, destiny, view_state
+            origin, destination, view_state
         )
-        fill_data['datos:j_id15'] = origin['company']
-        fill_data['datos:j_id19'] = origin['contact']
-        fill_data['datos:emailOrigen'] = origin['mail']
-        fill_data['datos:j_id24'] = origin['phone']
-        fill_data['datos:j_id28'] = origin['address1']
-        fill_data['datos:j_id36'] = origin['postal_code']
-        fill_data['datos:j_id41'] = origin['neighborhood']
-        fill_data['datos:j_id45'] = origin['city']
-        fill_data['datos:j_id49'] = origin['state']
-        fill_data['datos:j_id54'] = destiny['company']
-        fill_data['datos:j_id58'] = destiny['contact']
-        fill_data['datos:emailDestino'] = destiny['mail']
-        fill_data['datos:j_id63'] = destiny['phone']
-        fill_data['datos:j_id67'] = destiny['address1']
-        fill_data['datos:j_id75'] = destiny['postal_code']
-        fill_data['datos:j_id80'] = destiny['neighborhood']
-        fill_data['datos:j_id84'] = destiny['city']
-        fill_data['datos:j_id88'] = destiny['state']
-        fill_data['datos:j_id93'] = details['description']
-        fill_data['datos:j_id95'] = details['content']
+        fill_data['datos:j_id15'] = origin.company
+        fill_data['datos:j_id19'] = origin.contact
+        fill_data['datos:emailOrigen'] = origin.mail
+        fill_data['datos:j_id24'] = origin.phone
+        fill_data['datos:j_id28'] = origin.address1
+        fill_data['datos:j_id36'] = origin.postal_code
+        fill_data['datos:j_id41'] = origin.neighborhood
+        fill_data['datos:j_id45'] = origin.city
+        fill_data['datos:j_id49'] = origin.state
+        fill_data['datos:j_id54'] = destination.company
+        fill_data['datos:j_id58'] = destination.contact
+        fill_data['datos:emailDestino'] = destination.mail
+        fill_data['datos:j_id63'] = destination.phone
+        fill_data['datos:j_id67'] = destination.address1
+        fill_data['datos:j_id75'] = destination.postal_code
+        fill_data['datos:j_id80'] = destination.neighborhood
+        fill_data['datos:j_id84'] = destination.city
+        fill_data['datos:j_id88'] = destination.state
+        fill_data['datos:j_id71'] = details.description
+        fill_data['datos:j_id93'] = details.content
         fill_data['javax.faces.ViewState'] = view_state
         fill_data['datos:j_id105'] = 'datos:j_id105'
 
@@ -163,7 +166,7 @@ class Guide(Resource):
                 retries -= 1
         raise DhlmexException('Error while processing guide')
 
-    def _download_pdf(self, guide_number: str, view_state: str):
+    def _download_pdf(self, guide_number: str) -> str:
         resp = self._client.post(self._urls['home'], {})
         data = self.get_data(resp, self._actions['download'])
         resp = self._client.post(self._urls['home'], data)
@@ -183,11 +186,14 @@ class Guide(Resource):
         }
         self._client.post(self._urls['print'], guide_data)
         resp = self._client.get(self._urls['pdf'])
+        path = ''
         if resp.ok:
             path = os.getenv('DOWNLOADS_DIRECTORY') or './'
             path += f'/{guide_number}.pdf'
             try:
                 with open(path, 'wb') as f:
                     f.write(resp.content)
+                return path
             except OSError as ose:
                 raise DhlmexException(f'Error downloading guide: {str(ose)}')
+        return path

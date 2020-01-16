@@ -1,18 +1,24 @@
 from typing import Dict
 
 from dhlmex.exceptions import DhlmexException
+from dhlmex.resources.destination import Destination
+from dhlmex.resources.origin import Origin
 
 from .base import Resource
 
 
 class PostCode(Resource):
     @classmethod
-    def validate_post_code(cls, **kwargs):
+    def validate_postal_codes(
+        cls, origin: Origin, destination: Destination, view_state: str
+    ):
         post_code = cls()
-        return post_code._validate_postal_codes(**kwargs)
+        return post_code._validate_postal_codes(
+            origin, destination, view_state
+        )
 
     def _validate_postal_codes(
-        self, origin: Dict, destiny: Dict, view_state: str
+        self, origin: Origin, destination: Destination, view_state: str
     ) -> Dict:
         fill_data = {
             'AJAXREQUEST': '_viewRoot',
@@ -25,7 +31,7 @@ class PostCode(Resource):
             'datos:j_id28': '',
             'datos:j_id30': '',
             'datos:j_id32': '',
-            'datos:j_id36': origin['postal_code'],
+            'datos:j_id36': origin.postal_code,
             'datos:j_id41': '',
             'datos:j_id45': '',
             'datos:j_id49': '',
@@ -50,7 +56,7 @@ class PostCode(Resource):
             fill_data.pop('datos:j_id37')
             # validate also destiny postal_code
             fill_data['datos:j_id76'] = 'datos:j_id76'
-            fill_data['datos:j_id75'] = destiny['postal_code']
+            fill_data['datos:j_id75'] = destination.postal_code
             resp = self._client.post(self._urls['capture'], fill_data)
             if 'Código Postal válido' in resp.text:
                 fill_data.pop('datos:j_id76')
