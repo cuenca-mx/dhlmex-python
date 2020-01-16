@@ -4,6 +4,14 @@ from setuptools import find_packages, setup
 
 version = SourceFileLoader('version', 'dhlmex/version.py').load_module()
 
+
+install_requirements = [
+    'dataclasses>=0.6;python_version<"3.7"',
+    'requests>=2.22.0,<3.0.0',
+    'beautifulsoup4>=4.8.1',
+    'Unidecode==1.1.1',
+]
+
 test_requires = [
     'pytest',
     'pytest-vcr',
@@ -29,12 +37,9 @@ setup(
     url='https://github.com/cuenca-mx/dhlmex-python',
     packages=find_packages(),
     include_package_data=True,
-    package_data=dict(mati=['py.typed']),
+    package_data=dict(dhlmex=['py.typed']),
     python_requires='>=3.6',
-    install_requires=[
-        'dataclasses>=0.6;python_version<"3.7"',
-        'requests>=2.22.0,<3.0.0',
-    ],
+    install_requires=install_requirements,
     setup_requires=['pytest-runner'],
     tests_require=test_requires,
     extras_require=dict(test=test_requires),
