@@ -28,8 +28,6 @@ class Guide(Resource):
                     origin, destination, details
                 )
                 resp = guide._confirm_capture(view_state)
-                print(resp)
-                print(resp.text)
                 if resp.ok:
                     guide_number = guide._force_percent(view_state)
                     guide_path = guide._download_pdf(guide_number)
@@ -147,7 +145,7 @@ class Guide(Resource):
         }
         return self._client.post(self._urls['capture'], confirm_data)
 
-    def _force_percent(self, view_state: str, retries: int = 10) -> str:
+    def _force_percent(self, view_state: str, retries: int = 20) -> str:
         force_data = {
             'AJAXREQUEST': '_viewRoot',
             'j_id115': 'j_id115',
@@ -166,7 +164,10 @@ class Guide(Resource):
             else:
                 sleep(1)
                 retries -= 1
-        raise DhlmexException('Error while processing guide')
+        if retries == 0:
+            print(resp)
+            print(f'RESP: {resp.text}')
+            raise DhlmexException('Error on confirm guide')
 
     def _download_pdf(self, guide_number: str) -> str:
         resp = self._client.post(self._urls['home'], {})
