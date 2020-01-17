@@ -133,6 +133,7 @@ class Guide(Resource):
         fill_data['datos:j_id105'] = 'datos:j_id105'
 
         self._client.post(self._urls['capture'], fill_data)
+        print(f'FILL: {fill_data}')
 
         return fill_data['javax.faces.ViewState']
 
