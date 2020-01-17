@@ -28,6 +28,8 @@ class Guide(Resource):
                     origin, destination, details
                 )
                 resp = guide._confirm_capture(view_state)
+                print(resp)
+                print(resp.text)
                 if resp.ok:
                     guide_number = guide._force_percent(view_state)
                     guide_path = guide._download_pdf(guide_number)
