@@ -133,7 +133,6 @@ class Guide(Resource):
         fill_data['datos:j_id105'] = 'datos:j_id105'
 
         self._client.post(self._urls['capture'], fill_data)
-        print(f'FILL: {fill_data}')
 
         return fill_data['javax.faces.ViewState']
 
@@ -155,25 +154,52 @@ class Guide(Resource):
             'forcePercent': 'complete',
             'ajaxSingle': 'j_id115:pb_sub',
         }
+        guide_number = ''
         while retries:
             resp = self._client.post(self._urls['capture'], force_data)
             if 'Procesada correctamente' in resp.text:
                 soup = BeautifulSoup(resp.text, features='html.parser')
-                return soup.find(
+                guide_number = soup.find(
                     'td', id='j_id115:tblElementos:0:j_id123'
                 ).text
             else:
                 sleep(1)
                 retries -= 1
         if retries == 0:
-            print(resp)
-            print(f'RESP: {resp.text}')
-            raise DhlmexException('Error on confirm guide')
+            raise DhlmexException('Error while capturing guide data')
+        return guide_number
+
+    def _move_page(self, view_state: str, page: str) -> Response:
+        final_data = {
+            'AJAXREQUEST': '_viewRoot',
+            'j_id6': 'j_id6',
+            'javax.faces.ViewState': view_state,
+            'ajaxSingle': 'j_id6:j_id37',
+            'j_id6:j_id37': page,
+            'AJAX:EVENTS_COUNT': '1',
+        }
+        return self._client.post(self._urls['print'], final_data)
 
     def _download_pdf(self, guide_number: str) -> str:
         resp = self._client.post(self._urls['home'], {})
         data = self.get_data(resp, self._actions['download'])
         resp = self._client.post(self._urls['home'], data)
+        if guide_number not in resp.text:  # search on last page
+            soup = BeautifulSoup(resp.text, features='html.parser')
+            view_state = soup.find('input', id='javax.faces.ViewState').attrs[
+                'value'
+            ]
+            pages = len(
+                soup.find("div", {"class": "rich-datascr"}).find_all('td')
+            )
+            resp = self._move_page(view_state, 'last')
+            for _ in range(pages):
+                if guide_number not in resp.text:  # search previous pages
+                    resp = self._move_page(view_state, 'previous')
+                else:
+                    break
+        if guide_number not in resp.text:
+            raise DhlmexException(f'Guide {guide_number} not found')
         soup = BeautifulSoup(resp.text, features='html.parser')
         view_state = soup.find('input', id='javax.faces.ViewState').attrs[
             'value'

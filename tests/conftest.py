@@ -58,15 +58,15 @@ def origin() -> Origin:
 @pytest.fixture
 def destination() -> Destination:
     return Destination(
-        company='IVANNA DÍAZ ESTRADA',
-        contact='IVANNA DÍAZ ESTRADA',
-        mail='ivanna.diaz.estrada@gmail.com',
-        phone='5544364200',
-        address1='CALLE 39 231',
-        postal_code='97320',
-        neighborhood='VICENTE GUERRERO',
-        city='PROGRESO',
-        state='YUC',
+        company='AXEL RAMSES NAVARRO NORIEGA',
+        contact='AXEL RAMSES NAVARRO NORIEGA',
+        mail='axelnavarronoriega@gmail.com',
+        phone='3324061266',
+        address1='PINO SUAREZ 69',
+        postal_code='45610',
+        neighborhood='PEDREGAL DEL BOSQUE',
+        city='SAN PEDRO TLAQUEPAQUE',
+        state='JAL',
     )
 
 
