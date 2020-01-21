@@ -45,7 +45,7 @@ def origin() -> Origin:
     return Origin(
         company='CUENCA LABS',
         contact='GINO LAPI',
-        mail='gino@cuenca.com',
+        email='gino@cuenca.com',
         phone='5544364200',
         address1='VARSOVIA 36',
         postal_code='06600',
@@ -60,7 +60,7 @@ def destination() -> Destination:
     return Destination(
         company='JOSE DE JESUS ALVARADO YERENA',
         contact='JOSE DE JESUS ALVARADO YERENA',
-        mail='yerena13_24@hotmail.com',
+        email='yerena13_24@hotmail.com',
         phone='3223444645',
         address1='CALLE PEONIAS 40A',
         postal_code='63737',

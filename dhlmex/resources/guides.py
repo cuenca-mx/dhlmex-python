@@ -111,7 +111,7 @@ class Guide(Resource):
         )
         fill_data['datos:j_id15'] = origin.company
         fill_data['datos:j_id19'] = origin.contact
-        fill_data['datos:emailOrigen'] = origin.mail
+        fill_data['datos:emailOrigen'] = origin.email
         fill_data['datos:j_id24'] = origin.phone
         fill_data['datos:j_id28'] = origin.address1
         fill_data['datos:j_id36'] = origin.postal_code
@@ -120,7 +120,7 @@ class Guide(Resource):
         fill_data['datos:j_id49'] = origin.state
         fill_data['datos:j_id54'] = destination.company
         fill_data['datos:j_id58'] = destination.contact
-        fill_data['datos:emailDestino'] = destination.mail
+        fill_data['datos:emailDestino'] = destination.email
         fill_data['datos:j_id63'] = destination.phone
         fill_data['datos:j_id67'] = destination.address1
         fill_data['datos:j_id75'] = destination.postal_code
@@ -162,7 +162,7 @@ class Guide(Resource):
                 guide_number = soup.find(
                     'td', id='j_id115:tblElementos:0:j_id123'
                 ).text
-                return guide_number
+                break
             else:
                 sleep(1)
                 retries -= 1
