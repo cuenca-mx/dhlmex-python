@@ -73,6 +73,21 @@ def destination() -> Destination:
 @pytest.fixture
 def invalid_destination() -> Destination:
     return Destination(
+        company='GLENDA LOPEZ',
+        contact='GLENDA LOPEZ',
+        email='glenda@hotmail.com',
+        phone='550909090',
+        address1='EMILIANO ZAPATA 2',
+        postal_code='37800',
+        neighborhood='REVOLUCION',
+        city='DOLORES HIDALGO CUNA DE LA INDEPENDENCIA NACIONAL',
+        state='GTO',
+    )
+
+
+@pytest.fixture
+def invalid_postal_code() -> Destination:
+    return Destination(
         company='ALEJANDRO VIZQUEZ',
         contact='ALEJANDRO VIZQUEZ',
         email='alex_visquets@hotmail.com',
