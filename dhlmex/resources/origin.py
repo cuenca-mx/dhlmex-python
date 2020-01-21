@@ -12,4 +12,3 @@ class Origin:
     neighborhood: str
     city: str
     state: str
-

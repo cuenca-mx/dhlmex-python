@@ -12,4 +12,3 @@ class Destination:
     neighborhood: str
     city: str
     state: str
-

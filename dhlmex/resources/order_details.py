@@ -5,4 +5,3 @@ from dataclasses import dataclass
 class OrderDetails:
     description: str
     content: str
-
