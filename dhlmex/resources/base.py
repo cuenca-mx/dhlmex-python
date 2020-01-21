@@ -4,8 +4,6 @@ from typing import ClassVar, Dict
 from bs4 import BeautifulSoup
 from requests import Response
 
-from dhlmex.exceptions import DhlmexException
-
 
 class Resource:
     _client: ClassVar["dhlmex.Client"]  # type: ignore
@@ -37,8 +35,6 @@ class Resource:
 
     @staticmethod
     def get_data(resp: Response, action: Dict) -> Dict:
-        if 'Login / Admin' in resp.text:
-            raise DhlmexException('Client not logged in')
         soup = BeautifulSoup(resp.text, features='html.parser')
         view_state = soup.find('input', id='javax.faces.ViewState').attrs[
             'value'

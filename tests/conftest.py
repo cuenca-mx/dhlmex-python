@@ -45,7 +45,7 @@ def origin() -> Origin:
     return Origin(
         company='CUENCA LABS',
         contact='GINO LAPI',
-        mail='gino@cuenca.com',
+        email='gino@cuenca.com',
         phone='5544364200',
         address1='VARSOVIA 36',
         postal_code='06600',
@@ -58,15 +58,45 @@ def origin() -> Origin:
 @pytest.fixture
 def destination() -> Destination:
     return Destination(
-        company='IVANNA DÍAZ ESTRADA',
-        contact='IVANNA DÍAZ ESTRADA',
-        mail='ivanna.diaz.estrada@gmail.com',
-        phone='5544364200',
-        address1='CALLE 39 231',
-        postal_code='97320',
-        neighborhood='VICENTE GUERRERO',
-        city='PROGRESO',
-        state='YUC',
+        company='JOSE DE JESUS ALVARADO YERENA',
+        contact='JOSE DE JESUS ALVARADO YERENA',
+        email='yerena13_24@hotmail.com',
+        phone='3223444645',
+        address1='CALLE PEONIAS 40A',
+        postal_code='63737',
+        neighborhood='JARDINES DEL SOL',
+        city='FRACCIONAMIENTO SANTA FE',
+        state='NAY',
+    )
+
+
+@pytest.fixture
+def invalid_destination() -> Destination:
+    return Destination(
+        company='GLENDA LOPEZ',
+        contact='GLENDA LOPEZ',
+        email='glenda@hotmail.com',
+        phone='550909090',
+        address1='EMILIANO ZAPATA 2',
+        postal_code='37800',
+        neighborhood='REVOLUCION',
+        city='DOLORES HIDALGO CUNA DE LA INDEPENDENCIA NACIONAL',
+        state='GTO',
+    )
+
+
+@pytest.fixture
+def invalid_postal_code() -> Destination:
+    return Destination(
+        company='ALEJANDRO VIZQUEZ',
+        contact='ALEJANDRO VIZQUEZ',
+        email='alex_visquets@hotmail.com',
+        phone='5560934315',
+        address1='TOMAS ALVA EDISON 169',
+        postal_code='00000',
+        neighborhood='SAN RAFAEL',
+        city='CUAUHTEMOC',
+        state='CDMX',
     )
 
 

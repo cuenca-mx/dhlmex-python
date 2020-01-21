@@ -1,0 +1,1319 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/75.0.3770.142 Safari/537.36
+    method: GET
+    uri: https://prepaid.dhl.com.mx/Prepago/
+  response:
+    body:
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"\
+        -//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\"\
+        \ >\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\n    <head>\n        <meta\
+        \ http-equiv=\"X-UA-Compatible\" content=\"IE=EmulateIE8\" />\n        <title>Login\
+        \ / Admin\n        </title>\n        <link class=\"component\" href=\"/Prepago/a4j/s/3_3_3.Finalorg/richfaces/renderkit/html/css/basic_both.xcss/DATB/eAGbUnaFO3T5DGkAEaUDmQ__.xhtml\"\
+        \ rel=\"stylesheet\" type=\"text/css\" /><link class=\"component\" href=\"\
+        /Prepago/a4j/s/3_3_3.Finalorg/richfaces/renderkit/html/css/extended_both.xcss/DATB/eAGbUnaFO3T5DGkAEaUDmQ__.xhtml\"\
+        \ media=\"rich-extended-skinning\" rel=\"stylesheet\" type=\"text/css\" /><script\
+        \ src=\"/Prepago/a4j/g/3_3_3.Finalorg.ajax4jsf.javascript.AjaxScript.xhtml\"\
+        \ type=\"text/javascript\"></script><script src=\"/Prepago/a4j/g/3_3_3.Finalorg.ajax4jsf.javascript.PrototypeScript.xhtml\"\
+        \ type=\"text/javascript\"></script><script src=\"/Prepago/a4j/g/3_3_3.Finalorg/richfaces/renderkit/html/scripts/utils.js.xhtml\"\
+        \ type=\"text/javascript\"></script><script src=\"/Prepago/a4j/g/3_3_3.Finalorg/richfaces/renderkit/html/scripts/browser_info.js.xhtml\"\
+        \ type=\"text/javascript\"></script><script src=\"/Prepago/a4j/g/3_3_3.Finalorg/richfaces/renderkit/html/scripts/modalPanel.js.xhtml\"\
+        \ type=\"text/javascript\"></script><script src=\"/Prepago/a4j/g/3_3_3.Finalorg/richfaces/renderkit/html/scripts/modalPanelBorders.js.xhtml\"\
+        \ type=\"text/javascript\"></script><link class=\"component\" href=\"/Prepago/a4j/s/3_3_3.Finalorg/richfaces/renderkit/html/css/modalPanel.xcss/DATB/eAGbUnaFO3T5DGkAEaUDmQ__.xhtml\"\
+        \ rel=\"stylesheet\" type=\"text/css\" /><link class=\"component\" href=\"\
+        /Prepago/a4j/g/3_3_3.Finalorg/richfaces/renderkit/html/css/msg.css.xhtml\"\
+        \ rel=\"stylesheet\" type=\"text/css\" /><link class=\"component\" href=\"\
+        /Prepago/a4j/g/3_3_3.Finalorg/richfaces/renderkit/html/css/msgs.css.xhtml\"\
+        \ rel=\"stylesheet\" type=\"text/css\" /><script src=\"/Prepago/a4j/g/3_3_3.Finalorg/richfaces/renderkit/html/scripts/available.js.xhtml\"\
+        \ type=\"text/javascript\"></script><script src=\"/Prepago/a4j/g/3_3_3.Finalorg/richfaces/renderkit/html/scripts/jquery/jquery.js.xhtml\"\
+        \ type=\"text/javascript\"></script><script src=\"/Prepago/a4j/g/3_3_3.Finalorg/richfaces/renderkit/html/script/controlUtils.js.xhtml\"\
+        \ type=\"text/javascript\"></script><script type=\"text/javascript\">window.RICH_FACES_EXTENDED_SKINNING_ON=true;</script><script\
+        \ src=\"/Prepago/a4j/g/3_3_3.Finalorg/richfaces/renderkit/html/scripts/skinning.js.xhtml\"\
+        \ type=\"text/javascript\"></script><script type=\"text/javascript\" src=\"\
+        /Prepago/js/jquery_1_7_1.js\"></script>\n        <script type=\"text/javascript\"\
+        >\n            ////No permite el back del borwser\n            jQuery.noConflict();\n\
+        \            window.history.forward(1);\n            jQuery(document).ready(function(){\t\
+        \n                    jQuery('#indexmc').fadeIn(2000);\n            });\n\
+        \            \n            function formatNumber(num,prefix){\n          \
+        \      if(!isNaN(parseFloat(num)) && isFinite(num)){\n                   \
+        \ prefix = prefix || '';\n                    num += '';\n               \
+        \     var splitStr = num.split('.');\n                    var splitLeft =\
+        \ splitStr[0];\n                    var splitRight = splitStr.length > 1 ?\
+        \ '.' + splitStr[1] : '';\n                    var regx = /(\\d+)(\\d{3})/;\n\
+        \                    while (regx.test(splitLeft)) {\n                    splitLeft\
+        \ = splitLeft.replace(regx, '$1' + ',' + '$2');\n                    }\n \
+        \                   return prefix + splitLeft + splitRight;\n            \
+        \    }else{\n                    return num;\n                }\n        \
+        \    }\n\n            function unformatNumber(num) {\n                if(num.indexOf('$')!=-1){\n\
+        \                    return num.replace(/([^0-9\\.\\-])/g,'')*1;\n       \
+        \         }else{\n                    return num;\n                }\n   \
+        \         }\n        </script>\n        <link rel=\"stylesheet\" type=\"text/css\"\
+        \ href=\"/Prepago/css/global.css\" />\n        <link rel=\"stylesheet\" type=\"\
+        text/css\" href=\"/Prepago/css/prepago.css\" />\n        <link rel=\"shortcut\
+        \ icon\" href=\"/Prepago/images/ico/favicon.gif\" type=\"image/vnd.microsoft.icon\"\
+        \ />\n        <link rel=\"icon\" href=\"/Prepago/images/ico/favicon.gif\"\
+        \ type=\"/Prepago/images/vnd.microsoft.icon\" />\n        \n    </head>\n\
+        \    <body align=\"center\"><span id=\"_viewRoot:status\"><span id=\"_viewRoot:status.start\"\
+        \ style=\"display: none\"></span><script type=\"text/javascript\">\nwindow.document.getElementById('_viewRoot:status.start').onstart=function(){Richfaces.showModalPanel('espera');;};\n\
+        </script><span id=\"_viewRoot:status.stop\"></span><script type=\"text/javascript\"\
+        >\nwindow.document.getElementById('_viewRoot:status.stop').onstop=function(){Richfaces.hideModalPanel('espera');;};\n\
+        </script></span><div id=\"espera\" style=\"display: none;\"><input autocomplete=\"\
+        off\" id=\"esperaOpenedState\" name=\"esperaOpenedState\" type=\"hidden\"\
+        \ /><div class=\"rich-modalpanel \" id=\"esperaContainer\" style=\"position:\
+        \ absolute; display: none; z-index: 100; background-color: inherit;\"><div\
+        \ class=\"rich-mpnl-mask-div-opaque rich-mpnl-mask-div\" id=\"esperaDiv\"\
+        \ style=\"z-index: -1;\"><button class=\"rich-mpnl-button\" id=\"esperaFirstHref\"\
+        ></button></div><div class=\"rich-mpnl-panel\"><div class=\"rich-mp-container\"\
+        \ id=\"esperaCDiv\" style=\"position: absolute; left: 0px; top: 0px; z-index:\
+        \ 9;\"><div class=\"rich-mpnl-shadow\" id=\"esperaShadowDiv\"></div><div class=\"\
+        rich-mpnl-ovf-hd rich-mpnl-trim rich-mpnl-content\" id=\"esperaContentDiv\"\
+        \ style=\"background-color:white;\"><table border=\"0\" cellpadding=\"0\"\
+        \ cellspacing=\"0\" class=\"rich-mp-content-table\" id=\"esperaContentTable\"\
+        \ style=\"height: 100%; width: 100%;\"><tr style=\"height: 99%\"><td class=\"\
+        rich-mpnl-body\" valign=\"top\"><img src=\"/Prepago/images/ico/espera.gif\"\
+        \ style=\"border:0px solid white;\" /></td></tr></table></div></div></div><div\
+        \ class=\"rich-mpnl-mask-div rich-mpnl-mask-div-transparent\" id=\"esperaCursorDiv\"\
+        \ style=\"z-index: -200;\"><button class=\"rich-mpnl-button\" id=\"esperaLastHref\"\
+        ></button></div><script type=\"text/javascript\">new ModalPanel('espera',\n\
+        \t\t\t\t{\n\t\t\t\t\twidth: 50,\n\t\t\t\t\theight: 50,\n\n\t\t\t\t\tminWidth:\
+        \ -1,\n\t\t\t\t\tminHeight: -1,\n\n\t\t\t\t\tresizeable: false,\n\t\t\t\t\t\
+        moveable: false,\n\n\t\t\t\t\tleft: \"auto\",\n\t\t\t\t\ttop: \"auto\",\n\n\
+        \t\t\t\t\tzindex: 100,onresize: '',onmove: '',onshow: '',onhide: '',onbeforeshow:\
+        \ '',onbeforehide: '',\n\t\t\t\t\tdomElementAttachment: \"\",\t\t\t\t\n\t\t\
+        \t\t\tkeepVisualState: false,\n\t\t\t\t\tshowWhenRendered: false,\n\t\t\t\t\
+        \tselectBehavior: \"disable\",\n\n\t\t\t\t\tautosized: false,\n\t\t\t\t\t\
+        overlapEmbedObjects: false});</script></div><script type=\"text/javascript\"\
+        ></script></div>\n        \n        <div id=\"indexwrap\" style=\"border:\
+        \ 0px solid blue;\">\n\n            \n            <div id=\"header\" style=\"\
+        border: 0px solid black;\">\n                <div id=\"topnav\">\n       \
+        \             \n                </div>\n                <div id=\"header_logo\"\
+        \ style=\"border: 0px solid black;\">\n                        <img height=\"\
+        36\" alt=\"DHL Logo\" src=\"/Prepago/images/global/header_DHL_logo2.gif\"\
+        \ width=\"133\" border=\"0\" />\n                </div>\n            </div>\n\
+        \            \n\n            \n\n            \n            <div class=\"bodyStyle\"\
+        \ style=\"border: 0px solid black;\">\n                <div id=\"indexmc\"\
+        \ style=\"display:none;\">\n<form id=\"j_id6\" name=\"j_id6\" method=\"post\"\
+        \ action=\"/Prepago/jsp/app/login/login.xhtml\" enctype=\"application/x-www-form-urlencoded\"\
+        >\n<input type=\"hidden\" name=\"j_id6\" value=\"j_id6\" />\n\n          \
+        \   <div align=\"center\" style=\"height: 500px;\"><table style=\"height:\
+        \ 100%\">\n<tbody>\n<tr>\n<td class=\"alignCenter\"><table class=\"tblLogin\"\
+        \ cellpadding=\"0\" cellspacing=\"0\" style=\"border: 1px solid #F2F2ED\"\
+        \ width=\"300\">\n<thead>\n<tr><th colspan=\"1\" scope=\"colgroup\">Prepago\
+        \ DHL</th></tr>\n</thead>\n<tbody>\n<tr class=\"rowTblLoginNon\">\n<td class=\"\
+        alignCenter\">Debe autenticarse en el sistema para acceder</td>\n</tr>\n<tr\
+        \ class=\"rowTblLoginPar\">\n<td class=\"alignCenter\"><table id=\"j_id6:tblDatos\"\
+        >\n<tbody>\n<tr>\n<td class=\"alignLeft\"><dl id=\"j_id6:j_id17\" class=\"\
+        rich-messages\" style=\"display: none; \"><dt></dt></dl></td>\n</tr>\n<tr>\n\
+        <td class=\"alignLeft\"><table cellpadding=\"2\" cellspacing=\"10\" width=\"\
+        100%\">\n<tbody>\n<tr>\n<td class=\"alignRight label\">Usuario: </td>\n<td\
+        \ class=\"alignRight value\"><input type=\"text\" name=\"j_id6:j_id20\" /></td>\n\
+        </tr>\n<tr>\n<td class=\"alignRight label\">Contrase&ntilde;a: </td>\n<td\
+        \ class=\"alignRight value\"><input type=\"password\" name=\"j_id6:j_id22\"\
+        \ autocomplete=\"off\" value=\"\" /></td>\n</tr>\n</tbody>\n</table>\n</td>\n\
+        </tr>\n<tr>\n<td class=\"alignLeft\"><a href=\"#\" id=\"j_id6:j_id27\" name=\"\
+        j_id6:j_id27\" onclick=\"A4J.AJAX.Submit('j_id6',event,{'oncomplete':function(request,event,data){Richfaces.showModalPanel('pnlUsuario')},'similarityGroupingId':'j_id6:j_id27','parameters':{'j_id6:j_id27':'j_id6:j_id27'}\
+        \ } );return false;\">Recuperar Contrase&ntilde;a</a></td>\n</tr>\n<tr>\n\
+        <td class=\"alignLeft\"><table cellpadding=\"2\" cellspacing=\"10\" width=\"\
+        100%\">\n<tbody>\n<tr>\n<td><input id=\"j_id6:j_id29\" name=\"j_id6:j_id29\"\
+        \ onclick=\"A4J.AJAX.Submit('j_id6',event,{'similarityGroupingId':'j_id6:j_id29','parameters':{'j_id6:j_id29':'j_id6:j_id29'}\
+        \ } );return false;\" value=\"Entrar\" type=\"button\" /></td>\n<td><input\
+        \ id=\"j_id6:j_id30\" name=\"j_id6:j_id30\" onclick=\"A4J.AJAX.Submit('j_id6',event,{'similarityGroupingId':'j_id6:j_id30','parameters':{'j_id6:j_id30':'j_id6:j_id30'}\
+        \ } );return false;\" value=\"Cancelar\" type=\"button\" /></td>\n</tr>\n\
+        </tbody>\n</table>\n</td>\n</tr>\n</tbody>\n</table>\n</td>\n</tr>\n</tbody>\n\
+        </table>\n</td>\n</tr>\n</tbody>\n</table>\n\n             </div><input type=\"\
+        hidden\" name=\"javax.faces.ViewState\" id=\"javax.faces.ViewState\" value=\"\
+        j_id1\" />\n</form><div id=\"pnlUsuario\" style=\"display: none;\"><input\
+        \ autocomplete=\"off\" id=\"pnlUsuarioOpenedState\" name=\"pnlUsuarioOpenedState\"\
+        \ type=\"hidden\" /><div class=\"rich-modalpanel \" id=\"pnlUsuarioContainer\"\
+        \ style=\"position: absolute; display: none; z-index: 100; background-color:\
+        \ inherit;\"><div class=\"rich-mpnl-mask-div-opaque rich-mpnl-mask-div\" id=\"\
+        pnlUsuarioDiv\" style=\"z-index: -1;\"><button class=\"rich-mpnl-button\"\
+        \ id=\"pnlUsuarioFirstHref\"></button></div><div class=\"rich-mpnl-panel\"\
+        ><div class=\"rich-mp-container\" id=\"pnlUsuarioCDiv\" style=\"position:\
+        \ absolute; left: 0px; top: 0px; z-index: 9;\"><div class=\"rich-mpnl-shadow\"\
+        \ id=\"pnlUsuarioShadowDiv\"></div><div class=\"rich-mpnl-ovf-hd rich-mpnl-trim\
+        \ rich-mpnl-content\" id=\"pnlUsuarioContentDiv\" style=\"background-color:\
+        \ white;\"><div class=\"rich-mpnl-text rich-mpnl-controls \"><img id=\"hidelink\"\
+        \ src=\"/Prepago/images/ico/close.png\" /><script type=\"text/javascript\"\
+        >Richfaces.componentControl.attachAvailable('#hidelink','onclick','#pnlUsuario','hide')</script></div><table\
+        \ border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"rich-mp-content-table\"\
+        \ id=\"pnlUsuarioContentTable\" style=\"height: 100%; width: 100%;\"><tr style=\"\
+        height: 1%;\"><td class=\"rich-mpnl-header-cell\"><div class=\"rich-mpnl-text\
+        \ rich-mpnl-header \" id=\"pnlUsuarioHeader\" style=\"white-space: nowrap;\"\
+        >Recuperar Contrase&ntilde;a</div></td></tr><tr style=\"height: 99%\"><td\
+        \ class=\"rich-mpnl-body\" valign=\"top\">\n<form id=\"j_id36\" name=\"j_id36\"\
+        \ method=\"post\" action=\"/Prepago/jsp/app/login/login.xhtml\" enctype=\"\
+        application/x-www-form-urlencoded\">\n<input type=\"hidden\" name=\"j_id36\"\
+        \ value=\"j_id36\" />\n<table id=\"j_id36:pnlUsuarioInterno\" class=\"infoTable\"\
+        \ width=\"380\">\n<thead>\n<tr><th colspan=\"2\" scope=\"colgroup\">Recuperaci&oacute;n\
+        \ de Contrase&ntilde;a</th></tr>\n</thead>\n<tbody>\n<tr>\n<td class=\"label\"\
+        >Usuario: </td>\n<td class=\"value\"><input type=\"text\" name=\"j_id36:j_id39\"\
+        \ maxlength=\"50\" size=\"40\" /></td>\n</tr>\n</tbody>\n</table>\n<img alt=\"\
+        \" class=\"rich-spacer \" height=\"10\" id=\"j_id36:j_id40\" src=\"/Prepago/a4j/g/3_3_3.Finalimages/spacer.gif.xhtml\"\
+        \ width=\"1\" /><dl id=\"j_id36:j_id41\" class=\"rich-messages\" style=\"\
+        display: none; \"><dt></dt></dl><img alt=\"\" class=\"rich-spacer \" height=\"\
+        10\" id=\"j_id36:j_id42\" src=\"/Prepago/a4j/g/3_3_3.Finalimages/spacer.gif.xhtml\"\
+        \ width=\"1\" /><table width=\"380\">\n<tbody>\n<tr>\n<td class=\"alignCenter\"\
+        ><input id=\"j_id36:btnCancelar\" name=\"j_id36:btnCancelar\" onclick=\"Richfaces.hideModalPanel('pnlUsuario');;A4J.AJAX.Submit('j_id36',event,{'similarityGroupingId':'j_id36:btnCancelar','parameters':{'j_id36:btnCancelar':'j_id36:btnCancelar'}\
+        \ } );return false;\" value=\"Cancelar\" type=\"button\" /></td>\n<td class=\"\
+        alignCenter\"><input id=\"j_id36:btnGuardar\" name=\"j_id36:btnGuardar\" onclick=\"\
+        A4J.AJAX.Submit('j_id36',event,{'oncomplete':function(request,event,data){if(data)Richfaces.hideModalPanel('pnlUsuario');},'similarityGroupingId':'j_id36:btnGuardar','parameters':{'j_id36:btnGuardar':'j_id36:btnGuardar'}\
+        \ } );return false;\" value=\"Enviar\" type=\"button\" /></td>\n</tr>\n</tbody>\n\
+        </table>\n<input type=\"hidden\" name=\"javax.faces.ViewState\" id=\"javax.faces.ViewState\"\
+        \ value=\"j_id1\" />\n</form></td></tr></table></div><div class=\"rich-mpnl-resizer\"\
+        \ id=\"pnlUsuarioResizerN\" style=\"width: 40px; height: 4px;\"></div><div\
+        \ class=\"rich-mpnl-resizer\" id=\"pnlUsuarioResizerE\" style=\"height: 40px;\
+        \ width: 4px;\"></div><div class=\"rich-mpnl-resizer\" id=\"pnlUsuarioResizerS\"\
+        \ style=\"width: 40px; height: 4px;\"></div><div class=\"rich-mpnl-resizer\"\
+        \ id=\"pnlUsuarioResizerW\" style=\"height: 40px; width: 4px;\"></div><div\
+        \ class=\"rich-mpnl-resizer\" id=\"pnlUsuarioResizerNWU\" style=\"width: 40px;\
+        \ height: 4px;\"></div><div class=\"rich-mpnl-resizer\" id=\"pnlUsuarioResizerNEU\"\
+        \ style=\"height: 40px; width: 4px;\"></div><div class=\"rich-mpnl-resizer\"\
+        \ id=\"pnlUsuarioResizerNEL\" style=\"width: 40px; height: 4px;\"></div><div\
+        \ class=\"rich-mpnl-resizer\" id=\"pnlUsuarioResizerSEU\" style=\"height:\
+        \ 40px; width: 4px;\"></div><div class=\"rich-mpnl-resizer\" id=\"pnlUsuarioResizerSEL\"\
+        \ style=\"width: 40px; height: 4px;\"></div><div class=\"rich-mpnl-resizer\"\
+        \ id=\"pnlUsuarioResizerSWL\" style=\"height: 40px; width: 4px;\"></div><div\
+        \ class=\"rich-mpnl-resizer\" id=\"pnlUsuarioResizerSWU\" style=\"width: 40px;\
+        \ height: 4px;\"></div><div class=\"rich-mpnl-resizer\" id=\"pnlUsuarioResizerNWL\"\
+        \ style=\"height: 40px; width: 4px;\"></div></div></div><div class=\"rich-mpnl-mask-div\
+        \ rich-mpnl-mask-div-transparent\" id=\"pnlUsuarioCursorDiv\" style=\"z-index:\
+        \ -200;\"><button class=\"rich-mpnl-button\" id=\"pnlUsuarioLastHref\"></button></div><script\
+        \ type=\"text/javascript\">new ModalPanel('pnlUsuario',\n\t\t\t\t{\n\t\t\t\
+        \t\twidth: 400,\n\t\t\t\t\theight: 200,\n\n\t\t\t\t\tminWidth: -1,\n\t\t\t\
+        \t\tminHeight: -1,\n\n\t\t\t\t\tresizeable: true,\n\t\t\t\t\tmoveable: true,\n\
+        \n\t\t\t\t\tleft: \"auto\",\n\t\t\t\t\ttop: \"auto\",\n\n\t\t\t\t\tzindex:\
+        \ 100,onresize: '',onmove: '',onshow: '',onhide: '',onbeforeshow: '',onbeforehide:\
+        \ '',\n\t\t\t\t\tdomElementAttachment: \"\",\t\t\t\t\n\t\t\t\t\tkeepVisualState:\
+        \ false,\n\t\t\t\t\tshowWhenRendered: false,\n\t\t\t\t\tselectBehavior: \"\
+        disable\",\n\n\t\t\t\t\tautosized: false,\n\t\t\t\t\toverlapEmbedObjects:\
+        \ false});</script></div><script type=\"text/javascript\"></script></div>\n\
+        \                </div>\n            </div>\n            \n\n            <div\
+        \ id=\"rcbuttonsindexcontainer\" style=\"border: 0px solid black;\">\n   \
+        \         </div>\n        </div>\n        \n\n        \n        <div id=\"\
+        footer\">\n            <a>\n                <img class=\"footerfloatleft\"\
+        \ alt=\"Deutsche Post World Net\" src=\"/Prepago/images/global/footer_dpwn_logo2.png\"\
+        \ width=\"156\" border=\"0\" />\n            </a>\n        </div>\n\n    \
+        \    <img height=\"1\" src=\"/Prepago/images/global/meddhl_DHLPymesMEXHomepage_1.gif\"\
+        \ width=\"1\" />\n    </body>\n</html>"
+    headers:
+      Content-Type:
+      - text/html;charset=UTF-8
+      Date:
+      - Tue, 21 Jan 2020 22:10:07 GMT
+      Server:
+      - Apache-Coyote/1.1
+      Set-Cookie:
+      - JSESSIONID=F2C310AFEEE1A51D17EE13BBA958556E; Path=/Prepago/; HttpOnly
+      - BIGipServerpl_prepaid.com.mx_80=1029802396.20480.0000; path=/; Httponly; Secure
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - JSF/1.2
+    status:
+      code: 200
+      message: OK
+- request:
+    body: AJAXREQUEST=%5B%27_viewRoot%27%5D&j_id6=%5B%27j_id6%27%5D&j_id6%3Aj_id20=%5B%27USERNAME%27%5D&j_id6%3Aj_id22=%5B%27PASSWORD%27%5D&javax.faces.ViewState=%5B%27j_id1%27%5D&j_id6%3Aj_id29=%5B%27j_id6%3Aj_id29%27%5D
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '148'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - JSESSIONID=F2C310AFEEE1A51D17EE13BBA958556E; BIGipServerpl_prepaid.com.mx_80=1029802396.20480.0000
+      User-Agent:
+      - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/75.0.3770.142 Safari/537.36
+    method: POST
+    uri: https://prepaid.dhl.com.mx/Prepago/jsp/app/login/login.xhtml
+  response:
+    body:
+      string: '<?xml version="1.0" encoding="UTF-8"?>
+
+        <html xmlns="http://www.w3.org/1999/xhtml"><head><meta name="Ajax-Response"
+        content="redirect" /><meta name="Location" content="/Prepago/jsp/app/inicio/inicio.xhtml"
+        /></head></html>'
+    headers:
+      Ajax-Response:
+      - redirect
+      Cache-Control:
+      - no-cache, must-revalidate, max_age=0, no-store
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Date:
+      - Tue, 21 Jan 2020 22:10:07 GMT
+      Expires:
+      - '0'
+      Location:
+      - /Prepago/jsp/app/inicio/inicio.xhtml
+      Pragma:
+      - no-cache
+      Server:
+      - Apache-Coyote/1.1
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - JSF/1.2
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      Cookie:
+      - JSESSIONID=F2C310AFEEE1A51D17EE13BBA958556E; BIGipServerpl_prepaid.com.mx_80=1029802396.20480.0000
+      User-Agent:
+      - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/75.0.3770.142 Safari/537.36
+    method: POST
+    uri: https://prepaid.dhl.com.mx/Prepago/jsp/app/inicio/inicio.xhtml
+  response:
+    body:
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"\
+        -//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\"\
+        \ >\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\n    <head>\n        <meta\
+        \ http-equiv=\"X-UA-Compatible\" content=\"IE=EmulateIE8\" />\n        <title>Administrar\n\
+        \        </title>\n        <link class=\"component\" href=\"/Prepago/a4j/s/3_3_3.Finalorg/richfaces/renderkit/html/css/basic_both.xcss/DATB/eAGbUnaFO3T5DGkAEaUDmQ__.xhtml\"\
+        \ rel=\"stylesheet\" type=\"text/css\" /><link class=\"component\" href=\"\
+        /Prepago/a4j/s/3_3_3.Finalorg/richfaces/renderkit/html/css/extended_both.xcss/DATB/eAGbUnaFO3T5DGkAEaUDmQ__.xhtml\"\
+        \ media=\"rich-extended-skinning\" rel=\"stylesheet\" type=\"text/css\" /><script\
+        \ src=\"/Prepago/a4j/g/3_3_3.Finalorg.ajax4jsf.javascript.AjaxScript.xhtml\"\
+        \ type=\"text/javascript\"></script><script src=\"/Prepago/a4j/g/3_3_3.Finalorg.ajax4jsf.javascript.PrototypeScript.xhtml\"\
+        \ type=\"text/javascript\"></script><script src=\"/Prepago/a4j/g/3_3_3.Finalorg/richfaces/renderkit/html/scripts/utils.js.xhtml\"\
+        \ type=\"text/javascript\"></script><script src=\"/Prepago/a4j/g/3_3_3.Finalorg/richfaces/renderkit/html/scripts/browser_info.js.xhtml\"\
+        \ type=\"text/javascript\"></script><script src=\"/Prepago/a4j/g/3_3_3.Finalorg/richfaces/renderkit/html/scripts/modalPanel.js.xhtml\"\
+        \ type=\"text/javascript\"></script><script src=\"/Prepago/a4j/g/3_3_3.Finalorg/richfaces/renderkit/html/scripts/modalPanelBorders.js.xhtml\"\
+        \ type=\"text/javascript\"></script><link class=\"component\" href=\"/Prepago/a4j/s/3_3_3.Finalorg/richfaces/renderkit/html/css/modalPanel.xcss/DATB/eAGbUnaFO3T5DGkAEaUDmQ__.xhtml\"\
+        \ rel=\"stylesheet\" type=\"text/css\" /><script src=\"/Prepago/a4j/g/3_3_3.Finalorg.ajax4jsf.javascript.ImageCacheScript.xhtml\"\
+        \ type=\"text/javascript\"></script><script src=\"/Prepago/a4j/g/3_3_3.Finalscripts/panelbar.js.xhtml\"\
+        \ type=\"text/javascript\"></script><link class=\"component\" href=\"/Prepago/a4j/s/3_3_3.Finalcss/panelbar.xcss/DATB/eAGbUnaFO3T5DGkAEaUDmQ__.xhtml\"\
+        \ rel=\"stylesheet\" type=\"text/css\" /><link class=\"component\" href=\"\
+        /Prepago/a4j/s/3_3_3.Finalcss/separator.xcss/DATB/eAGbUnaFO3T5DGkAEaUDmQ__.xhtml\"\
+        \ rel=\"stylesheet\" type=\"text/css\" /><script type=\"text/javascript\"\
+        >window.RICH_FACES_EXTENDED_SKINNING_ON=true;</script><script src=\"/Prepago/a4j/g/3_3_3.Finalorg/richfaces/renderkit/html/scripts/skinning.js.xhtml\"\
+        \ type=\"text/javascript\"></script><script type=\"text/javascript\" src=\"\
+        /Prepago/js/jquery_1_7_1.js\"></script>\n        <script type=\"text/javascript\"\
+        >\n            ////No permite el back del borwser\n            jQuery.noConflict();\n\
+        \            window.history.forward(1);\n            jQuery(document).ready(function(){\t\
+        \n                    jQuery('#indexmc').fadeIn(2000);\n            });\n\
+        \            \n            function formatNumber(num,prefix){\n          \
+        \      if(!isNaN(parseFloat(num)) && isFinite(num)){\n                   \
+        \ prefix = prefix || '';\n                    num += '';\n               \
+        \     var splitStr = num.split('.');\n                    var splitLeft =\
+        \ splitStr[0];\n                    var splitRight = splitStr.length > 1 ?\
+        \ '.' + splitStr[1] : '';\n                    var regx = /(\\d+)(\\d{3})/;\n\
+        \                    while (regx.test(splitLeft)) {\n                    splitLeft\
+        \ = splitLeft.replace(regx, '$1' + ',' + '$2');\n                    }\n \
+        \                   return prefix + splitLeft + splitRight;\n            \
+        \    }else{\n                    return num;\n                }\n        \
+        \    }\n\n            function unformatNumber(num) {\n                if(num.indexOf('$')!=-1){\n\
+        \                    return num.replace(/([^0-9\\.\\-])/g,'')*1;\n       \
+        \         }else{\n                    return num;\n                }\n   \
+        \         }\n        </script>\n        <link rel=\"stylesheet\" type=\"text/css\"\
+        \ href=\"/Prepago/css/global.css\" />\n        <link rel=\"stylesheet\" type=\"\
+        text/css\" href=\"/Prepago/css/prepago.css\" />\n        <link rel=\"shortcut\
+        \ icon\" href=\"/Prepago/images/ico/favicon.gif\" type=\"image/vnd.microsoft.icon\"\
+        \ />\n        <link rel=\"icon\" href=\"/Prepago/images/ico/favicon.gif\"\
+        \ type=\"/Prepago/images/vnd.microsoft.icon\" />\n        \n    </head>\n\
+        \    <body align=\"center\"><span id=\"_viewRoot:status\"><span id=\"_viewRoot:status.start\"\
+        \ style=\"display: none\"></span><script type=\"text/javascript\">\nwindow.document.getElementById('_viewRoot:status.start').onstart=function(){Richfaces.showModalPanel('espera');;};\n\
+        </script><span id=\"_viewRoot:status.stop\"></span><script type=\"text/javascript\"\
+        >\nwindow.document.getElementById('_viewRoot:status.stop').onstop=function(){Richfaces.hideModalPanel('espera');;};\n\
+        </script></span><div id=\"espera\" style=\"display: none;\"><input autocomplete=\"\
+        off\" id=\"esperaOpenedState\" name=\"esperaOpenedState\" type=\"hidden\"\
+        \ /><div class=\"rich-modalpanel \" id=\"esperaContainer\" style=\"position:\
+        \ absolute; display: none; z-index: 100; background-color: inherit;\"><div\
+        \ class=\"rich-mpnl-mask-div-opaque rich-mpnl-mask-div\" id=\"esperaDiv\"\
+        \ style=\"z-index: -1;\"><button class=\"rich-mpnl-button\" id=\"esperaFirstHref\"\
+        ></button></div><div class=\"rich-mpnl-panel\"><div class=\"rich-mp-container\"\
+        \ id=\"esperaCDiv\" style=\"position: absolute; left: 0px; top: 0px; z-index:\
+        \ 9;\"><div class=\"rich-mpnl-shadow\" id=\"esperaShadowDiv\"></div><div class=\"\
+        rich-mpnl-ovf-hd rich-mpnl-trim rich-mpnl-content\" id=\"esperaContentDiv\"\
+        \ style=\"background-color:white;\"><table border=\"0\" cellpadding=\"0\"\
+        \ cellspacing=\"0\" class=\"rich-mp-content-table\" id=\"esperaContentTable\"\
+        \ style=\"height: 100%; width: 100%;\"><tr style=\"height: 99%\"><td class=\"\
+        rich-mpnl-body\" valign=\"top\"><img src=\"/Prepago/images/ico/espera.gif\"\
+        \ style=\"border:0px solid white;\" /></td></tr></table></div></div></div><div\
+        \ class=\"rich-mpnl-mask-div rich-mpnl-mask-div-transparent\" id=\"esperaCursorDiv\"\
+        \ style=\"z-index: -200;\"><button class=\"rich-mpnl-button\" id=\"esperaLastHref\"\
+        ></button></div><script type=\"text/javascript\">new ModalPanel('espera',\n\
+        \t\t\t\t{\n\t\t\t\t\twidth: 50,\n\t\t\t\t\theight: 50,\n\n\t\t\t\t\tminWidth:\
+        \ -1,\n\t\t\t\t\tminHeight: -1,\n\n\t\t\t\t\tresizeable: false,\n\t\t\t\t\t\
+        moveable: false,\n\n\t\t\t\t\tleft: \"auto\",\n\t\t\t\t\ttop: \"auto\",\n\n\
+        \t\t\t\t\tzindex: 100,onresize: '',onmove: '',onshow: '',onhide: '',onbeforeshow:\
+        \ '',onbeforehide: '',\n\t\t\t\t\tdomElementAttachment: \"\",\t\t\t\t\n\t\t\
+        \t\t\tkeepVisualState: false,\n\t\t\t\t\tshowWhenRendered: false,\n\t\t\t\t\
+        \tselectBehavior: \"disable\",\n\n\t\t\t\t\tautosized: false,\n\t\t\t\t\t\
+        overlapEmbedObjects: false});</script></div><script type=\"text/javascript\"\
+        ></script></div>\n        \n        <div id=\"indexwrap\" style=\"border:\
+        \ 0px solid blue;\">\n\n            \n            <div id=\"header\" style=\"\
+        border: 0px solid black;\">\n                <div id=\"topnav\">\n       \
+        \             \n                </div>\n                <div id=\"header_logo\"\
+        \ style=\"border: 0px solid black;\">\n                        <img height=\"\
+        36\" alt=\"DHL Logo\" src=\"/Prepago/images/global/header_DHL_logo2.gif\"\
+        \ width=\"133\" border=\"0\" />\n                </div>\n            </div>\n\
+        \            \n\n            \n\n            \n            <div class=\"bodyStyle\"\
+        \ style=\"border: 0px solid black;\">\n                <div id=\"indexmc\"\
+        \ style=\"display:none;\">\n            <div align=\"center\" style=\"height:\
+        \ 500px;\">\n                \n            </div>\n                </div>\n\
+        \            </div>\n            \n\n            <div id=\"rcbuttonsindexcontainer\"\
+        \ style=\"border: 0px solid black;\">\n            <div align=\"center\">\n\
+        <form id=\"j_id9\" name=\"j_id9\" method=\"post\" action=\"/Prepago/jsp/app/inicio/inicio.xhtml\"\
+        \ enctype=\"application/x-www-form-urlencoded\">\n<input type=\"hidden\" name=\"\
+        j_id9\" value=\"j_id9\" />\n<div class=\"rich-panelbar rich-panelbar-b \"\
+        \ id=\"j_id9:j_id10\" style=\"padding: 0px; height: 100%; width: 200px; border:\
+        \ 1px solid #F2F2ED;background-color: white;\"><div class=\"rich-panelbar\
+        \ rich-panelbar-interior \" id=\"j_id9:j_id14\" style=\"border: 1px solid\
+        \ #F2F2ED;background-color: white;\"><div class=\"rich-panelbar-header  \"\
+        \ style=\";text-align:left;\">Cliente</div><div class=\"rich-panelbar-header-act\
+        \    \" style=\";text-align:left;;;;display: none;\">Cliente</div><div class=\"\
+        rich-panelbar-content-exterior\" style=\"display: none; width: 100%;\"><table\
+        \ cellpadding=\"0\" cellspacing=\"0\" style=\"height: 100%;\" width=\"100%\"\
+        ><tbody><tr><td class=\"rich-panelbar-content  \" style=\";\"><table cellpadding=\"\
+        3\" cellspacing=\"3\">\n<tbody>\n<tr>\n<td><div id=\"j_id9:j_id15\" style=\"\
+        font-size: 0px;\"><div class=\"rich-separator \" style=\"height: 5px; width:\
+        \ 5px; background-image: url(/Prepago/a4j/g/3_3_3.Finalorg.richfaces.renderkit.html.images.BevelSeparatorImage/DATB/eAFjYGVgZWCY8P!!fwAIlAOY.xhtml);\
+        \ null;\"></div></div></td>\n<td>\n<script type=\"text/javascript\" language=\"\
+        Javascript\">function dpf(f) {var adp = f.adp;if (adp != null) {for (var i\
+        \ = 0;i < adp.length;i++) {f.removeChild(adp[i]);}}};function apf(f, pvp)\
+        \ {var adp = new Array();f.adp = adp;var ps = pvp.split(',');for (var i =\
+        \ 0,ii = 0;i < ps.length;i++,ii++) {var p = document.createElement(\"input\"\
+        );p.type = \"hidden\";p.name = ps[i];p.value = ps[i + 1];f.appendChild(p);adp[ii]\
+        \ = p;i += 1;}};function jsfcljs(f, pvp, t) {apf(f, pvp);var ft = f.target;if\
+        \ (t) {f.target = t;}f.submit();f.target = ft;dpf(f);};</script>\n<a href=\"\
+        #\" onclick=\"if(typeof jsfcljs == 'function'){jsfcljs(document.forms['j_id9'],'j_id9:j_id16,j_id9:j_id16','');}return\
+        \ false\" class=\"appLink\">Impresi&oacute;n Sub Usuario</a></td>\n</tr>\n\
+        <tr>\n<td><div id=\"j_id9:j_id17\" style=\"font-size: 0px;\"><div class=\"\
+        rich-separator \" style=\"height: 5px; width: 5px; background-image: url(/Prepago/a4j/g/3_3_3.Finalorg.richfaces.renderkit.html.images.BevelSeparatorImage/DATB/eAFjYGVgZWCY8P!!fwAIlAOY.xhtml);\
+        \ null;\"></div></div></td>\n<td><a href=\"#\" onclick=\"if(typeof jsfcljs\
+        \ == 'function'){jsfcljs(document.forms['j_id9'],'j_id9:j_id18,j_id9:j_id18','');}return\
+        \ false\" class=\"appLink\">Gu&iacute;as Impresas</a></td>\n</tr>\n<tr>\n\
+        <td><div id=\"j_id9:j_id19\" style=\"font-size: 0px;\"><div class=\"rich-separator\
+        \ \" style=\"height: 5px; width: 5px; background-image: url(/Prepago/a4j/g/3_3_3.Finalorg.richfaces.renderkit.html.images.BevelSeparatorImage/DATB/eAFjYGVgZWCY8P!!fwAIlAOY.xhtml);\
+        \ null;\"></div></div></td>\n<td><a href=\"#\" onclick=\"if(typeof jsfcljs\
+        \ == 'function'){jsfcljs(document.forms['j_id9'],'j_id9:j_id20,j_id9:j_id20','');}return\
+        \ false\" class=\"appLink\">Asignar Recolecci&oacute;n (SubUsuario)</a></td>\n\
+        </tr>\n<tr>\n<td><div id=\"j_id9:j_id21\" style=\"font-size: 0px;\"><div class=\"\
+        rich-separator \" style=\"height: 5px; width: 5px; background-image: url(/Prepago/a4j/g/3_3_3.Finalorg.richfaces.renderkit.html.images.BevelSeparatorImage/DATB/eAFjYGVgZWCY8P!!fwAIlAOY.xhtml);\
+        \ null;\"></div></div></td>\n<td><a href=\"#\" onclick=\"if(typeof jsfcljs\
+        \ == 'function'){jsfcljs(document.forms['j_id9'],'j_id9:j_id22,j_id9:j_id22','');}return\
+        \ false\" class=\"appLink\">Manual de Usuario</a></td>\n</tr>\n</tbody>\n\
+        </table>\n</td></tr></tbody></table></div></div><div class=\"rich-panelbar\
+        \ rich-panelbar-interior \" id=\"j_id9:j_id23\" style=\"border: 1px solid\
+        \ #F2F2ED;background-color: white;\"><div class=\"rich-panelbar-header  \"\
+        \ style=\";text-align:left;\">Reportes</div><div class=\"rich-panelbar-header-act\
+        \    \" style=\";text-align:left;;;;display: none;\">Reportes</div><div class=\"\
+        rich-panelbar-content-exterior\" style=\"display: none; width: 100%;\"><table\
+        \ cellpadding=\"0\" cellspacing=\"0\" style=\"height: 100%;\" width=\"100%\"\
+        ><tbody><tr><td class=\"rich-panelbar-content  \" style=\";\"><table cellpadding=\"\
+        3\" cellspacing=\"3\">\n<tbody>\n<tr>\n<td><div id=\"j_id9:j_id24\" style=\"\
+        font-size: 0px;\"><div class=\"rich-separator \" style=\"height: 5px; width:\
+        \ 5px; background-image: url(/Prepago/a4j/g/3_3_3.Finalorg.richfaces.renderkit.html.images.BevelSeparatorImage/DATB/eAFjYGVgZWCY8P!!fwAIlAOY.xhtml);\
+        \ null;\"></div></div></td>\n<td><a href=\"#\" onclick=\"if(typeof jsfcljs\
+        \ == 'function'){jsfcljs(document.forms['j_id9'],'j_id9:j_id25,j_id9:j_id25','');}return\
+        \ false\" class=\"appLink\">Gu&iacute;as Generadas (SubUsuario)</a></td>\n\
+        </tr>\n</tbody>\n</table>\n</td></tr></tbody></table></div></div><div class=\"\
+        rich-panelbar rich-panelbar-interior \" id=\"j_id9:j_id26\" style=\"border:\
+        \ 1px solid #F2F2ED;background-color: white;\"><div class=\"rich-panelbar-header\
+        \  \" style=\";text-align:left;\">Salir</div><div class=\"rich-panelbar-header-act\
+        \    \" style=\";text-align:left;;;;display: none;\">Salir</div><div class=\"\
+        rich-panelbar-content-exterior\" style=\"display: none; width: 100%;\"><table\
+        \ cellpadding=\"0\" cellspacing=\"0\" style=\"height: 100%;\" width=\"100%\"\
+        ><tbody><tr><td class=\"rich-panelbar-content  \" style=\";\"><table cellpadding=\"\
+        3\" cellspacing=\"3\">\n<tbody>\n<tr>\n<td><div id=\"j_id9:j_id27\" style=\"\
+        font-size: 0px;\"><div class=\"rich-separator \" style=\"height: 5px; width:\
+        \ 5px; background-image: url(/Prepago/a4j/g/3_3_3.Finalorg.richfaces.renderkit.html.images.BevelSeparatorImage/DATB/eAFjYGVgZWCY8P!!fwAIlAOY.xhtml);\
+        \ null;\"></div></div></td>\n<td><a href=\"#\" onclick=\"if(typeof jsfcljs\
+        \ == 'function'){jsfcljs(document.forms['j_id9'],'j_id9:j_id28,j_id9:j_id28','');}return\
+        \ false\" class=\"appLink\">Cambiar Password</a></td>\n</tr>\n<tr>\n<td><div\
+        \ id=\"j_id9:j_id29\" style=\"font-size: 0px;\"><div class=\"rich-separator\
+        \ \" style=\"height: 5px; width: 5px; background-image: url(/Prepago/a4j/g/3_3_3.Finalorg.richfaces.renderkit.html.images.BevelSeparatorImage/DATB/eAFjYGVgZWCY8P!!fwAIlAOY.xhtml);\
+        \ null;\"></div></div></td>\n<td><a href=\"#\" onclick=\"if(typeof jsfcljs\
+        \ == 'function'){jsfcljs(document.forms['j_id9'],'j_id9:j_id30,j_id9:j_id30','');}return\
+        \ false\" class=\"appLink\">Cerrar Sesi&oacute;n</a></td>\n</tr>\n</tbody>\n\
+        </table>\n</td></tr></tbody></table></div></div><input autocomplete=\"off\"\
+        \ id=\"j_id9:j_id10_panelBarInput\" name=\"j_id9:j_id10\" type=\"hidden\"\
+        \ /><script type=\"text/javascript\">new Richfaces.PanelBar('j_id9:j_id10',{'mousemove':'','items':[{'onleave':'','id':'j_id9:j_id14','onenter':''}\
+        \ ,{'onleave':'','id':'j_id9:j_id23','onenter':''} ,{'onleave':'','id':'j_id9:j_id26','onenter':''}\
+        \ ] ,'ajax':false,'mouseout':'','onclick':'','mouseover':'','onitemchange':'','onitemchanged':''}\
+        \ );</script></div><input type=\"hidden\" name=\"javax.faces.ViewState\" id=\"\
+        javax.faces.ViewState\" value=\"j_id2\" />\n</form>\n            </div>\n\
+        \            </div>\n        </div>\n        \n\n        \n        <div id=\"\
+        footer\">\n            <a>\n                <img class=\"footerfloatleft\"\
+        \ alt=\"Deutsche Post World Net\" src=\"/Prepago/images/global/footer_dpwn_logo2.png\"\
+        \ width=\"156\" border=\"0\" />\n            </a>\n        </div>\n\n    \
+        \    <img height=\"1\" src=\"/Prepago/images/global/meddhl_DHLPymesMEXHomepage_1.gif\"\
+        \ width=\"1\" />\n    </body>\n</html>"
+    headers:
+      Content-Type:
+      - text/html;charset=UTF-8
+      Date:
+      - Tue, 21 Jan 2020 22:10:08 GMT
+      Server:
+      - Apache-Coyote/1.1
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - JSF/1.2
+    status:
+      code: 200
+      message: OK
+- request:
+    body: j_id9=j_id9&j_id9%3Aj_id16=j_id9%3Aj_id16&javax.faces.ViewState=j_id2&j_id9%3Aj_id10=j_id9%3Aj_id14
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '99'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - JSESSIONID=F2C310AFEEE1A51D17EE13BBA958556E; BIGipServerpl_prepaid.com.mx_80=1029802396.20480.0000
+      User-Agent:
+      - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/75.0.3770.142 Safari/537.36
+    method: POST
+    uri: https://prepaid.dhl.com.mx/Prepago/jsp/app/inicio/inicio.xhtml
+  response:
+    body:
+      string: ''
+    headers:
+      Content-Length:
+      - '0'
+      Date:
+      - Tue, 21 Jan 2020 22:10:08 GMT
+      Location:
+      - http://prepaid.dhl.com.mx/Prepago/jsp/app/cliente/impresionClienteSubUsuario.xhtml
+      Server:
+      - Apache-Coyote/1.1
+      X-Powered-By:
+      - JSF/1.2
+    status:
+      code: 302
+      message: Found
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - JSESSIONID=F2C310AFEEE1A51D17EE13BBA958556E
+      User-Agent:
+      - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/75.0.3770.142 Safari/537.36
+    method: GET
+    uri: http://prepaid.dhl.com.mx/Prepago/jsp/app/cliente/impresionClienteSubUsuario.xhtml
+  response:
+    body:
+      string: ''
+    headers:
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '0'
+      Location:
+      - https://prepaid.dhl.com.mx/Prepago/jsp/app/cliente/impresionClienteSubUsuario.xhtml
+      Server:
+      - BigIP
+    status:
+      code: 302
+      message: Found
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - JSESSIONID=F2C310AFEEE1A51D17EE13BBA958556E; BIGipServerpl_prepaid.com.mx_80=1029802396.20480.0000
+      User-Agent:
+      - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/75.0.3770.142 Safari/537.36
+    method: GET
+    uri: https://prepaid.dhl.com.mx/Prepago/jsp/app/cliente/impresionClienteSubUsuario.xhtml
+  response:
+    body:
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"\
+        -//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\"\
+        \ >\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\n    <head>\n        <meta\
+        \ http-equiv=\"X-UA-Compatible\" content=\"IE=EmulateIE8\" />\n        <title>Impresi&oacute;n\n\
+        \        </title>\n        <link class=\"component\" href=\"/Prepago/a4j/s/3_3_3.Finalorg/richfaces/renderkit/html/css/basic_both.xcss/DATB/eAGbUnaFO3T5DGkAEaUDmQ__.xhtml\"\
+        \ rel=\"stylesheet\" type=\"text/css\" /><link class=\"component\" href=\"\
+        /Prepago/a4j/s/3_3_3.Finalorg/richfaces/renderkit/html/css/extended_both.xcss/DATB/eAGbUnaFO3T5DGkAEaUDmQ__.xhtml\"\
+        \ media=\"rich-extended-skinning\" rel=\"stylesheet\" type=\"text/css\" /><script\
+        \ src=\"/Prepago/a4j/g/3_3_3.Finalorg.ajax4jsf.javascript.AjaxScript.xhtml\"\
+        \ type=\"text/javascript\"></script><script src=\"/Prepago/a4j/g/3_3_3.Finalorg.ajax4jsf.javascript.PrototypeScript.xhtml\"\
+        \ type=\"text/javascript\"></script><script src=\"/Prepago/a4j/g/3_3_3.Finalorg/richfaces/renderkit/html/scripts/utils.js.xhtml\"\
+        \ type=\"text/javascript\"></script><script src=\"/Prepago/a4j/g/3_3_3.Finalorg/richfaces/renderkit/html/scripts/browser_info.js.xhtml\"\
+        \ type=\"text/javascript\"></script><script src=\"/Prepago/a4j/g/3_3_3.Finalorg/richfaces/renderkit/html/scripts/modalPanel.js.xhtml\"\
+        \ type=\"text/javascript\"></script><script src=\"/Prepago/a4j/g/3_3_3.Finalorg/richfaces/renderkit/html/scripts/modalPanelBorders.js.xhtml\"\
+        \ type=\"text/javascript\"></script><link class=\"component\" href=\"/Prepago/a4j/s/3_3_3.Finalorg/richfaces/renderkit/html/css/modalPanel.xcss/DATB/eAGbUnaFO3T5DGkAEaUDmQ__.xhtml\"\
+        \ rel=\"stylesheet\" type=\"text/css\" /><link class=\"component\" href=\"\
+        /Prepago/a4j/s/3_3_3.Finalcss/table.xcss/DATB/eAGbUnaFO3T5DGkAEaUDmQ__.xhtml\"\
+        \ rel=\"stylesheet\" type=\"text/css\" /><script src=\"/Prepago/a4j/g/3_3_3.Finalorg/richfaces/renderkit/html/scripts/datascroller.js.xhtml\"\
+        \ type=\"text/javascript\"></script><link class=\"component\" href=\"/Prepago/a4j/s/3_3_3.Finalcss/datascroller.xcss/DATB/eAGbUnaFO3T5DGkAEaUDmQ__.xhtml\"\
+        \ rel=\"stylesheet\" type=\"text/css\" /><link class=\"component\" href=\"\
+        /Prepago/a4j/g/3_3_3.Finalorg/richfaces/renderkit/html/css/msg.css.xhtml\"\
+        \ rel=\"stylesheet\" type=\"text/css\" /><link class=\"component\" href=\"\
+        /Prepago/a4j/g/3_3_3.Finalorg/richfaces/renderkit/html/css/msgs.css.xhtml\"\
+        \ rel=\"stylesheet\" type=\"text/css\" /><script src=\"/Prepago/a4j/g/3_3_3.Finalorg.ajax4jsf.javascript.ImageCacheScript.xhtml\"\
+        \ type=\"text/javascript\"></script><script src=\"/Prepago/a4j/g/3_3_3.Finalscripts/panelbar.js.xhtml\"\
+        \ type=\"text/javascript\"></script><link class=\"component\" href=\"/Prepago/a4j/s/3_3_3.Finalcss/panelbar.xcss/DATB/eAGbUnaFO3T5DGkAEaUDmQ__.xhtml\"\
+        \ rel=\"stylesheet\" type=\"text/css\" /><link class=\"component\" href=\"\
+        /Prepago/a4j/s/3_3_3.Finalcss/separator.xcss/DATB/eAGbUnaFO3T5DGkAEaUDmQ__.xhtml\"\
+        \ rel=\"stylesheet\" type=\"text/css\" /><script type=\"text/javascript\"\
+        >window.RICH_FACES_EXTENDED_SKINNING_ON=true;</script><script src=\"/Prepago/a4j/g/3_3_3.Finalorg/richfaces/renderkit/html/scripts/skinning.js.xhtml\"\
+        \ type=\"text/javascript\"></script><script type=\"text/javascript\" src=\"\
+        /Prepago/js/jquery_1_7_1.js\"></script>\n        <script type=\"text/javascript\"\
+        >\n            ////No permite el back del borwser\n            jQuery.noConflict();\n\
+        \            window.history.forward(1);\n            jQuery(document).ready(function(){\t\
+        \n                    jQuery('#indexmc').fadeIn(2000);\n            });\n\
+        \            \n            function formatNumber(num,prefix){\n          \
+        \      if(!isNaN(parseFloat(num)) && isFinite(num)){\n                   \
+        \ prefix = prefix || '';\n                    num += '';\n               \
+        \     var splitStr = num.split('.');\n                    var splitLeft =\
+        \ splitStr[0];\n                    var splitRight = splitStr.length > 1 ?\
+        \ '.' + splitStr[1] : '';\n                    var regx = /(\\d+)(\\d{3})/;\n\
+        \                    while (regx.test(splitLeft)) {\n                    splitLeft\
+        \ = splitLeft.replace(regx, '$1' + ',' + '$2');\n                    }\n \
+        \                   return prefix + splitLeft + splitRight;\n            \
+        \    }else{\n                    return num;\n                }\n        \
+        \    }\n\n            function unformatNumber(num) {\n                if(num.indexOf('$')!=-1){\n\
+        \                    return num.replace(/([^0-9\\.\\-])/g,'')*1;\n       \
+        \         }else{\n                    return num;\n                }\n   \
+        \         }\n        </script>\n        <link rel=\"stylesheet\" type=\"text/css\"\
+        \ href=\"/Prepago/css/global.css\" />\n        <link rel=\"stylesheet\" type=\"\
+        text/css\" href=\"/Prepago/css/prepago.css\" />\n        <link rel=\"shortcut\
+        \ icon\" href=\"/Prepago/images/ico/favicon.gif\" type=\"image/vnd.microsoft.icon\"\
+        \ />\n        <link rel=\"icon\" href=\"/Prepago/images/ico/favicon.gif\"\
+        \ type=\"/Prepago/images/vnd.microsoft.icon\" />\n        \n    </head>\n\
+        \    <body align=\"center\"><span id=\"_viewRoot:status\"><span id=\"_viewRoot:status.start\"\
+        \ style=\"display: none\"></span><script type=\"text/javascript\">\nwindow.document.getElementById('_viewRoot:status.start').onstart=function(){Richfaces.showModalPanel('espera');;};\n\
+        </script><span id=\"_viewRoot:status.stop\"></span><script type=\"text/javascript\"\
+        >\nwindow.document.getElementById('_viewRoot:status.stop').onstop=function(){Richfaces.hideModalPanel('espera');;};\n\
+        </script></span><div id=\"espera\" style=\"display: none;\"><input autocomplete=\"\
+        off\" id=\"esperaOpenedState\" name=\"esperaOpenedState\" type=\"hidden\"\
+        \ /><div class=\"rich-modalpanel \" id=\"esperaContainer\" style=\"position:\
+        \ absolute; display: none; z-index: 100; background-color: inherit;\"><div\
+        \ class=\"rich-mpnl-mask-div-opaque rich-mpnl-mask-div\" id=\"esperaDiv\"\
+        \ style=\"z-index: -1;\"><button class=\"rich-mpnl-button\" id=\"esperaFirstHref\"\
+        ></button></div><div class=\"rich-mpnl-panel\"><div class=\"rich-mp-container\"\
+        \ id=\"esperaCDiv\" style=\"position: absolute; left: 0px; top: 0px; z-index:\
+        \ 9;\"><div class=\"rich-mpnl-shadow\" id=\"esperaShadowDiv\"></div><div class=\"\
+        rich-mpnl-ovf-hd rich-mpnl-trim rich-mpnl-content\" id=\"esperaContentDiv\"\
+        \ style=\"background-color:white;\"><table border=\"0\" cellpadding=\"0\"\
+        \ cellspacing=\"0\" class=\"rich-mp-content-table\" id=\"esperaContentTable\"\
+        \ style=\"height: 100%; width: 100%;\"><tr style=\"height: 99%\"><td class=\"\
+        rich-mpnl-body\" valign=\"top\"><img src=\"/Prepago/images/ico/espera.gif\"\
+        \ style=\"border:0px solid white;\" /></td></tr></table></div></div></div><div\
+        \ class=\"rich-mpnl-mask-div rich-mpnl-mask-div-transparent\" id=\"esperaCursorDiv\"\
+        \ style=\"z-index: -200;\"><button class=\"rich-mpnl-button\" id=\"esperaLastHref\"\
+        ></button></div><script type=\"text/javascript\">new ModalPanel('espera',\n\
+        \t\t\t\t{\n\t\t\t\t\twidth: 50,\n\t\t\t\t\theight: 50,\n\n\t\t\t\t\tminWidth:\
+        \ -1,\n\t\t\t\t\tminHeight: -1,\n\n\t\t\t\t\tresizeable: false,\n\t\t\t\t\t\
+        moveable: false,\n\n\t\t\t\t\tleft: \"auto\",\n\t\t\t\t\ttop: \"auto\",\n\n\
+        \t\t\t\t\tzindex: 100,onresize: '',onmove: '',onshow: '',onhide: '',onbeforeshow:\
+        \ '',onbeforehide: '',\n\t\t\t\t\tdomElementAttachment: \"\",\t\t\t\t\n\t\t\
+        \t\t\tkeepVisualState: false,\n\t\t\t\t\tshowWhenRendered: false,\n\t\t\t\t\
+        \tselectBehavior: \"disable\",\n\n\t\t\t\t\tautosized: false,\n\t\t\t\t\t\
+        overlapEmbedObjects: false});</script></div><script type=\"text/javascript\"\
+        ></script></div>\n        \n        <div id=\"indexwrap\" style=\"border:\
+        \ 0px solid blue;\">\n\n            \n            <div id=\"header\" style=\"\
+        border: 0px solid black;\">\n                <div id=\"topnav\">\n       \
+        \             \n                </div>\n                <div id=\"header_logo\"\
+        \ style=\"border: 0px solid black;\">\n                        <img height=\"\
+        36\" alt=\"DHL Logo\" src=\"/Prepago/images/global/header_DHL_logo2.gif\"\
+        \ width=\"133\" border=\"0\" />\n                </div>\n            </div>\n\
+        \            \n\n            \n\n            \n            <div class=\"bodyStyle\"\
+        \ style=\"border: 0px solid black;\">\n                <div id=\"indexmc\"\
+        \ style=\"display:none;\">\n<form id=\"j_id6\" name=\"j_id6\" method=\"post\"\
+        \ action=\"/Prepago/jsp/app/cliente/impresionClienteSubUsuario.xhtml\" enctype=\"\
+        application/x-www-form-urlencoded\">\n<input type=\"hidden\" name=\"j_id6\"\
+        \ value=\"j_id6\" />\n\n                <div align=\"center\" style=\"height:720px;width:\
+        \ 760px;\"><table id=\"j_id6:pnlPrincipal\">\n<tbody>\n<tr>\n<td class=\"\
+        alignCenter\"><table id=\"j_id6:pnlCriterios\" width=\"720px\">\n<tbody>\n\
+        <tr>\n<td class=\"left\"><table class=\"tableTitle\" width=\"720px\">\n<thead>\n\
+        <tr><th colspan=\"1\" scope=\"colgroup\">Impresi&oacute;n Sub Usuario - Ordenes\
+        \ de Compra</th></tr>\n</thead>\n<tbody>\n</tbody>\n</table>\n</td>\n</tr>\n\
+        <tr>\n<td class=\"left\"><table id=\"j_id6:pnlOrdenesEncontradas\">\n<tbody>\n\
+        <tr>\n<td><table cellpadding=\"5px\" style=\"padding:5px\" width=\"720px\"\
+        >\n<tbody>\n<tr>\n<td><table class=\"rich-table \" id=\"j_id6:tblElementos\"\
+        \ align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" title=\"\
+        Ordenes de Compra\"><colgroup span=\"6\"><col width=\"110\" /><col width=\"\
+        140\" /><col width=\"110\" /><col width=\"110\" /><col width=\"120\" /><col\
+        \ width=\"100\" /></colgroup><thead class=\"rich-table-thead\"><tr class=\"\
+        rich-table-header  \"><th class=\"rich-table-headercell \" id=\"j_id6:tblElementos:j_id12\"\
+        \ colspan=\"6\">Ordenes de Compra</th></tr><tr class=\"rich-table-header-continue\
+        \  \"><th class=\"rich-table-headercell \" id=\"j_id6:tblElementos:j_id14\"\
+        >Folio</th><th class=\"rich-table-headercell \" id=\"j_id6:tblElementos:j_id16\"\
+        >Fecha de Caducidad</th><th class=\"rich-table-headercell \" id=\"j_id6:tblElementos:j_id18\"\
+        >Total de Gu&iacute;as</th><th class=\"rich-table-headercell \" id=\"j_id6:tblElementos:j_id20\"\
+        >Gu&iacute;as Usadas</th><th class=\"rich-table-headercell \" id=\"j_id6:tblElementos:j_id22\"\
+        >Gu&iacute;as Disponibles</th><th class=\"rich-table-headercell \" id=\"j_id6:tblElementos:j_id24\"\
+        >Seleccionar</th></tr></thead><tbody id=\"j_id6:tblElementos:tb\"><tr class=\"\
+        rich-table-row rich-table-firstrow non\" onmouseover=\"this.style.backgroundColor='#FFE88A'\"\
+        \ onmouseout=\"this.style.backgroundColor=''\"><td class=\"rich-table-cell\
+        \ center \" id=\"j_id6:tblElementos:0:j_id26\">10029134</td><td class=\"rich-table-cell\
+        \ center \" id=\"j_id6:tblElementos:0:j_id28\">30/12/2020</td><td class=\"\
+        rich-table-cell right \" id=\"j_id6:tblElementos:0:j_id30\">9</td><td class=\"\
+        rich-table-cell right \" id=\"j_id6:tblElementos:0:j_id32\">9</td><td class=\"\
+        rich-table-cell right \" id=\"j_id6:tblElementos:0:j_id34\">0</td><td class=\"\
+        rich-table-cell right \" id=\"j_id6:tblElementos:0:j_id36\"></td></tr></tbody></table></td>\n\
+        </tr>\n<tr>\n<td><img alt=\"\" class=\"rich-spacer \" height=\"10\" id=\"\
+        j_id6:j_id38\" src=\"/Prepago/a4j/g/3_3_3.Finalimages/spacer.gif.xhtml\" width=\"\
+        1\" /></td>\n</tr>\n<tr>\n<td><div class=\"rich-datascr \" id=\"j_id6:j_id39\"\
+        \ style=\" ; display: none\" align=\"center\"><script type=\"text/javascript\"\
+        >new Richfaces.Datascroller('j_id6:j_id39', function(event){A4J.AJAX.Submit('j_id6',event,{'ignoreDupResponses':true,'implicitEventsQueue':'j_id6:j_id39','similarityGroupingId':'j_id6:j_id39','parameters':{'ajaxSingle':'j_id6:j_id39','j_id6:j_id39':event.memo.page}\
+        \ } ); return false;});</script></div></td>\n</tr>\n</tbody>\n</table>\n</td>\n\
+        </tr>\n</tbody>\n</table>\n</td>\n</tr>\n<tr>\n<td class=\"left\"><img alt=\"\
+        \" class=\"rich-spacer \" height=\"10px\" id=\"j_id6:j_id44\" src=\"/Prepago/a4j/g/3_3_3.Finalimages/spacer.gif.xhtml\"\
+        \ width=\"1\" /></td>\n</tr>\n<tr>\n<td class=\"left\"><table id=\"j_id6:pnlProductos\"\
+        \ class=\"alignCenter\" width=\"720px\">\n<tbody>\n<tr>\n<td class=\"center\"\
+        ><img alt=\"\" class=\"rich-spacer \" height=\"10\" id=\"j_id6:j_id45\" src=\"\
+        /Prepago/a4j/g/3_3_3.Finalimages/spacer.gif.xhtml\" width=\"1\" /></td>\n\
+        </tr>\n<tr>\n<td class=\"center\"><dl id=\"j_id6:j_id83\" class=\"rich-messages\"\
+        \ style=\"display: none; \"><dt></dt></dl></td>\n</tr>\n</tbody>\n</table>\n\
+        </td>\n</tr>\n</tbody>\n</table>\n</td>\n</tr>\n</tbody>\n</table>\n\n   \
+        \             </div><input type=\"hidden\" name=\"javax.faces.ViewState\"\
+        \ id=\"javax.faces.ViewState\" value=\"j_id3\" />\n</form>\n             \
+        \   </div>\n            </div>\n            \n\n            <div id=\"rcbuttonsindexcontainer\"\
+        \ style=\"border: 0px solid black;\">\n            <div align=\"center\">\n\
+        <form id=\"j_id88\" name=\"j_id88\" method=\"post\" action=\"/Prepago/jsp/app/cliente/impresionClienteSubUsuario.xhtml\"\
+        \ enctype=\"application/x-www-form-urlencoded\">\n<input type=\"hidden\" name=\"\
+        j_id88\" value=\"j_id88\" />\n<div class=\"rich-panelbar rich-panelbar-b \"\
+        \ id=\"j_id88:j_id89\" style=\"padding: 0px; height: 100%; width: 200px; border:\
+        \ 1px solid #F2F2ED;background-color: white;\"><div class=\"rich-panelbar\
+        \ rich-panelbar-interior \" id=\"j_id9:j_id14\" style=\"border: 1px solid\
+        \ #F2F2ED;background-color: white;\"><div class=\"rich-panelbar-header  \"\
+        \ style=\";text-align:left;\">Cliente</div><div class=\"rich-panelbar-header-act\
+        \    \" style=\";text-align:left;;;;display: none;\">Cliente</div><div class=\"\
+        rich-panelbar-content-exterior\" style=\"display: none; width: 100%;\"><table\
+        \ cellpadding=\"0\" cellspacing=\"0\" style=\"height: 100%;\" width=\"100%\"\
+        ><tbody><tr><td class=\"rich-panelbar-content  \" style=\";\"><table cellpadding=\"\
+        3\" cellspacing=\"3\">\n<tbody>\n<tr>\n<td><div id=\"j_id9:j_id15\" style=\"\
+        font-size: 0px;\"><div class=\"rich-separator \" style=\"height: 5px; width:\
+        \ 5px; background-image: url(/Prepago/a4j/g/3_3_3.Finalorg.richfaces.renderkit.html.images.BevelSeparatorImage/DATB/eAFjYGVgZWCY8P!!fwAIlAOY.xhtml);\
+        \ null;\"></div></div></td>\n<td>\n<script type=\"text/javascript\" language=\"\
+        Javascript\">function dpf(f) {var adp = f.adp;if (adp != null) {for (var i\
+        \ = 0;i < adp.length;i++) {f.removeChild(adp[i]);}}};function apf(f, pvp)\
+        \ {var adp = new Array();f.adp = adp;var ps = pvp.split(',');for (var i =\
+        \ 0,ii = 0;i < ps.length;i++,ii++) {var p = document.createElement(\"input\"\
+        );p.type = \"hidden\";p.name = ps[i];p.value = ps[i + 1];f.appendChild(p);adp[ii]\
+        \ = p;i += 1;}};function jsfcljs(f, pvp, t) {apf(f, pvp);var ft = f.target;if\
+        \ (t) {f.target = t;}f.submit();f.target = ft;dpf(f);};</script>\n<a href=\"\
+        #\" onclick=\"if(typeof jsfcljs == 'function'){jsfcljs(document.forms['j_id88'],'j_id9:j_id16,j_id9:j_id16','');}return\
+        \ false\" class=\"appLink\">Impresi&oacute;n Sub Usuario</a></td>\n</tr>\n\
+        <tr>\n<td><div id=\"j_id9:j_id17\" style=\"font-size: 0px;\"><div class=\"\
+        rich-separator \" style=\"height: 5px; width: 5px; background-image: url(/Prepago/a4j/g/3_3_3.Finalorg.richfaces.renderkit.html.images.BevelSeparatorImage/DATB/eAFjYGVgZWCY8P!!fwAIlAOY.xhtml);\
+        \ null;\"></div></div></td>\n<td><a href=\"#\" onclick=\"if(typeof jsfcljs\
+        \ == 'function'){jsfcljs(document.forms['j_id88'],'j_id9:j_id18,j_id9:j_id18','');}return\
+        \ false\" class=\"appLink\">Gu&iacute;as Impresas</a></td>\n</tr>\n<tr>\n\
+        <td><div id=\"j_id9:j_id19\" style=\"font-size: 0px;\"><div class=\"rich-separator\
+        \ \" style=\"height: 5px; width: 5px; background-image: url(/Prepago/a4j/g/3_3_3.Finalorg.richfaces.renderkit.html.images.BevelSeparatorImage/DATB/eAFjYGVgZWCY8P!!fwAIlAOY.xhtml);\
+        \ null;\"></div></div></td>\n<td><a href=\"#\" onclick=\"if(typeof jsfcljs\
+        \ == 'function'){jsfcljs(document.forms['j_id88'],'j_id9:j_id20,j_id9:j_id20','');}return\
+        \ false\" class=\"appLink\">Asignar Recolecci&oacute;n (SubUsuario)</a></td>\n\
+        </tr>\n<tr>\n<td><div id=\"j_id9:j_id21\" style=\"font-size: 0px;\"><div class=\"\
+        rich-separator \" style=\"height: 5px; width: 5px; background-image: url(/Prepago/a4j/g/3_3_3.Finalorg.richfaces.renderkit.html.images.BevelSeparatorImage/DATB/eAFjYGVgZWCY8P!!fwAIlAOY.xhtml);\
+        \ null;\"></div></div></td>\n<td><a href=\"#\" onclick=\"if(typeof jsfcljs\
+        \ == 'function'){jsfcljs(document.forms['j_id88'],'j_id9:j_id22,j_id9:j_id22','');}return\
+        \ false\" class=\"appLink\">Manual de Usuario</a></td>\n</tr>\n</tbody>\n\
+        </table>\n</td></tr></tbody></table></div></div><div class=\"rich-panelbar\
+        \ rich-panelbar-interior \" id=\"j_id9:j_id23\" style=\"border: 1px solid\
+        \ #F2F2ED;background-color: white;\"><div class=\"rich-panelbar-header  \"\
+        \ style=\";text-align:left;\">Reportes</div><div class=\"rich-panelbar-header-act\
+        \    \" style=\";text-align:left;;;;display: none;\">Reportes</div><div class=\"\
+        rich-panelbar-content-exterior\" style=\"display: none; width: 100%;\"><table\
+        \ cellpadding=\"0\" cellspacing=\"0\" style=\"height: 100%;\" width=\"100%\"\
+        ><tbody><tr><td class=\"rich-panelbar-content  \" style=\";\"><table cellpadding=\"\
+        3\" cellspacing=\"3\">\n<tbody>\n<tr>\n<td><div id=\"j_id9:j_id24\" style=\"\
+        font-size: 0px;\"><div class=\"rich-separator \" style=\"height: 5px; width:\
+        \ 5px; background-image: url(/Prepago/a4j/g/3_3_3.Finalorg.richfaces.renderkit.html.images.BevelSeparatorImage/DATB/eAFjYGVgZWCY8P!!fwAIlAOY.xhtml);\
+        \ null;\"></div></div></td>\n<td><a href=\"#\" onclick=\"if(typeof jsfcljs\
+        \ == 'function'){jsfcljs(document.forms['j_id88'],'j_id9:j_id25,j_id9:j_id25','');}return\
+        \ false\" class=\"appLink\">Gu&iacute;as Generadas (SubUsuario)</a></td>\n\
+        </tr>\n</tbody>\n</table>\n</td></tr></tbody></table></div></div><div class=\"\
+        rich-panelbar rich-panelbar-interior \" id=\"j_id9:j_id26\" style=\"border:\
+        \ 1px solid #F2F2ED;background-color: white;\"><div class=\"rich-panelbar-header\
+        \  \" style=\";text-align:left;\">Salir</div><div class=\"rich-panelbar-header-act\
+        \    \" style=\";text-align:left;;;;display: none;\">Salir</div><div class=\"\
+        rich-panelbar-content-exterior\" style=\"display: none; width: 100%;\"><table\
+        \ cellpadding=\"0\" cellspacing=\"0\" style=\"height: 100%;\" width=\"100%\"\
+        ><tbody><tr><td class=\"rich-panelbar-content  \" style=\";\"><table cellpadding=\"\
+        3\" cellspacing=\"3\">\n<tbody>\n<tr>\n<td><div id=\"j_id9:j_id27\" style=\"\
+        font-size: 0px;\"><div class=\"rich-separator \" style=\"height: 5px; width:\
+        \ 5px; background-image: url(/Prepago/a4j/g/3_3_3.Finalorg.richfaces.renderkit.html.images.BevelSeparatorImage/DATB/eAFjYGVgZWCY8P!!fwAIlAOY.xhtml);\
+        \ null;\"></div></div></td>\n<td><a href=\"#\" onclick=\"if(typeof jsfcljs\
+        \ == 'function'){jsfcljs(document.forms['j_id88'],'j_id9:j_id28,j_id9:j_id28','');}return\
+        \ false\" class=\"appLink\">Cambiar Password</a></td>\n</tr>\n<tr>\n<td><div\
+        \ id=\"j_id9:j_id29\" style=\"font-size: 0px;\"><div class=\"rich-separator\
+        \ \" style=\"height: 5px; width: 5px; background-image: url(/Prepago/a4j/g/3_3_3.Finalorg.richfaces.renderkit.html.images.BevelSeparatorImage/DATB/eAFjYGVgZWCY8P!!fwAIlAOY.xhtml);\
+        \ null;\"></div></div></td>\n<td><a href=\"#\" onclick=\"if(typeof jsfcljs\
+        \ == 'function'){jsfcljs(document.forms['j_id88'],'j_id9:j_id30,j_id9:j_id30','');}return\
+        \ false\" class=\"appLink\">Cerrar Sesi&oacute;n</a></td>\n</tr>\n</tbody>\n\
+        </table>\n</td></tr></tbody></table></div></div><input autocomplete=\"off\"\
+        \ id=\"j_id88:j_id89_panelBarInput\" name=\"j_id88:j_id89\" type=\"hidden\"\
+        \ value=\"j_id9:j_id14\" /><script type=\"text/javascript\">new Richfaces.PanelBar('j_id88:j_id89',{'mousemove':'','items':[{'onleave':'','onenter':'','id':'j_id9:j_id14'}\
+        \ ,{'onleave':'','onenter':'','id':'j_id9:j_id23'} ,{'onleave':'','onenter':'','id':'j_id9:j_id26'}\
+        \ ] ,'ajax':false,'mouseout':'','onclick':'','mouseover':'','onitemchange':'','onitemchanged':''}\
+        \ );</script></div><input type=\"hidden\" name=\"javax.faces.ViewState\" id=\"\
+        javax.faces.ViewState\" value=\"j_id3\" />\n</form>\n            </div>\n\
+        \            </div>\n        </div>\n        \n\n        \n        <div id=\"\
+        footer\">\n            <a>\n                <img class=\"footerfloatleft\"\
+        \ alt=\"Deutsche Post World Net\" src=\"/Prepago/images/global/footer_dpwn_logo2.png\"\
+        \ width=\"156\" border=\"0\" />\n            </a>\n        </div>\n\n    \
+        \    <img height=\"1\" src=\"/Prepago/images/global/meddhl_DHLPymesMEXHomepage_1.gif\"\
+        \ width=\"1\" />\n    </body>\n</html>"
+    headers:
+      Content-Type:
+      - text/html;charset=UTF-8
+      Date:
+      - Tue, 21 Jan 2020 22:10:08 GMT
+      Server:
+      - Apache-Coyote/1.1
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - JSF/1.2
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      Cookie:
+      - JSESSIONID=F2C310AFEEE1A51D17EE13BBA958556E; BIGipServerpl_prepaid.com.mx_80=1029802396.20480.0000
+      User-Agent:
+      - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/75.0.3770.142 Safari/537.36
+    method: POST
+    uri: https://prepaid.dhl.com.mx/Prepago/jsp/app/inicio/inicio.xhtml
+  response:
+    body:
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"\
+        -//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\"\
+        \ >\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\n    <head>\n        <meta\
+        \ http-equiv=\"X-UA-Compatible\" content=\"IE=EmulateIE8\" />\n        <title>Administrar\n\
+        \        </title>\n        <link class=\"component\" href=\"/Prepago/a4j/s/3_3_3.Finalorg/richfaces/renderkit/html/css/basic_both.xcss/DATB/eAGbUnaFO3T5DGkAEaUDmQ__.xhtml\"\
+        \ rel=\"stylesheet\" type=\"text/css\" /><link class=\"component\" href=\"\
+        /Prepago/a4j/s/3_3_3.Finalorg/richfaces/renderkit/html/css/extended_both.xcss/DATB/eAGbUnaFO3T5DGkAEaUDmQ__.xhtml\"\
+        \ media=\"rich-extended-skinning\" rel=\"stylesheet\" type=\"text/css\" /><script\
+        \ src=\"/Prepago/a4j/g/3_3_3.Finalorg.ajax4jsf.javascript.AjaxScript.xhtml\"\
+        \ type=\"text/javascript\"></script><script src=\"/Prepago/a4j/g/3_3_3.Finalorg.ajax4jsf.javascript.PrototypeScript.xhtml\"\
+        \ type=\"text/javascript\"></script><script src=\"/Prepago/a4j/g/3_3_3.Finalorg/richfaces/renderkit/html/scripts/utils.js.xhtml\"\
+        \ type=\"text/javascript\"></script><script src=\"/Prepago/a4j/g/3_3_3.Finalorg/richfaces/renderkit/html/scripts/browser_info.js.xhtml\"\
+        \ type=\"text/javascript\"></script><script src=\"/Prepago/a4j/g/3_3_3.Finalorg/richfaces/renderkit/html/scripts/modalPanel.js.xhtml\"\
+        \ type=\"text/javascript\"></script><script src=\"/Prepago/a4j/g/3_3_3.Finalorg/richfaces/renderkit/html/scripts/modalPanelBorders.js.xhtml\"\
+        \ type=\"text/javascript\"></script><link class=\"component\" href=\"/Prepago/a4j/s/3_3_3.Finalorg/richfaces/renderkit/html/css/modalPanel.xcss/DATB/eAGbUnaFO3T5DGkAEaUDmQ__.xhtml\"\
+        \ rel=\"stylesheet\" type=\"text/css\" /><script src=\"/Prepago/a4j/g/3_3_3.Finalorg.ajax4jsf.javascript.ImageCacheScript.xhtml\"\
+        \ type=\"text/javascript\"></script><script src=\"/Prepago/a4j/g/3_3_3.Finalscripts/panelbar.js.xhtml\"\
+        \ type=\"text/javascript\"></script><link class=\"component\" href=\"/Prepago/a4j/s/3_3_3.Finalcss/panelbar.xcss/DATB/eAGbUnaFO3T5DGkAEaUDmQ__.xhtml\"\
+        \ rel=\"stylesheet\" type=\"text/css\" /><link class=\"component\" href=\"\
+        /Prepago/a4j/s/3_3_3.Finalcss/separator.xcss/DATB/eAGbUnaFO3T5DGkAEaUDmQ__.xhtml\"\
+        \ rel=\"stylesheet\" type=\"text/css\" /><script type=\"text/javascript\"\
+        >window.RICH_FACES_EXTENDED_SKINNING_ON=true;</script><script src=\"/Prepago/a4j/g/3_3_3.Finalorg/richfaces/renderkit/html/scripts/skinning.js.xhtml\"\
+        \ type=\"text/javascript\"></script><script type=\"text/javascript\" src=\"\
+        /Prepago/js/jquery_1_7_1.js\"></script>\n        <script type=\"text/javascript\"\
+        >\n            ////No permite el back del borwser\n            jQuery.noConflict();\n\
+        \            window.history.forward(1);\n            jQuery(document).ready(function(){\t\
+        \n                    jQuery('#indexmc').fadeIn(2000);\n            });\n\
+        \            \n            function formatNumber(num,prefix){\n          \
+        \      if(!isNaN(parseFloat(num)) && isFinite(num)){\n                   \
+        \ prefix = prefix || '';\n                    num += '';\n               \
+        \     var splitStr = num.split('.');\n                    var splitLeft =\
+        \ splitStr[0];\n                    var splitRight = splitStr.length > 1 ?\
+        \ '.' + splitStr[1] : '';\n                    var regx = /(\\d+)(\\d{3})/;\n\
+        \                    while (regx.test(splitLeft)) {\n                    splitLeft\
+        \ = splitLeft.replace(regx, '$1' + ',' + '$2');\n                    }\n \
+        \                   return prefix + splitLeft + splitRight;\n            \
+        \    }else{\n                    return num;\n                }\n        \
+        \    }\n\n            function unformatNumber(num) {\n                if(num.indexOf('$')!=-1){\n\
+        \                    return num.replace(/([^0-9\\.\\-])/g,'')*1;\n       \
+        \         }else{\n                    return num;\n                }\n   \
+        \         }\n        </script>\n        <link rel=\"stylesheet\" type=\"text/css\"\
+        \ href=\"/Prepago/css/global.css\" />\n        <link rel=\"stylesheet\" type=\"\
+        text/css\" href=\"/Prepago/css/prepago.css\" />\n        <link rel=\"shortcut\
+        \ icon\" href=\"/Prepago/images/ico/favicon.gif\" type=\"image/vnd.microsoft.icon\"\
+        \ />\n        <link rel=\"icon\" href=\"/Prepago/images/ico/favicon.gif\"\
+        \ type=\"/Prepago/images/vnd.microsoft.icon\" />\n        \n    </head>\n\
+        \    <body align=\"center\"><span id=\"_viewRoot:status\"><span id=\"_viewRoot:status.start\"\
+        \ style=\"display: none\"></span><script type=\"text/javascript\">\nwindow.document.getElementById('_viewRoot:status.start').onstart=function(){Richfaces.showModalPanel('espera');;};\n\
+        </script><span id=\"_viewRoot:status.stop\"></span><script type=\"text/javascript\"\
+        >\nwindow.document.getElementById('_viewRoot:status.stop').onstop=function(){Richfaces.hideModalPanel('espera');;};\n\
+        </script></span><div id=\"espera\" style=\"display: none;\"><input autocomplete=\"\
+        off\" id=\"esperaOpenedState\" name=\"esperaOpenedState\" type=\"hidden\"\
+        \ /><div class=\"rich-modalpanel \" id=\"esperaContainer\" style=\"position:\
+        \ absolute; display: none; z-index: 100; background-color: inherit;\"><div\
+        \ class=\"rich-mpnl-mask-div-opaque rich-mpnl-mask-div\" id=\"esperaDiv\"\
+        \ style=\"z-index: -1;\"><button class=\"rich-mpnl-button\" id=\"esperaFirstHref\"\
+        ></button></div><div class=\"rich-mpnl-panel\"><div class=\"rich-mp-container\"\
+        \ id=\"esperaCDiv\" style=\"position: absolute; left: 0px; top: 0px; z-index:\
+        \ 9;\"><div class=\"rich-mpnl-shadow\" id=\"esperaShadowDiv\"></div><div class=\"\
+        rich-mpnl-ovf-hd rich-mpnl-trim rich-mpnl-content\" id=\"esperaContentDiv\"\
+        \ style=\"background-color:white;\"><table border=\"0\" cellpadding=\"0\"\
+        \ cellspacing=\"0\" class=\"rich-mp-content-table\" id=\"esperaContentTable\"\
+        \ style=\"height: 100%; width: 100%;\"><tr style=\"height: 99%\"><td class=\"\
+        rich-mpnl-body\" valign=\"top\"><img src=\"/Prepago/images/ico/espera.gif\"\
+        \ style=\"border:0px solid white;\" /></td></tr></table></div></div></div><div\
+        \ class=\"rich-mpnl-mask-div rich-mpnl-mask-div-transparent\" id=\"esperaCursorDiv\"\
+        \ style=\"z-index: -200;\"><button class=\"rich-mpnl-button\" id=\"esperaLastHref\"\
+        ></button></div><script type=\"text/javascript\">new ModalPanel('espera',\n\
+        \t\t\t\t{\n\t\t\t\t\twidth: 50,\n\t\t\t\t\theight: 50,\n\n\t\t\t\t\tminWidth:\
+        \ -1,\n\t\t\t\t\tminHeight: -1,\n\n\t\t\t\t\tresizeable: false,\n\t\t\t\t\t\
+        moveable: false,\n\n\t\t\t\t\tleft: \"auto\",\n\t\t\t\t\ttop: \"auto\",\n\n\
+        \t\t\t\t\tzindex: 100,onresize: '',onmove: '',onshow: '',onhide: '',onbeforeshow:\
+        \ '',onbeforehide: '',\n\t\t\t\t\tdomElementAttachment: \"\",\t\t\t\t\n\t\t\
+        \t\t\tkeepVisualState: false,\n\t\t\t\t\tshowWhenRendered: false,\n\t\t\t\t\
+        \tselectBehavior: \"disable\",\n\n\t\t\t\t\tautosized: false,\n\t\t\t\t\t\
+        overlapEmbedObjects: false});</script></div><script type=\"text/javascript\"\
+        ></script></div>\n        \n        <div id=\"indexwrap\" style=\"border:\
+        \ 0px solid blue;\">\n\n            \n            <div id=\"header\" style=\"\
+        border: 0px solid black;\">\n                <div id=\"topnav\">\n       \
+        \             \n                </div>\n                <div id=\"header_logo\"\
+        \ style=\"border: 0px solid black;\">\n                        <img height=\"\
+        36\" alt=\"DHL Logo\" src=\"/Prepago/images/global/header_DHL_logo2.gif\"\
+        \ width=\"133\" border=\"0\" />\n                </div>\n            </div>\n\
+        \            \n\n            \n\n            \n            <div class=\"bodyStyle\"\
+        \ style=\"border: 0px solid black;\">\n                <div id=\"indexmc\"\
+        \ style=\"display:none;\">\n            <div align=\"center\" style=\"height:\
+        \ 500px;\">\n                \n            </div>\n                </div>\n\
+        \            </div>\n            \n\n            <div id=\"rcbuttonsindexcontainer\"\
+        \ style=\"border: 0px solid black;\">\n            <div align=\"center\">\n\
+        <form id=\"j_id9\" name=\"j_id9\" method=\"post\" action=\"/Prepago/jsp/app/inicio/inicio.xhtml\"\
+        \ enctype=\"application/x-www-form-urlencoded\">\n<input type=\"hidden\" name=\"\
+        j_id9\" value=\"j_id9\" />\n<div class=\"rich-panelbar rich-panelbar-b \"\
+        \ id=\"j_id9:j_id10\" style=\"padding: 0px; height: 100%; width: 200px; border:\
+        \ 1px solid #F2F2ED;background-color: white;\"><div class=\"rich-panelbar\
+        \ rich-panelbar-interior \" id=\"j_id9:j_id14\" style=\"border: 1px solid\
+        \ #F2F2ED;background-color: white;\"><div class=\"rich-panelbar-header  \"\
+        \ style=\";text-align:left;\">Cliente</div><div class=\"rich-panelbar-header-act\
+        \    \" style=\";text-align:left;;;;display: none;\">Cliente</div><div class=\"\
+        rich-panelbar-content-exterior\" style=\"display: none; width: 100%;\"><table\
+        \ cellpadding=\"0\" cellspacing=\"0\" style=\"height: 100%;\" width=\"100%\"\
+        ><tbody><tr><td class=\"rich-panelbar-content  \" style=\";\"><table cellpadding=\"\
+        3\" cellspacing=\"3\">\n<tbody>\n<tr>\n<td><div id=\"j_id9:j_id15\" style=\"\
+        font-size: 0px;\"><div class=\"rich-separator \" style=\"height: 5px; width:\
+        \ 5px; background-image: url(/Prepago/a4j/g/3_3_3.Finalorg.richfaces.renderkit.html.images.BevelSeparatorImage/DATB/eAFjYGVgZWCY8P!!fwAIlAOY.xhtml);\
+        \ null;\"></div></div></td>\n<td>\n<script type=\"text/javascript\" language=\"\
+        Javascript\">function dpf(f) {var adp = f.adp;if (adp != null) {for (var i\
+        \ = 0;i < adp.length;i++) {f.removeChild(adp[i]);}}};function apf(f, pvp)\
+        \ {var adp = new Array();f.adp = adp;var ps = pvp.split(',');for (var i =\
+        \ 0,ii = 0;i < ps.length;i++,ii++) {var p = document.createElement(\"input\"\
+        );p.type = \"hidden\";p.name = ps[i];p.value = ps[i + 1];f.appendChild(p);adp[ii]\
+        \ = p;i += 1;}};function jsfcljs(f, pvp, t) {apf(f, pvp);var ft = f.target;if\
+        \ (t) {f.target = t;}f.submit();f.target = ft;dpf(f);};</script>\n<a href=\"\
+        #\" onclick=\"if(typeof jsfcljs == 'function'){jsfcljs(document.forms['j_id9'],'j_id9:j_id16,j_id9:j_id16','');}return\
+        \ false\" class=\"appLink\">Impresi&oacute;n Sub Usuario</a></td>\n</tr>\n\
+        <tr>\n<td><div id=\"j_id9:j_id17\" style=\"font-size: 0px;\"><div class=\"\
+        rich-separator \" style=\"height: 5px; width: 5px; background-image: url(/Prepago/a4j/g/3_3_3.Finalorg.richfaces.renderkit.html.images.BevelSeparatorImage/DATB/eAFjYGVgZWCY8P!!fwAIlAOY.xhtml);\
+        \ null;\"></div></div></td>\n<td><a href=\"#\" onclick=\"if(typeof jsfcljs\
+        \ == 'function'){jsfcljs(document.forms['j_id9'],'j_id9:j_id18,j_id9:j_id18','');}return\
+        \ false\" class=\"appLink\">Gu&iacute;as Impresas</a></td>\n</tr>\n<tr>\n\
+        <td><div id=\"j_id9:j_id19\" style=\"font-size: 0px;\"><div class=\"rich-separator\
+        \ \" style=\"height: 5px; width: 5px; background-image: url(/Prepago/a4j/g/3_3_3.Finalorg.richfaces.renderkit.html.images.BevelSeparatorImage/DATB/eAFjYGVgZWCY8P!!fwAIlAOY.xhtml);\
+        \ null;\"></div></div></td>\n<td><a href=\"#\" onclick=\"if(typeof jsfcljs\
+        \ == 'function'){jsfcljs(document.forms['j_id9'],'j_id9:j_id20,j_id9:j_id20','');}return\
+        \ false\" class=\"appLink\">Asignar Recolecci&oacute;n (SubUsuario)</a></td>\n\
+        </tr>\n<tr>\n<td><div id=\"j_id9:j_id21\" style=\"font-size: 0px;\"><div class=\"\
+        rich-separator \" style=\"height: 5px; width: 5px; background-image: url(/Prepago/a4j/g/3_3_3.Finalorg.richfaces.renderkit.html.images.BevelSeparatorImage/DATB/eAFjYGVgZWCY8P!!fwAIlAOY.xhtml);\
+        \ null;\"></div></div></td>\n<td><a href=\"#\" onclick=\"if(typeof jsfcljs\
+        \ == 'function'){jsfcljs(document.forms['j_id9'],'j_id9:j_id22,j_id9:j_id22','');}return\
+        \ false\" class=\"appLink\">Manual de Usuario</a></td>\n</tr>\n</tbody>\n\
+        </table>\n</td></tr></tbody></table></div></div><div class=\"rich-panelbar\
+        \ rich-panelbar-interior \" id=\"j_id9:j_id23\" style=\"border: 1px solid\
+        \ #F2F2ED;background-color: white;\"><div class=\"rich-panelbar-header  \"\
+        \ style=\";text-align:left;\">Reportes</div><div class=\"rich-panelbar-header-act\
+        \    \" style=\";text-align:left;;;;display: none;\">Reportes</div><div class=\"\
+        rich-panelbar-content-exterior\" style=\"display: none; width: 100%;\"><table\
+        \ cellpadding=\"0\" cellspacing=\"0\" style=\"height: 100%;\" width=\"100%\"\
+        ><tbody><tr><td class=\"rich-panelbar-content  \" style=\";\"><table cellpadding=\"\
+        3\" cellspacing=\"3\">\n<tbody>\n<tr>\n<td><div id=\"j_id9:j_id24\" style=\"\
+        font-size: 0px;\"><div class=\"rich-separator \" style=\"height: 5px; width:\
+        \ 5px; background-image: url(/Prepago/a4j/g/3_3_3.Finalorg.richfaces.renderkit.html.images.BevelSeparatorImage/DATB/eAFjYGVgZWCY8P!!fwAIlAOY.xhtml);\
+        \ null;\"></div></div></td>\n<td><a href=\"#\" onclick=\"if(typeof jsfcljs\
+        \ == 'function'){jsfcljs(document.forms['j_id9'],'j_id9:j_id25,j_id9:j_id25','');}return\
+        \ false\" class=\"appLink\">Gu&iacute;as Generadas (SubUsuario)</a></td>\n\
+        </tr>\n</tbody>\n</table>\n</td></tr></tbody></table></div></div><div class=\"\
+        rich-panelbar rich-panelbar-interior \" id=\"j_id9:j_id26\" style=\"border:\
+        \ 1px solid #F2F2ED;background-color: white;\"><div class=\"rich-panelbar-header\
+        \  \" style=\";text-align:left;\">Salir</div><div class=\"rich-panelbar-header-act\
+        \    \" style=\";text-align:left;;;;display: none;\">Salir</div><div class=\"\
+        rich-panelbar-content-exterior\" style=\"display: none; width: 100%;\"><table\
+        \ cellpadding=\"0\" cellspacing=\"0\" style=\"height: 100%;\" width=\"100%\"\
+        ><tbody><tr><td class=\"rich-panelbar-content  \" style=\";\"><table cellpadding=\"\
+        3\" cellspacing=\"3\">\n<tbody>\n<tr>\n<td><div id=\"j_id9:j_id27\" style=\"\
+        font-size: 0px;\"><div class=\"rich-separator \" style=\"height: 5px; width:\
+        \ 5px; background-image: url(/Prepago/a4j/g/3_3_3.Finalorg.richfaces.renderkit.html.images.BevelSeparatorImage/DATB/eAFjYGVgZWCY8P!!fwAIlAOY.xhtml);\
+        \ null;\"></div></div></td>\n<td><a href=\"#\" onclick=\"if(typeof jsfcljs\
+        \ == 'function'){jsfcljs(document.forms['j_id9'],'j_id9:j_id28,j_id9:j_id28','');}return\
+        \ false\" class=\"appLink\">Cambiar Password</a></td>\n</tr>\n<tr>\n<td><div\
+        \ id=\"j_id9:j_id29\" style=\"font-size: 0px;\"><div class=\"rich-separator\
+        \ \" style=\"height: 5px; width: 5px; background-image: url(/Prepago/a4j/g/3_3_3.Finalorg.richfaces.renderkit.html.images.BevelSeparatorImage/DATB/eAFjYGVgZWCY8P!!fwAIlAOY.xhtml);\
+        \ null;\"></div></div></td>\n<td><a href=\"#\" onclick=\"if(typeof jsfcljs\
+        \ == 'function'){jsfcljs(document.forms['j_id9'],'j_id9:j_id30,j_id9:j_id30','');}return\
+        \ false\" class=\"appLink\">Cerrar Sesi&oacute;n</a></td>\n</tr>\n</tbody>\n\
+        </table>\n</td></tr></tbody></table></div></div><input autocomplete=\"off\"\
+        \ id=\"j_id9:j_id10_panelBarInput\" name=\"j_id9:j_id10\" type=\"hidden\"\
+        \ value=\"j_id9:j_id14\" /><script type=\"text/javascript\">new Richfaces.PanelBar('j_id9:j_id10',{'mousemove':'','items':[{'onleave':'','id':'j_id9:j_id14','onenter':''}\
+        \ ,{'onleave':'','id':'j_id9:j_id23','onenter':''} ,{'onleave':'','id':'j_id9:j_id26','onenter':''}\
+        \ ] ,'ajax':false,'mouseout':'','onclick':'','mouseover':'','onitemchange':'','onitemchanged':''}\
+        \ );</script></div><input type=\"hidden\" name=\"javax.faces.ViewState\" id=\"\
+        javax.faces.ViewState\" value=\"j_id4\" />\n</form>\n            </div>\n\
+        \            </div>\n        </div>\n        \n\n        \n        <div id=\"\
+        footer\">\n            <a>\n                <img class=\"footerfloatleft\"\
+        \ alt=\"Deutsche Post World Net\" src=\"/Prepago/images/global/footer_dpwn_logo2.png\"\
+        \ width=\"156\" border=\"0\" />\n            </a>\n        </div>\n\n    \
+        \    <img height=\"1\" src=\"/Prepago/images/global/meddhl_DHLPymesMEXHomepage_1.gif\"\
+        \ width=\"1\" />\n    </body>\n</html>"
+    headers:
+      Content-Type:
+      - text/html;charset=UTF-8
+      Date:
+      - Tue, 21 Jan 2020 22:10:08 GMT
+      Server:
+      - Apache-Coyote/1.1
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - JSF/1.2
+    status:
+      code: 200
+      message: OK
+- request:
+    body: j_id9=j_id9&j_id9%3Aj_id30=j_id9%3Aj_id30&javax.faces.ViewState=j_id4
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '69'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - JSESSIONID=F2C310AFEEE1A51D17EE13BBA958556E; BIGipServerpl_prepaid.com.mx_80=1029802396.20480.0000
+      User-Agent:
+      - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/75.0.3770.142 Safari/537.36
+    method: POST
+    uri: https://prepaid.dhl.com.mx/Prepago/jsp/app/inicio/inicio.xhtml
+  response:
+    body:
+      string: ''
+    headers:
+      Content-Length:
+      - '0'
+      Date:
+      - Tue, 21 Jan 2020 22:10:08 GMT
+      Location:
+      - http://prepaid.dhl.com.mx/Prepago/jsp/app/login/login.xhtml
+      Server:
+      - Apache-Coyote/1.1
+      X-Powered-By:
+      - JSF/1.2
+    status:
+      code: 302
+      message: Found
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - JSESSIONID=F2C310AFEEE1A51D17EE13BBA958556E
+      User-Agent:
+      - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/75.0.3770.142 Safari/537.36
+    method: GET
+    uri: http://prepaid.dhl.com.mx/Prepago/jsp/app/login/login.xhtml
+  response:
+    body:
+      string: ''
+    headers:
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '0'
+      Location:
+      - https://prepaid.dhl.com.mx/Prepago/jsp/app/login/login.xhtml
+      Server:
+      - BigIP
+    status:
+      code: 302
+      message: Found
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - JSESSIONID=F2C310AFEEE1A51D17EE13BBA958556E; BIGipServerpl_prepaid.com.mx_80=1029802396.20480.0000
+      User-Agent:
+      - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/75.0.3770.142 Safari/537.36
+    method: GET
+    uri: https://prepaid.dhl.com.mx/Prepago/jsp/app/login/login.xhtml
+  response:
+    body:
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"\
+        -//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\"\
+        \ >\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\n    <head>\n        <meta\
+        \ http-equiv=\"X-UA-Compatible\" content=\"IE=EmulateIE8\" />\n        <title>Login\
+        \ / Admin\n        </title>\n        <link class=\"component\" href=\"/Prepago/a4j/s/3_3_3.Finalorg/richfaces/renderkit/html/css/basic_both.xcss/DATB/eAGbUnaFO3T5DGkAEaUDmQ__.xhtml\"\
+        \ rel=\"stylesheet\" type=\"text/css\" /><link class=\"component\" href=\"\
+        /Prepago/a4j/s/3_3_3.Finalorg/richfaces/renderkit/html/css/extended_both.xcss/DATB/eAGbUnaFO3T5DGkAEaUDmQ__.xhtml\"\
+        \ media=\"rich-extended-skinning\" rel=\"stylesheet\" type=\"text/css\" /><script\
+        \ src=\"/Prepago/a4j/g/3_3_3.Finalorg.ajax4jsf.javascript.AjaxScript.xhtml\"\
+        \ type=\"text/javascript\"></script><script src=\"/Prepago/a4j/g/3_3_3.Finalorg.ajax4jsf.javascript.PrototypeScript.xhtml\"\
+        \ type=\"text/javascript\"></script><script src=\"/Prepago/a4j/g/3_3_3.Finalorg/richfaces/renderkit/html/scripts/utils.js.xhtml\"\
+        \ type=\"text/javascript\"></script><script src=\"/Prepago/a4j/g/3_3_3.Finalorg/richfaces/renderkit/html/scripts/browser_info.js.xhtml\"\
+        \ type=\"text/javascript\"></script><script src=\"/Prepago/a4j/g/3_3_3.Finalorg/richfaces/renderkit/html/scripts/modalPanel.js.xhtml\"\
+        \ type=\"text/javascript\"></script><script src=\"/Prepago/a4j/g/3_3_3.Finalorg/richfaces/renderkit/html/scripts/modalPanelBorders.js.xhtml\"\
+        \ type=\"text/javascript\"></script><link class=\"component\" href=\"/Prepago/a4j/s/3_3_3.Finalorg/richfaces/renderkit/html/css/modalPanel.xcss/DATB/eAGbUnaFO3T5DGkAEaUDmQ__.xhtml\"\
+        \ rel=\"stylesheet\" type=\"text/css\" /><link class=\"component\" href=\"\
+        /Prepago/a4j/g/3_3_3.Finalorg/richfaces/renderkit/html/css/msg.css.xhtml\"\
+        \ rel=\"stylesheet\" type=\"text/css\" /><link class=\"component\" href=\"\
+        /Prepago/a4j/g/3_3_3.Finalorg/richfaces/renderkit/html/css/msgs.css.xhtml\"\
+        \ rel=\"stylesheet\" type=\"text/css\" /><script src=\"/Prepago/a4j/g/3_3_3.Finalorg/richfaces/renderkit/html/scripts/available.js.xhtml\"\
+        \ type=\"text/javascript\"></script><script src=\"/Prepago/a4j/g/3_3_3.Finalorg/richfaces/renderkit/html/scripts/jquery/jquery.js.xhtml\"\
+        \ type=\"text/javascript\"></script><script src=\"/Prepago/a4j/g/3_3_3.Finalorg/richfaces/renderkit/html/script/controlUtils.js.xhtml\"\
+        \ type=\"text/javascript\"></script><script type=\"text/javascript\">window.RICH_FACES_EXTENDED_SKINNING_ON=true;</script><script\
+        \ src=\"/Prepago/a4j/g/3_3_3.Finalorg/richfaces/renderkit/html/scripts/skinning.js.xhtml\"\
+        \ type=\"text/javascript\"></script><script type=\"text/javascript\" src=\"\
+        /Prepago/js/jquery_1_7_1.js\"></script>\n        <script type=\"text/javascript\"\
+        >\n            ////No permite el back del borwser\n            jQuery.noConflict();\n\
+        \            window.history.forward(1);\n            jQuery(document).ready(function(){\t\
+        \n                    jQuery('#indexmc').fadeIn(2000);\n            });\n\
+        \            \n            function formatNumber(num,prefix){\n          \
+        \      if(!isNaN(parseFloat(num)) && isFinite(num)){\n                   \
+        \ prefix = prefix || '';\n                    num += '';\n               \
+        \     var splitStr = num.split('.');\n                    var splitLeft =\
+        \ splitStr[0];\n                    var splitRight = splitStr.length > 1 ?\
+        \ '.' + splitStr[1] : '';\n                    var regx = /(\\d+)(\\d{3})/;\n\
+        \                    while (regx.test(splitLeft)) {\n                    splitLeft\
+        \ = splitLeft.replace(regx, '$1' + ',' + '$2');\n                    }\n \
+        \                   return prefix + splitLeft + splitRight;\n            \
+        \    }else{\n                    return num;\n                }\n        \
+        \    }\n\n            function unformatNumber(num) {\n                if(num.indexOf('$')!=-1){\n\
+        \                    return num.replace(/([^0-9\\.\\-])/g,'')*1;\n       \
+        \         }else{\n                    return num;\n                }\n   \
+        \         }\n        </script>\n        <link rel=\"stylesheet\" type=\"text/css\"\
+        \ href=\"/Prepago/css/global.css\" />\n        <link rel=\"stylesheet\" type=\"\
+        text/css\" href=\"/Prepago/css/prepago.css\" />\n        <link rel=\"shortcut\
+        \ icon\" href=\"/Prepago/images/ico/favicon.gif\" type=\"image/vnd.microsoft.icon\"\
+        \ />\n        <link rel=\"icon\" href=\"/Prepago/images/ico/favicon.gif\"\
+        \ type=\"/Prepago/images/vnd.microsoft.icon\" />\n        \n    </head>\n\
+        \    <body align=\"center\"><span id=\"_viewRoot:status\"><span id=\"_viewRoot:status.start\"\
+        \ style=\"display: none\"></span><script type=\"text/javascript\">\nwindow.document.getElementById('_viewRoot:status.start').onstart=function(){Richfaces.showModalPanel('espera');;};\n\
+        </script><span id=\"_viewRoot:status.stop\"></span><script type=\"text/javascript\"\
+        >\nwindow.document.getElementById('_viewRoot:status.stop').onstop=function(){Richfaces.hideModalPanel('espera');;};\n\
+        </script></span><div id=\"espera\" style=\"display: none;\"><input autocomplete=\"\
+        off\" id=\"esperaOpenedState\" name=\"esperaOpenedState\" type=\"hidden\"\
+        \ /><div class=\"rich-modalpanel \" id=\"esperaContainer\" style=\"position:\
+        \ absolute; display: none; z-index: 100; background-color: inherit;\"><div\
+        \ class=\"rich-mpnl-mask-div-opaque rich-mpnl-mask-div\" id=\"esperaDiv\"\
+        \ style=\"z-index: -1;\"><button class=\"rich-mpnl-button\" id=\"esperaFirstHref\"\
+        ></button></div><div class=\"rich-mpnl-panel\"><div class=\"rich-mp-container\"\
+        \ id=\"esperaCDiv\" style=\"position: absolute; left: 0px; top: 0px; z-index:\
+        \ 9;\"><div class=\"rich-mpnl-shadow\" id=\"esperaShadowDiv\"></div><div class=\"\
+        rich-mpnl-ovf-hd rich-mpnl-trim rich-mpnl-content\" id=\"esperaContentDiv\"\
+        \ style=\"background-color:white;\"><table border=\"0\" cellpadding=\"0\"\
+        \ cellspacing=\"0\" class=\"rich-mp-content-table\" id=\"esperaContentTable\"\
+        \ style=\"height: 100%; width: 100%;\"><tr style=\"height: 99%\"><td class=\"\
+        rich-mpnl-body\" valign=\"top\"><img src=\"/Prepago/images/ico/espera.gif\"\
+        \ style=\"border:0px solid white;\" /></td></tr></table></div></div></div><div\
+        \ class=\"rich-mpnl-mask-div rich-mpnl-mask-div-transparent\" id=\"esperaCursorDiv\"\
+        \ style=\"z-index: -200;\"><button class=\"rich-mpnl-button\" id=\"esperaLastHref\"\
+        ></button></div><script type=\"text/javascript\">new ModalPanel('espera',\n\
+        \t\t\t\t{\n\t\t\t\t\twidth: 50,\n\t\t\t\t\theight: 50,\n\n\t\t\t\t\tminWidth:\
+        \ -1,\n\t\t\t\t\tminHeight: -1,\n\n\t\t\t\t\tresizeable: false,\n\t\t\t\t\t\
+        moveable: false,\n\n\t\t\t\t\tleft: \"auto\",\n\t\t\t\t\ttop: \"auto\",\n\n\
+        \t\t\t\t\tzindex: 100,onresize: '',onmove: '',onshow: '',onhide: '',onbeforeshow:\
+        \ '',onbeforehide: '',\n\t\t\t\t\tdomElementAttachment: \"\",\t\t\t\t\n\t\t\
+        \t\t\tkeepVisualState: false,\n\t\t\t\t\tshowWhenRendered: false,\n\t\t\t\t\
+        \tselectBehavior: \"disable\",\n\n\t\t\t\t\tautosized: false,\n\t\t\t\t\t\
+        overlapEmbedObjects: false});</script></div><script type=\"text/javascript\"\
+        ></script></div>\n        \n        <div id=\"indexwrap\" style=\"border:\
+        \ 0px solid blue;\">\n\n            \n            <div id=\"header\" style=\"\
+        border: 0px solid black;\">\n                <div id=\"topnav\">\n       \
+        \             \n                </div>\n                <div id=\"header_logo\"\
+        \ style=\"border: 0px solid black;\">\n                        <img height=\"\
+        36\" alt=\"DHL Logo\" src=\"/Prepago/images/global/header_DHL_logo2.gif\"\
+        \ width=\"133\" border=\"0\" />\n                </div>\n            </div>\n\
+        \            \n\n            \n\n            \n            <div class=\"bodyStyle\"\
+        \ style=\"border: 0px solid black;\">\n                <div id=\"indexmc\"\
+        \ style=\"display:none;\">\n<form id=\"j_id6\" name=\"j_id6\" method=\"post\"\
+        \ action=\"/Prepago/jsp/app/login/login.xhtml\" enctype=\"application/x-www-form-urlencoded\"\
+        >\n<input type=\"hidden\" name=\"j_id6\" value=\"j_id6\" />\n\n          \
+        \   <div align=\"center\" style=\"height: 500px;\"><table style=\"height:\
+        \ 100%\">\n<tbody>\n<tr>\n<td class=\"alignCenter\"><table class=\"tblLogin\"\
+        \ cellpadding=\"0\" cellspacing=\"0\" style=\"border: 1px solid #F2F2ED\"\
+        \ width=\"300\">\n<thead>\n<tr><th colspan=\"1\" scope=\"colgroup\">Prepago\
+        \ DHL</th></tr>\n</thead>\n<tbody>\n<tr class=\"rowTblLoginNon\">\n<td class=\"\
+        alignCenter\">Debe autenticarse en el sistema para acceder</td>\n</tr>\n<tr\
+        \ class=\"rowTblLoginPar\">\n<td class=\"alignCenter\"><table id=\"j_id6:tblDatos\"\
+        >\n<tbody>\n<tr>\n<td class=\"alignLeft\"><dl id=\"j_id6:j_id17\" class=\"\
+        rich-messages\" style=\"display: none; \"><dt></dt></dl></td>\n</tr>\n<tr>\n\
+        <td class=\"alignLeft\"><table cellpadding=\"2\" cellspacing=\"10\" width=\"\
+        100%\">\n<tbody>\n<tr>\n<td class=\"alignRight label\">Usuario: </td>\n<td\
+        \ class=\"alignRight value\"><input type=\"text\" name=\"j_id6:j_id20\" /></td>\n\
+        </tr>\n<tr>\n<td class=\"alignRight label\">Contrase&ntilde;a: </td>\n<td\
+        \ class=\"alignRight value\"><input type=\"password\" name=\"j_id6:j_id22\"\
+        \ autocomplete=\"off\" value=\"\" /></td>\n</tr>\n</tbody>\n</table>\n</td>\n\
+        </tr>\n<tr>\n<td class=\"alignLeft\"><a href=\"#\" id=\"j_id6:j_id27\" name=\"\
+        j_id6:j_id27\" onclick=\"A4J.AJAX.Submit('j_id6',event,{'oncomplete':function(request,event,data){Richfaces.showModalPanel('pnlUsuario')},'similarityGroupingId':'j_id6:j_id27','parameters':{'j_id6:j_id27':'j_id6:j_id27'}\
+        \ } );return false;\">Recuperar Contrase&ntilde;a</a></td>\n</tr>\n<tr>\n\
+        <td class=\"alignLeft\"><table cellpadding=\"2\" cellspacing=\"10\" width=\"\
+        100%\">\n<tbody>\n<tr>\n<td><input id=\"j_id6:j_id29\" name=\"j_id6:j_id29\"\
+        \ onclick=\"A4J.AJAX.Submit('j_id6',event,{'similarityGroupingId':'j_id6:j_id29','parameters':{'j_id6:j_id29':'j_id6:j_id29'}\
+        \ } );return false;\" value=\"Entrar\" type=\"button\" /></td>\n<td><input\
+        \ id=\"j_id6:j_id30\" name=\"j_id6:j_id30\" onclick=\"A4J.AJAX.Submit('j_id6',event,{'similarityGroupingId':'j_id6:j_id30','parameters':{'j_id6:j_id30':'j_id6:j_id30'}\
+        \ } );return false;\" value=\"Cancelar\" type=\"button\" /></td>\n</tr>\n\
+        </tbody>\n</table>\n</td>\n</tr>\n</tbody>\n</table>\n</td>\n</tr>\n</tbody>\n\
+        </table>\n</td>\n</tr>\n</tbody>\n</table>\n\n             </div><input type=\"\
+        hidden\" name=\"javax.faces.ViewState\" id=\"javax.faces.ViewState\" value=\"\
+        j_id1\" />\n</form><div id=\"pnlUsuario\" style=\"display: none;\"><input\
+        \ autocomplete=\"off\" id=\"pnlUsuarioOpenedState\" name=\"pnlUsuarioOpenedState\"\
+        \ type=\"hidden\" /><div class=\"rich-modalpanel \" id=\"pnlUsuarioContainer\"\
+        \ style=\"position: absolute; display: none; z-index: 100; background-color:\
+        \ inherit;\"><div class=\"rich-mpnl-mask-div-opaque rich-mpnl-mask-div\" id=\"\
+        pnlUsuarioDiv\" style=\"z-index: -1;\"><button class=\"rich-mpnl-button\"\
+        \ id=\"pnlUsuarioFirstHref\"></button></div><div class=\"rich-mpnl-panel\"\
+        ><div class=\"rich-mp-container\" id=\"pnlUsuarioCDiv\" style=\"position:\
+        \ absolute; left: 0px; top: 0px; z-index: 9;\"><div class=\"rich-mpnl-shadow\"\
+        \ id=\"pnlUsuarioShadowDiv\"></div><div class=\"rich-mpnl-ovf-hd rich-mpnl-trim\
+        \ rich-mpnl-content\" id=\"pnlUsuarioContentDiv\" style=\"background-color:\
+        \ white;\"><div class=\"rich-mpnl-text rich-mpnl-controls \"><img id=\"hidelink\"\
+        \ src=\"/Prepago/images/ico/close.png\" /><script type=\"text/javascript\"\
+        >Richfaces.componentControl.attachAvailable('#hidelink','onclick','#pnlUsuario','hide')</script></div><table\
+        \ border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"rich-mp-content-table\"\
+        \ id=\"pnlUsuarioContentTable\" style=\"height: 100%; width: 100%;\"><tr style=\"\
+        height: 1%;\"><td class=\"rich-mpnl-header-cell\"><div class=\"rich-mpnl-text\
+        \ rich-mpnl-header \" id=\"pnlUsuarioHeader\" style=\"white-space: nowrap;\"\
+        >Recuperar Contrase&ntilde;a</div></td></tr><tr style=\"height: 99%\"><td\
+        \ class=\"rich-mpnl-body\" valign=\"top\">\n<form id=\"j_id36\" name=\"j_id36\"\
+        \ method=\"post\" action=\"/Prepago/jsp/app/login/login.xhtml\" enctype=\"\
+        application/x-www-form-urlencoded\">\n<input type=\"hidden\" name=\"j_id36\"\
+        \ value=\"j_id36\" />\n<table id=\"j_id36:pnlUsuarioInterno\" class=\"infoTable\"\
+        \ width=\"380\">\n<thead>\n<tr><th colspan=\"2\" scope=\"colgroup\">Recuperaci&oacute;n\
+        \ de Contrase&ntilde;a</th></tr>\n</thead>\n<tbody>\n<tr>\n<td class=\"label\"\
+        >Usuario: </td>\n<td class=\"value\"><input type=\"text\" name=\"j_id36:j_id39\"\
+        \ maxlength=\"50\" size=\"40\" /></td>\n</tr>\n</tbody>\n</table>\n<img alt=\"\
+        \" class=\"rich-spacer \" height=\"10\" id=\"j_id36:j_id40\" src=\"/Prepago/a4j/g/3_3_3.Finalimages/spacer.gif.xhtml\"\
+        \ width=\"1\" /><dl id=\"j_id36:j_id41\" class=\"rich-messages\" style=\"\
+        display: none; \"><dt></dt></dl><img alt=\"\" class=\"rich-spacer \" height=\"\
+        10\" id=\"j_id36:j_id42\" src=\"/Prepago/a4j/g/3_3_3.Finalimages/spacer.gif.xhtml\"\
+        \ width=\"1\" /><table width=\"380\">\n<tbody>\n<tr>\n<td class=\"alignCenter\"\
+        ><input id=\"j_id36:btnCancelar\" name=\"j_id36:btnCancelar\" onclick=\"Richfaces.hideModalPanel('pnlUsuario');;A4J.AJAX.Submit('j_id36',event,{'similarityGroupingId':'j_id36:btnCancelar','parameters':{'j_id36:btnCancelar':'j_id36:btnCancelar'}\
+        \ } );return false;\" value=\"Cancelar\" type=\"button\" /></td>\n<td class=\"\
+        alignCenter\"><input id=\"j_id36:btnGuardar\" name=\"j_id36:btnGuardar\" onclick=\"\
+        A4J.AJAX.Submit('j_id36',event,{'oncomplete':function(request,event,data){if(data)Richfaces.hideModalPanel('pnlUsuario');},'similarityGroupingId':'j_id36:btnGuardar','parameters':{'j_id36:btnGuardar':'j_id36:btnGuardar'}\
+        \ } );return false;\" value=\"Enviar\" type=\"button\" /></td>\n</tr>\n</tbody>\n\
+        </table>\n<input type=\"hidden\" name=\"javax.faces.ViewState\" id=\"javax.faces.ViewState\"\
+        \ value=\"j_id1\" />\n</form></td></tr></table></div><div class=\"rich-mpnl-resizer\"\
+        \ id=\"pnlUsuarioResizerN\" style=\"width: 40px; height: 4px;\"></div><div\
+        \ class=\"rich-mpnl-resizer\" id=\"pnlUsuarioResizerE\" style=\"height: 40px;\
+        \ width: 4px;\"></div><div class=\"rich-mpnl-resizer\" id=\"pnlUsuarioResizerS\"\
+        \ style=\"width: 40px; height: 4px;\"></div><div class=\"rich-mpnl-resizer\"\
+        \ id=\"pnlUsuarioResizerW\" style=\"height: 40px; width: 4px;\"></div><div\
+        \ class=\"rich-mpnl-resizer\" id=\"pnlUsuarioResizerNWU\" style=\"width: 40px;\
+        \ height: 4px;\"></div><div class=\"rich-mpnl-resizer\" id=\"pnlUsuarioResizerNEU\"\
+        \ style=\"height: 40px; width: 4px;\"></div><div class=\"rich-mpnl-resizer\"\
+        \ id=\"pnlUsuarioResizerNEL\" style=\"width: 40px; height: 4px;\"></div><div\
+        \ class=\"rich-mpnl-resizer\" id=\"pnlUsuarioResizerSEU\" style=\"height:\
+        \ 40px; width: 4px;\"></div><div class=\"rich-mpnl-resizer\" id=\"pnlUsuarioResizerSEL\"\
+        \ style=\"width: 40px; height: 4px;\"></div><div class=\"rich-mpnl-resizer\"\
+        \ id=\"pnlUsuarioResizerSWL\" style=\"height: 40px; width: 4px;\"></div><div\
+        \ class=\"rich-mpnl-resizer\" id=\"pnlUsuarioResizerSWU\" style=\"width: 40px;\
+        \ height: 4px;\"></div><div class=\"rich-mpnl-resizer\" id=\"pnlUsuarioResizerNWL\"\
+        \ style=\"height: 40px; width: 4px;\"></div></div></div><div class=\"rich-mpnl-mask-div\
+        \ rich-mpnl-mask-div-transparent\" id=\"pnlUsuarioCursorDiv\" style=\"z-index:\
+        \ -200;\"><button class=\"rich-mpnl-button\" id=\"pnlUsuarioLastHref\"></button></div><script\
+        \ type=\"text/javascript\">new ModalPanel('pnlUsuario',\n\t\t\t\t{\n\t\t\t\
+        \t\twidth: 400,\n\t\t\t\t\theight: 200,\n\n\t\t\t\t\tminWidth: -1,\n\t\t\t\
+        \t\tminHeight: -1,\n\n\t\t\t\t\tresizeable: true,\n\t\t\t\t\tmoveable: true,\n\
+        \n\t\t\t\t\tleft: \"auto\",\n\t\t\t\t\ttop: \"auto\",\n\n\t\t\t\t\tzindex:\
+        \ 100,onresize: '',onmove: '',onshow: '',onhide: '',onbeforeshow: '',onbeforehide:\
+        \ '',\n\t\t\t\t\tdomElementAttachment: \"\",\t\t\t\t\n\t\t\t\t\tkeepVisualState:\
+        \ false,\n\t\t\t\t\tshowWhenRendered: false,\n\t\t\t\t\tselectBehavior: \"\
+        disable\",\n\n\t\t\t\t\tautosized: false,\n\t\t\t\t\toverlapEmbedObjects:\
+        \ false});</script></div><script type=\"text/javascript\"></script></div>\n\
+        \                </div>\n            </div>\n            \n\n            <div\
+        \ id=\"rcbuttonsindexcontainer\" style=\"border: 0px solid black;\">\n   \
+        \         </div>\n        </div>\n        \n\n        \n        <div id=\"\
+        footer\">\n            <a>\n                <img class=\"footerfloatleft\"\
+        \ alt=\"Deutsche Post World Net\" src=\"/Prepago/images/global/footer_dpwn_logo2.png\"\
+        \ width=\"156\" border=\"0\" />\n            </a>\n        </div>\n\n    \
+        \    <img height=\"1\" src=\"/Prepago/images/global/meddhl_DHLPymesMEXHomepage_1.gif\"\
+        \ width=\"1\" />\n    </body>\n</html>"
+    headers:
+      Content-Type:
+      - text/html;charset=UTF-8
+      Date:
+      - Tue, 21 Jan 2020 22:10:08 GMT
+      Server:
+      - Apache-Coyote/1.1
+      Set-Cookie:
+      - JSESSIONID=A8811EB40D73F8075E8CF1FB91D86437; Path=/Prepago/; HttpOnly
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - JSF/1.2
+    status:
+      code: 200
+      message: OK
+version: 1

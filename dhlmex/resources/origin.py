@@ -5,7 +5,7 @@ from dataclasses import dataclass
 class Origin:
     company: str
     contact: str
-    mail: str
+    email: str
     phone: str
     address1: str
     postal_code: str
