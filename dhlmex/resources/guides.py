@@ -162,6 +162,7 @@ class Guide(Resource):
                 guide_number = soup.find(
                     'td', id='j_id115:tblElementos:0:j_id123'
                 ).text
+                return guide_number
             else:
                 sleep(1)
                 retries -= 1
