@@ -71,6 +71,21 @@ def destination() -> Destination:
 
 
 @pytest.fixture
+def invalid_destination() -> Destination:
+    return Destination(
+        company='ALEJANDRO VIZQUEZ',
+        contact='ALEJANDRO VIZQUEZ',
+        email='alex_visquets@hotmail.com',
+        phone='5560934315',
+        address1='TOMAS ALVA EDISON 169',
+        postal_code='00000',
+        neighborhood='SAN RAFAEL',
+        city='CUAUHTEMOC',
+        state='CDMX',
+    )
+
+
+@pytest.fixture
 def details() -> OrderDetails:
     return OrderDetails(
         description='CASA COLOR VERDE', content='Tarjetas de presentacion',
