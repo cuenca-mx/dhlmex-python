@@ -26,11 +26,10 @@ class Guide(Resource):
                 view_state = guide._fill_guide_table(
                     origin, destination, details
                 )
-                resp = guide._confirm_capture(view_state)
-                if resp.ok:
-                    guide_number = guide._force_percent(view_state)
-                    guide_bytes = guide._download_pdf(guide_number)
-                    return guide_number, guide_bytes
+                guide._confirm_capture(view_state)
+                guide_number = guide._force_percent(view_state)
+                guide_bytes = guide._download_pdf(guide_number)
+                return guide_number, guide_bytes
             else:
                 raise DhlmexException('No available guides')
         except HTTPError as httpe:
