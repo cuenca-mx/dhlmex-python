@@ -1,7 +1,6 @@
-import os
 import re
 from time import sleep
-from typing import Dict, Tuple
+from typing import Dict, Optional, Tuple
 
 from bs4 import BeautifulSoup
 from requests import HTTPError, Response
@@ -17,8 +16,8 @@ from .order_details import OrderDetails
 class Guide(Resource):
     @classmethod
     def create_guide(
-        cls, origin: Origin, destination: Destination, details: OrderDetails
-    ) -> Tuple[str, str]:
+        cls, origin: Origin, destination: Destination, details: OrderDetails,
+    ) -> Tuple[str, Optional[bytes]]:
         guide = cls()
         try:
             guides_data = guide._get_guide_data()
@@ -27,13 +26,10 @@ class Guide(Resource):
                 view_state = guide._fill_guide_table(
                     origin, destination, details
                 )
-                resp = guide._confirm_capture(view_state)
-                if resp.ok:
-                    guide_number = guide._force_percent(view_state)
-                    guide_path = guide._download_pdf(guide_number)
-                    return guide_number, guide_path
-                else:
-                    raise DhlmexException('Error while creating guide')
+                guide._confirm_capture(view_state)
+                guide_number = guide._force_percent(view_state)
+                guide_bytes = guide._download_pdf(guide_number)
+                return guide_number, guide_bytes
             else:
                 raise DhlmexException('No available guides')
         except HTTPError as httpe:
@@ -181,7 +177,7 @@ class Guide(Resource):
         }
         return self._client.post(self._urls['print'], final_data)
 
-    def _download_pdf(self, guide_number: str) -> str:
+    def _download_pdf(self, guide_number: str) -> Optional[bytes]:
         resp = self._client.post(self._urls['home'], {})
         data = self.get_data(resp, self._actions['download'])
         resp = self._client.post(self._urls['home'], data)
@@ -217,14 +213,7 @@ class Guide(Resource):
         }
         self._client.post(self._urls['print'], guide_data)
         resp = self._client.get(self._urls['pdf'])
-        path = ''
         if resp.ok:
-            path = os.getenv('DOWNLOADS_DIRECTORY') or './'
-            path += f'/{guide_number}.pdf'
-            try:
-                with open(path, 'wb') as f:
-                    f.write(resp.content)
-                return path
-            except OSError as ose:
-                raise DhlmexException(f'Error downloading guide: {str(ose)}')
-        return path
+            return resp.content
+        else:
+            return None

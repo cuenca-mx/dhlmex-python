@@ -101,6 +101,21 @@ def invalid_postal_code() -> Destination:
 
 
 @pytest.fixture
+def fake_destination() -> Destination:
+    return Destination(
+        company='GUADALUPE IVONNE SANTILLANES SANTILLANES',
+        contact='GUADALUPE IVONNE SANTILLANES SANTILLANES',
+        email='ivonnesantillanes0@gmail.com',
+        phone='6623262213',
+        address1='AVENIDA ARCELIA MORAGA 171',
+        postal_code='83105',
+        neighborhood='CARIDAD',
+        city='HERMOSILLO',
+        state='SON',
+    )
+
+
+@pytest.fixture
 def details() -> OrderDetails:
     return OrderDetails(
         description='CASA COLOR VERDE', content='Tarjetas de presentacion',
