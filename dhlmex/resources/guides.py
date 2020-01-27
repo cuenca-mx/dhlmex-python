@@ -31,8 +31,6 @@ class Guide(Resource):
                     guide_number = guide._force_percent(view_state)
                     guide_bytes = guide._download_pdf(guide_number)
                     return guide_number, guide_bytes
-                else:
-                    raise DhlmexException('Error while creating guide')
             else:
                 raise DhlmexException('No available guides')
         except HTTPError as httpe:
