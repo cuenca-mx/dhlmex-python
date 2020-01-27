@@ -1,3 +1,4 @@
+import logging
 import os
 from typing import Any, ClassVar, Dict, Optional
 
@@ -13,6 +14,8 @@ USER_AGENT = (
     '(KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36'
 )
 DHL_CERT = 'prepaid-dhl-com-mx.pem'
+
+logging.basicConfig(level=logging.DEBUG)
 
 
 class Client:
@@ -34,7 +37,7 @@ class Client:
         self.session = Session()
         self.session.headers['User-Agent'] = USER_AGENT
         if os.getenv('DEBUG'):
-            print(f'Client using Charles certificate')
+            logging.debug(f'Client using Charles certificate')
             self.session.verify = DHL_CERT
         self._login(username, password)
 
@@ -59,7 +62,7 @@ class Client:
             else:
                 raise httpe
         except SSLError:
-            raise DhlmexException('Cient on debug, but Charles not running')
+            raise DhlmexException('Client on debug, but Charles not running')
         # DHL always return 200 although there is an existing session
         if 'Ya existe una sesión' in resp.text:
             raise DhlmexException(
