@@ -21,16 +21,14 @@ def test_successful_login(site_urls):
     assert 'Administrar' in soup.find('title').text
 
 
-@pytest.mark.vcr
-def test_debug_login(site_urls):
+def test_debug_login():
     os.environ['DEBUG'] = 'True'
     with pytest.raises(DhlmexException) as execinfo:
         client = Client(DHLMEX_USERNAME, DHLMEX_PASSWORD)
         assert (
             str(execinfo.value) == f'Client on debug, but Charles not running'
         )
-        cert = client.session.cert
-        assert cert is None
+        assert client.session.cert
         client._logout()
 
 
