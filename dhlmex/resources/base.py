@@ -2,8 +2,9 @@ import re
 from typing import ClassVar, Dict
 
 from bs4 import BeautifulSoup
-from dhlmex.exceptions import DhlmexException
 from requests import Response
+
+from dhlmex.exceptions import DhlmexException
 
 
 class Resource:
