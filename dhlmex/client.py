@@ -55,6 +55,7 @@ class Client:
                 'javax.faces.ViewState': 'j_id1',
                 'j_id6:j_id29': 'j_id6:j_id29',
             }
+            print(f'DEBUG: {data}')
             resp = self.post(endpoint, data)
         except HTTPError as httpe:
             if 'Su sesión ha caducado' in resp.text:
@@ -68,6 +69,8 @@ class Client:
             raise DhlmexException(
                 f'There is an exisiting session on DHL for {username}'
             )
+        if 'Verifique su usuario' in resp.text:
+            raise DhlmexException('Invalid credentials')
         return resp
 
     def _logout(self) -> Response:
