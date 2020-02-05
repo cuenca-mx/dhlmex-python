@@ -16,7 +16,8 @@ from .order_details import OrderDetails
 class Guide(Resource):
     @classmethod
     def create_guide(
-        cls, origin: Origin, destination: Destination, details: OrderDetails,
+            cls, origin: Origin, destination: Destination,
+            details: OrderDetails,
     ) -> Tuple[str, Optional[bytes]]:
         guide = cls()
         try:
@@ -95,7 +96,8 @@ class Guide(Resource):
         return select_data
 
     def _fill_guide_table(
-        self, origin: Origin, destination: Destination, details: OrderDetails
+            self, origin: Origin, destination: Destination,
+            details: OrderDetails
     ) -> str:
         resp = self._client.get(self._urls['capture'])
         soup = BeautifulSoup(resp.text, features='html.parser')
@@ -128,9 +130,19 @@ class Guide(Resource):
         fill_data['javax.faces.ViewState'] = view_state
         fill_data['datos:j_id105'] = 'datos:j_id105'
 
-        self._client.post(self._urls['capture'], fill_data)
+        msg = self._validate_data()
+        if msg:
+            raise DhlmexException(f'Invalid data: {msg}')
+        else:
+            return fill_data['javax.faces.ViewState']
 
-        return fill_data['javax.faces.ViewState']
+    def _validate_data(self, fill_data: Dict) -> str:
+        resp = self._client.post(self._urls['capture'], fill_data)
+        if 'messageError' in resp.text:
+            soup = BeautifulSoup(resp.text, features='html.parser')
+            msg = soup.find('span', {'class': 'rich-messages-label'}).text
+            return msg
+        return ''
 
     def _confirm_capture(self, view_state: str) -> Response:
         confirm_data = {
