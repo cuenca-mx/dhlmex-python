@@ -16,8 +16,7 @@ from .order_details import OrderDetails
 class Guide(Resource):
     @classmethod
     def create_guide(
-            cls, origin: Origin, destination: Destination,
-            details: OrderDetails,
+        cls, origin: Origin, destination: Destination, details: OrderDetails,
     ) -> Tuple[str, Optional[bytes]]:
         guide = cls()
         try:
@@ -96,8 +95,7 @@ class Guide(Resource):
         return select_data
 
     def _fill_guide_table(
-            self, origin: Origin, destination: Destination,
-            details: OrderDetails
+        self, origin: Origin, destination: Destination, details: OrderDetails
     ) -> str:
         resp = self._client.get(self._urls['capture'])
         soup = BeautifulSoup(resp.text, features='html.parser')
@@ -130,7 +128,7 @@ class Guide(Resource):
         fill_data['javax.faces.ViewState'] = view_state
         fill_data['datos:j_id105'] = 'datos:j_id105'
 
-        msg = self._validate_data()
+        msg = self._validate_data(fill_data)
         if msg:
             raise DhlmexException(f'Invalid data: {msg}')
         else:

@@ -21,6 +21,14 @@ def test_successful_login(site_urls):
     assert 'Administrar' in soup.find('title').text
 
 
+@pytest.mark.vcr
+def test_invalid_creds():
+    with pytest.raises(DhlmexException) as execinfo:
+        client = Client('invalidUsername', 'invalidPassword')
+        assert str(execinfo.value) == f'Invalid credentials'
+        assert client
+
+
 def test_debug_login():
     os.environ['DEBUG'] = 'True'
     with pytest.raises(DhlmexException) as execinfo:
@@ -30,6 +38,7 @@ def test_debug_login():
         )
         assert client.session.cert
         client._logout()
+    os.environ['DEBUG'] = ''
 
 
 @pytest.mark.vcr
