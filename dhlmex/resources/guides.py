@@ -136,11 +136,11 @@ class Guide(Resource):
 
     def _validate_data(self, fill_data: Dict) -> str:
         resp = self._client.post(self._urls['capture'], fill_data)
+        msg = ''
         if 'messageError' in resp.text:
             soup = BeautifulSoup(resp.text, features='html.parser')
             msg = soup.find('span', {'class': 'rich-messages-label'}).text
-            return msg
-        return ''
+        return msg
 
     def _confirm_capture(self, view_state: str) -> Response:
         confirm_data = {
