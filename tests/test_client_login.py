@@ -22,6 +22,26 @@ def test_successful_login(site_urls):
 
 
 @pytest.mark.vcr
+def test_invalid_creds():
+    with pytest.raises(DhlmexException) as execinfo:
+        client = Client('invalidUsername', 'invalidPassword')
+        assert str(execinfo.value) == f'Invalid credentials'
+        assert client
+
+
+def test_debug_login():
+    os.environ['DEBUG'] = 'True'
+    with pytest.raises(DhlmexException) as execinfo:
+        client = Client(DHLMEX_USERNAME, DHLMEX_PASSWORD)
+        assert (
+            str(execinfo.value) == f'Client on debug, but Charles not running'
+        )
+        assert client.session.cert
+        client._logout()
+    os.environ['DEBUG'] = ''
+
+
+@pytest.mark.vcr
 def test_client_log_out():
     client = Client(DHLMEX_USERNAME, DHLMEX_PASSWORD)
     resp = client._logout()

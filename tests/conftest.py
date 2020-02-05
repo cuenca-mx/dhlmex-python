@@ -86,6 +86,21 @@ def invalid_destination() -> Destination:
 
 
 @pytest.fixture
+def missing_data() -> Destination:
+    return Destination(
+        company='GREGORIO CASTRO',
+        contact='GREGORIO CASTRO',
+        email='greg@gmail.com',
+        phone='550909090',
+        address1='REFORMA 222',
+        postal_code='06600',
+        neighborhood='JUAREZ',
+        city='',
+        state='CDMX',
+    )
+
+
+@pytest.fixture
 def invalid_postal_code() -> Destination:
     return Destination(
         company='ALEJANDRO VIZQUEZ',
