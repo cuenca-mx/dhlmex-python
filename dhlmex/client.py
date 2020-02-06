@@ -8,7 +8,7 @@ from requests.exceptions import SSLError
 from .exceptions import DhlmexException
 from .resources import Guide, PostCode, Resource
 
-API_URL = 'https://prepaid.dhl.com.mx/Prepago'
+PREPAID_URL = 'https://prepaid.dhl.com.mx/Prepago'
 USER_AGENT = (
     'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 '
     '(KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36'
@@ -20,7 +20,7 @@ logging.basicConfig(level=logging.DEBUG)
 
 class Client:
 
-    base_url: ClassVar[str] = API_URL
+    base_url: ClassVar[str] = PREPAID_URL
     headers: Dict[str, str]
     session: Session
 
